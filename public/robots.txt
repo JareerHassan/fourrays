@@ -1,0 +1,11 @@
+# public/robots.txt
+User-agent: *
+Allow: /
+
+# ✅ Block internal / common junk paths (optional)
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# ✅ Sitemap location
+Sitemap: https://medjaafsolutions.com/sitemap.xml
