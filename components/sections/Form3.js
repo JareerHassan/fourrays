@@ -12,7 +12,7 @@ export default function Form3() {
 
     const [loading, setLoading] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
-   
+
 
     const handleChange = (e) => {
         const { name, value, files } = e.target;
@@ -23,31 +23,31 @@ export default function Form3() {
         }
     };
 
-const handleSubmit = async (e) => {
-    e.preventDefault();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
-    if (!formData.name || !formData.email) {
-        alert("Name and Email are required");
-        return;
-    }
+        if (!formData.name || !formData.email) {
+            alert("Name and Email are required");
+            return;
+        }
 
-    setLoading(true);
-    try {
-        const response = await sendForm1(formData);
+        setLoading(true);
+        try {
+            const response = await sendForm1(formData);
 
-        // Popup show karne ke liye
-        setShowSuccess(true);
+            // Popup show karne ke liye
+            setShowSuccess(true);
 
-        // Form reset
-        setFormData({ name: "", email: "", subject: "", message: "" });
+            // Form reset
+            setFormData({ name: "", email: "", subject: "", message: "" });
 
-        // Agar alert bhi chahiye to ye use kar sakte ho
-        // alert(response.message);
-    } catch (err) {
-        alert(err.error || "Something went wrong!");
-    }
-    setLoading(false);
-};
+            // Agar alert bhi chahiye to ye use kar sakte ho
+            // alert(response.message);
+        } catch (err) {
+            alert(err.error || "Something went wrong!");
+        }
+        setLoading(false);
+    };
 
 
     return (
@@ -98,7 +98,7 @@ const handleSubmit = async (e) => {
                                             placeholder="Subject (Optional)"
                                             value={formData.subject}
                                             onChange={handleChange}
-                                                           required
+                                            required
                                         />
                                     </div>
 
@@ -108,7 +108,7 @@ const handleSubmit = async (e) => {
                                             placeholder="Additional Information... (Optional)"
                                             value={formData.message}
                                             onChange={handleChange}
-                                                           required
+                                            required
                                         />
                                     </div>
 
@@ -120,7 +120,7 @@ const handleSubmit = async (e) => {
                         </div>
                     </div>
 
-                        {showSuccess && (
+                    {showSuccess && (
                         <div className="position-fixed top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center" style={{ backgroundColor: "rgba(0,0,0,0.5)", zIndex: 9999 }}>
                             <div className="bg-white rounded shadow p-5 text-center" style={{ maxWidth: "500px", animation: "fadeIn 0.5s" }}>
                                 <div className="mb-4">

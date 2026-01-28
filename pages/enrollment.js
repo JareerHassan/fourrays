@@ -1,7 +1,7 @@
 'use client';
 
 import Layout from "@/components/layout/Layout";
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import {
     User,
     Building2,
@@ -12,6 +12,113 @@ import {
 import { sendForm3 } from "@/http/form3Api";
 
 export default function Team() {
+     useEffect(() => {
+    const baseUrl = "https://medjaafsolutions.com";
+    const pagePath = "/enrollment";
+    const pageUrl = `${baseUrl}${pagePath}`;
+
+    const title = "Provider Enrollment Services | Med Jaaf Solutions";
+    const description =
+      "Provider enrollment services to get you in-network faster. We submit, track, and follow up on payer applications while keeping profiles accurate and complete.";
+    const keywords =
+      "provider enrollment services, payer enrollment services, insurance enrollment for providers, Medicare provider enrollment, Medicaid enrollment services, commercial payer enrollment, credentialing and enrollment services";
+
+    const upsertMeta = (key, content, attr = "name") => {
+      if (!content) return;
+      const selector =
+        attr === "property" ? `meta[property="${key}"]` : `meta[name="${key}"]`;
+      let tag = document.head.querySelector(selector);
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute(attr, key);
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute("content", content);
+    };
+
+    const setCanonical = (url) => {
+      if (!url) return;
+      let link = document.head.querySelector('link[rel="canonical"]');
+      if (!link) {
+        link = document.createElement("link");
+        link.setAttribute("rel", "canonical");
+        document.head.appendChild(link);
+      }
+      link.setAttribute("href", url);
+    };
+
+    const setJsonLd = (id, json) => {
+      if (!json) return;
+      let script = document.getElementById(id);
+      if (!script) {
+        script = document.createElement("script");
+        script.type = "application/ld+json";
+        script.id = id;
+        document.head.appendChild(script);
+      }
+      script.text = JSON.stringify(json);
+    };
+
+    // Apply SEO
+    document.title = title;
+    upsertMeta("description", description);
+    upsertMeta("keywords", keywords);
+    setCanonical(pageUrl);
+
+    // Open Graph
+    upsertMeta("og:title", title, "property");
+    upsertMeta("og:description", description, "property");
+    upsertMeta("og:url", pageUrl, "property");
+    upsertMeta("og:type", "website", "property");
+    upsertMeta("og:site_name", "Med Jaaf Solutions", "property");
+
+    // Twitter
+    upsertMeta("twitter:card", "summary_large_image");
+    upsertMeta("twitter:title", title);
+    upsertMeta("twitter:description", description);
+
+    // Schema
+    const schema = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": `${baseUrl}/#organization`,
+          name: "Med Jaaf Solutions",
+          url: baseUrl,
+        },
+        {
+          "@type": "WebSite",
+          "@id": `${baseUrl}/#website`,
+          url: baseUrl,
+          name: "Med Jaaf Solutions",
+          publisher: { "@id": `${baseUrl}/#organization` },
+        },
+        {
+          "@type": "WebPage",
+          "@id": `${pageUrl}#webpage`,
+          url: pageUrl,
+          name: title,
+          description,
+          isPartOf: { "@id": `${baseUrl}/#website` },
+          about: { "@id": `${baseUrl}/#organization` },
+          inLanguage: "en",
+        },
+        {
+          "@type": "Service",
+          "@id": `${pageUrl}#service`,
+          name: "Provider Enrollment Services",
+          serviceType:
+            "Payer enrollment services, Medicare/Medicaid enrollment, commercial payer enrollment, application submission, tracking and follow-ups, provider profile accuracy",
+          provider: { "@id": `${baseUrl}/#organization` },
+          areaServed: "United States",
+        },
+      ],
+    };
+
+    setJsonLd("schema-enrollment", schema);
+  }, []);
+
     const [loading, setLoading] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
     const form = useRef();
@@ -92,6 +199,7 @@ export default function Team() {
                     <div className="row justify-content-center">
                         <div className="col-lg-10">
                             <div className="form-header mb-5">
+                                <h1 className="title text-center"> Provider enrollment services to get you in-network faster</h1>
                                 <h2 className="display-6 fw-bold text-dark">Provider/Facility Details</h2>
                             </div>
 

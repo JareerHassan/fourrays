@@ -1,8 +1,168 @@
 import Layout from "@/components/layout/Layout"
 import Testimonial4 from "@/components/sections/Testimonial4"
 import Link from "next/link"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 export default function Faq() {
+     useEffect(() => {
+    const baseUrl = "https://medjaafsolutions.com";
+    const pagePath = "/faqs";
+    const pageUrl = `${baseUrl}${pagePath}`;
+
+    const title = "Medical Credentialing FAQs | Med Jaaf Solutions";
+    const description =
+      "Answers to common medical credentialing faqs questions: enrollment timelines, CAQH, documents needed, re-credentialing, compliance, and how our process works.";
+    const keywords =
+      "medical credentialing FAQs, provider enrollment FAQs, CAQH questions, recredentialing FAQs, credentialing timeline questions, payer enrollment process, credentialing requirements";
+
+    const upsertMeta = (key, content, attr = "name") => {
+      if (!content) return;
+      const selector =
+        attr === "property" ? `meta[property="${key}"]` : `meta[name="${key}"]`;
+      let tag = document.head.querySelector(selector);
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute(attr, key);
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute("content", content);
+    };
+
+    const setCanonical = (url) => {
+      if (!url) return;
+      let link = document.head.querySelector('link[rel="canonical"]');
+      if (!link) {
+        link = document.createElement("link");
+        link.setAttribute("rel", "canonical");
+        document.head.appendChild(link);
+      }
+      link.setAttribute("href", url);
+    };
+
+    const setJsonLd = (id, json) => {
+      if (!json) return;
+      let script = document.getElementById(id);
+      if (!script) {
+        script = document.createElement("script");
+        script.type = "application/ld+json";
+        script.id = id;
+        document.head.appendChild(script);
+      }
+      script.text = JSON.stringify(json);
+    };
+
+    // Apply SEO
+    document.title = title;
+    upsertMeta("description", description);
+    upsertMeta("keywords", keywords);
+    setCanonical(pageUrl);
+
+    // Open Graph
+    upsertMeta("og:title", title, "property");
+    upsertMeta("og:description", description, "property");
+    upsertMeta("og:url", pageUrl, "property");
+    upsertMeta("og:type", "website", "property");
+    upsertMeta("og:site_name", "Med Jaaf Solutions", "property");
+
+    // Twitter
+    upsertMeta("twitter:card", "summary_large_image");
+    upsertMeta("twitter:title", title);
+    upsertMeta("twitter:description", description);
+
+    // ✅ FAQPage Schema (replace Q/A with your exact visible FAQ content later)
+    const faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "What is medical credentialing?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text:
+              "Medical credentialing is the process of verifying a provider’s qualifications and submitting required documents so the provider can join insurance payer networks.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How long does provider enrollment usually take?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text:
+              "Timelines vary by payer, specialty, and completeness of documents. Many enrollments take several weeks to a few months. We track and follow up to reduce delays.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What is CAQH and why is it required?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text:
+              "CAQH is a provider data repository used by many payers. Keeping your CAQH profile complete and attested helps speed up credentialing and enrollment.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What documents are typically needed for credentialing?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text:
+              "Common requirements include licenses, NPI, malpractice insurance, W-9, IRS letter, practice details, and supporting documents depending on payer and provider type.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What is re-credentialing and how often is it required?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text:
+              "Re-credentialing is a periodic re-verification of a provider’s information required by many payers, commonly every 2–3 years. We manage renewals and updates.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Can you help with ongoing compliance and profile updates?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text:
+              "Yes. We support ongoing maintenance including CAQH attestations, payer updates, document tracking, and revalidation to keep your profiles accurate and compliant.",
+          },
+        },
+      ],
+    };
+
+    // Also add basic page schema (optional but good)
+    const pageSchema = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": `${baseUrl}/#organization`,
+          name: "Med Jaaf Solutions",
+          url: baseUrl,
+        },
+        {
+          "@type": "WebSite",
+          "@id": `${baseUrl}/#website`,
+          url: baseUrl,
+          name: "Med Jaaf Solutions",
+          publisher: { "@id": `${baseUrl}/#organization` },
+        },
+        {
+          "@type": "WebPage",
+          "@id": `${pageUrl}#webpage`,
+          url: pageUrl,
+          name: title,
+          description,
+          isPartOf: { "@id": `${baseUrl}/#website` },
+          about: { "@id": `${baseUrl}/#organization` },
+          inLanguage: "en",
+        },
+      ],
+    };
+
+    setJsonLd("schema-faq", faqSchema);
+    setJsonLd("schema-faq-page", pageSchema);
+  }, []);
     const [isActive, setIsActive] = useState({
         status: false,
         key: 1,

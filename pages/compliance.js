@@ -1,6 +1,6 @@
 import Layout from "@/components/layout/Layout";
 import { useState } from "react";
-
+import { useEffect } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper";
@@ -12,7 +12,116 @@ import "swiper/css/pagination";
 
 export default function Compliance() {
     const [activeIndex, setActiveIndex] = useState(1);
+useEffect(() => {
+    const baseUrl = "https://medjaafsolutions.com";
+    const pagePath = "/compliance";
+    const pageUrl = `${baseUrl}${pagePath}`;
 
+    const title = "Credentialing Compliance Support | Med Jaaf Solutions";
+    const description =
+      "Stay compliant with ongoing Credentialing Compliance Support: CAQH attestations, document tracking, payer updates, revalidation and accurate provider data maintenance.";
+    const keywords =
+      "credentialing compliance support, CAQH attestation management, provider data maintenance, payer revalidation support, credentialing documentation tracking, ongoing credentialing support, provider profile updates";
+
+    // ---- helpers (inline) ----
+    const upsertMeta = (key, content, attr = "name") => {
+      if (!content) return;
+      const selector =
+        attr === "property"
+          ? `meta[property="${key}"]`
+          : `meta[name="${key}"]`;
+      let tag = document.head.querySelector(selector);
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute(attr, key);
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute("content", content);
+    };
+
+    const setCanonical = (url) => {
+      if (!url) return;
+      let link = document.head.querySelector('link[rel="canonical"]');
+      if (!link) {
+        link = document.createElement("link");
+        link.setAttribute("rel", "canonical");
+        document.head.appendChild(link);
+      }
+      link.setAttribute("href", url);
+    };
+
+    const setJsonLd = (id, json) => {
+      if (!json) return;
+      let script = document.getElementById(id);
+      if (!script) {
+        script = document.createElement("script");
+        script.type = "application/ld+json";
+        script.id = id;
+        document.head.appendChild(script);
+      }
+      script.text = JSON.stringify(json);
+    };
+
+    // ---- apply SEO ----
+    document.title = title;
+    upsertMeta("description", description);
+    upsertMeta("keywords", keywords);
+
+    setCanonical(pageUrl);
+
+    // Open Graph
+    upsertMeta("og:title", title, "property");
+    upsertMeta("og:description", description, "property");
+    upsertMeta("og:url", pageUrl, "property");
+    upsertMeta("og:type", "website", "property");
+    upsertMeta("og:site_name", "Med Jaaf Solutions", "property");
+
+    // Twitter
+    upsertMeta("twitter:card", "summary_large_image");
+    upsertMeta("twitter:title", title);
+    upsertMeta("twitter:description", description);
+
+    // ---- Schema Markup ----
+    const schema = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": `${baseUrl}/#organization`,
+          name: "Med Jaaf Solutions",
+          url: baseUrl,
+        },
+        {
+          "@type": "WebSite",
+          "@id": `${baseUrl}/#website`,
+          url: baseUrl,
+          name: "Med Jaaf Solutions",
+          publisher: { "@id": `${baseUrl}/#organization` },
+        },
+        {
+          "@type": "WebPage",
+          "@id": `${pageUrl}#webpage`,
+          url: pageUrl,
+          name: title,
+          description,
+          isPartOf: { "@id": `${baseUrl}/#website` },
+          about: { "@id": `${baseUrl}/#organization` },
+          inLanguage: "en",
+        },
+        {
+          "@type": "Service",
+          "@id": `${pageUrl}#service`,
+          name: "Credentialing Compliance Support",
+          serviceType:
+            "CAQH attestations, document tracking, payer updates, revalidation, provider profile maintenance",
+          provider: { "@id": `${baseUrl}/#organization` },
+          areaServed: "United States",
+        },
+      ],
+    };
+
+    setJsonLd("schema-compliance", schema);
+  }, []);
     return (
         <>
             <Layout breadcrumbTitle="Compliance">
@@ -21,7 +130,7 @@ export default function Compliance() {
                     className="px-3"
                     style={{ maxWidth: "970px", margin: "0 auto", textAlign: "start", marginTop: "40px" }}
                 >
-                    <h3>Ensuring Data Security and Compliance in Healthcare</h3>
+                    <h1>Stay compliant with ongoing Credentialing Compliance Support</h1>
                     <p>
                         Med Jaaf takes data security and privacy seriously. We adhere to all industry compliance regulations to protect your practice's and your patients' data. Our proactive measures include regular monitoring of employees to prevent data breaches and ensure privacy. Rest assured, we prioritize your data security and privacy to maintain the highest standards of compliance in healthcare administration.
                     </p>

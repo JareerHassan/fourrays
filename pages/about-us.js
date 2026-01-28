@@ -1,9 +1,9 @@
+import { useEffect, useState } from "react";
 import VideoBox from "@/components/elements/VideoBox"
 import Layout from "@/components/layout/Layout"
 import Testimonial4 from "@/components/sections/Testimonial4"
 import dynamic from 'next/dynamic'
 import Link from "next/link"
-import { useState } from "react"
 const CounterUp = dynamic(() => import('@/components/elements/CounterUp'), {
     ssr: false,
 })
@@ -13,6 +13,106 @@ export default function AboutUs() {
     const handleOnClick = (index) => {
         setActiveIndex(index)
     }
+
+     useEffect(() => {
+    const baseUrl = "https://medjaafsolutions.com";
+    const pagePath = "/about";
+    const pageUrl = `${baseUrl}${pagePath}`;
+
+    const title = "Medical Credentialing Company | About Med Jaaf Solutions";
+    const description =
+      "Meet Med Jaaf Solutions, a medical credentialing company helping providers with payer enrollment, CAQH management, re-credentialing and compliance support.";
+    const keywords =
+      "medical credentialing company, credentialing specialists, provider enrollment experts, healthcare credentialing team, credentialing services provider, insurance enrollment support, CAQH specialists";
+
+    // ---- helpers (inline) ----
+    const upsertMeta = (key, content, attr = "name") => {
+      if (!content) return;
+      const selector =
+        attr === "property"
+          ? `meta[property="${key}"]`
+          : `meta[name="${key}"]`;
+      let tag = document.head.querySelector(selector);
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute(attr, key);
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute("content", content);
+    };
+
+    const setCanonical = (url) => {
+      if (!url) return;
+      let link = document.head.querySelector('link[rel="canonical"]');
+      if (!link) {
+        link = document.createElement("link");
+        link.setAttribute("rel", "canonical");
+        document.head.appendChild(link);
+      }
+      link.setAttribute("href", url);
+    };
+
+    const setJsonLd = (id, json) => {
+      if (!json) return;
+      let script = document.getElementById(id);
+      if (!script) {
+        script = document.createElement("script");
+        script.type = "application/ld+json";
+        script.id = id;
+        document.head.appendChild(script);
+      }
+      script.text = JSON.stringify(json);
+    };
+
+    // ---- apply SEO ----
+    document.title = title;
+    upsertMeta("description", description);
+    upsertMeta("keywords", keywords);
+    setCanonical(pageUrl);
+
+    // Open Graph
+    upsertMeta("og:title", title, "property");
+    upsertMeta("og:description", description, "property");
+    upsertMeta("og:url", pageUrl, "property");
+    upsertMeta("og:type", "website", "property");
+    upsertMeta("og:site_name", "Med Jaaf Solutions", "property");
+
+    // Twitter
+    upsertMeta("twitter:card", "summary_large_image");
+    upsertMeta("twitter:title", title);
+    upsertMeta("twitter:description", description);
+
+    // ---- Schema Markup (AboutPage + Organization) ----
+    const schema = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": `${baseUrl}/#organization`,
+          name: "Med Jaaf Solutions",
+          url: baseUrl,
+        },
+        {
+          "@type": "WebSite",
+          "@id": `${baseUrl}/#website`,
+          url: baseUrl,
+          name: "Med Jaaf Solutions",
+          publisher: { "@id": `${baseUrl}/#organization` },
+        },
+        {
+          "@type": "AboutPage",
+          "@id": `${pageUrl}#aboutpage`,
+          url: pageUrl,
+          name: title,
+          description,
+          isPartOf: { "@id": `${baseUrl}/#website` },
+          about: { "@id": `${baseUrl}/#organization` },
+        },
+      ],
+    };
+
+    setJsonLd("schema-about", schema);
+  }, []);
     return (
         <>
             <Layout breadcrumbTitle="About Us">
@@ -96,7 +196,7 @@ export default function AboutUs() {
                                 <div className="section_title type_one">
                                     <h4 className="sm_title"> About Company</h4>
                                     <div className="title_whole">
-                                        <h2 className="title">Invaluable Resources for Every Step of Your Practice’s Lifecycle</h2>
+                                        <h1 className="title">Medical Credentialing Company | About Med Jaaf Solutions</h1>
                                     </div>
                                 </div>
                                 {/*-============spacing==========-*/}

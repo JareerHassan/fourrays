@@ -1,8 +1,107 @@
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
-
+import { useEffect } from "react";
 export default function TermsAndConditions() {
+useEffect(() => {
+    const baseUrl = "https://medjaafsolutions.com";
+    const pagePath = "/terms";
+    const pageUrl = `${baseUrl}${pagePath}`;
 
+    const title = "Terms and Conditions | Med Jaaf Solutions";
+    const description =
+      "View the Terms and Conditions Med Jaaf Solutions for website and services, including responsibilities, limitations, and policy guidelines.";
+    const keywords =
+      "terms and conditions, service terms, website terms, user terms, legal terms and conditions";
+
+    // ---- helpers (inline) ----
+    const upsertMeta = (key, content, attr = "name") => {
+      if (!content) return;
+      const selector =
+        attr === "property"
+          ? `meta[property="${key}"]`
+          : `meta[name="${key}"]`;
+      let tag = document.head.querySelector(selector);
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute(attr, key);
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute("content", content);
+    };
+
+    const setCanonical = (url) => {
+      if (!url) return;
+      let link = document.head.querySelector('link[rel="canonical"]');
+      if (!link) {
+        link = document.createElement("link");
+        link.setAttribute("rel", "canonical");
+        document.head.appendChild(link);
+      }
+      link.setAttribute("href", url);
+    };
+
+    const setJsonLd = (id, json) => {
+      if (!json) return;
+      let script = document.getElementById(id);
+      if (!script) {
+        script = document.createElement("script");
+        script.type = "application/ld+json";
+        script.id = id;
+        document.head.appendChild(script);
+      }
+      script.text = JSON.stringify(json);
+    };
+
+    // ---- apply SEO ----
+    document.title = title;
+    upsertMeta("description", description);
+    upsertMeta("keywords", keywords);
+    setCanonical(pageUrl);
+
+    // Open Graph
+    upsertMeta("og:title", title, "property");
+    upsertMeta("og:description", description, "property");
+    upsertMeta("og:url", pageUrl, "property");
+    upsertMeta("og:type", "website", "property");
+    upsertMeta("og:site_name", "Med Jaaf Solutions", "property");
+
+    // Twitter
+    upsertMeta("twitter:card", "summary_large_image");
+    upsertMeta("twitter:title", title);
+    upsertMeta("twitter:description", description);
+
+    // ---- Schema Markup ----
+    const schema = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": `${baseUrl}/#organization`,
+          name: "Med Jaaf Solutions",
+          url: baseUrl,
+        },
+        {
+          "@type": "WebSite",
+          "@id": `${baseUrl}/#website`,
+          url: baseUrl,
+          name: "Med Jaaf Solutions",
+          publisher: { "@id": `${baseUrl}/#organization` },
+        },
+        {
+          "@type": "WebPage",
+          "@id": `${pageUrl}#webpage`,
+          url: pageUrl,
+          name: title,
+          description,
+          isPartOf: { "@id": `${baseUrl}/#website` },
+          about: { "@id": `${baseUrl}/#organization` },
+          inLanguage: "en",
+        },
+      ],
+    };
+
+    setJsonLd("schema-terms", schema);
+  }, []);
     return (
         <>
             <Layout breadcrumbTitle="Terms & Conditions">
@@ -12,6 +111,11 @@ export default function TermsAndConditions() {
                     <div className="pd_top_90" />
                     {/*-============spacing==========-*/}
                     <div className="container">
+                         <div className="section_title type_one my-5 text-center">
+                                    <div className="title_whole">
+                                        <h1 className="title">View the Terms and Conditions Med Jaaf Solutions for website and services</h1>
+                                    </div>
+                                </div>
                         <div className="row">
                             <div className="col-lg-12">
                                 <div className="terms-content">

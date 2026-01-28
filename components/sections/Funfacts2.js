@@ -10,7 +10,7 @@ export default function Funfacts2() {
             <section className="funfacts-section">
                 <div className="container">
                     <div className="row">
-                        <h1 className='text-center mt-5 mb-5'>Trusted Over 5000 Client in the US</h1>
+                        <h2 className='text-center mt-5 mb-5'>Trusted Over 5000 Client in the US</h2>
                         <div className="col-lg-3 col-md-6 col-sm-6 col-xs-6 w_50_after_max_768">
                             <div className="fun_facts type_one color_three text-center">
                                 <h4>

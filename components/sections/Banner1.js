@@ -17,7 +17,7 @@ export default function Banner1() {
             image: "/assets/images/new-images/3img.webp"
         },
         {
-            title: "Struggling with Medical Credentialing?",
+            title: "Medical Credentialing Services | Med Jaaf Solutions",
             description: "Let us handle the hassle — streamline your healthcare services with our expert credentialing solutions across the USA.",
             image: "/assets/images/new-images/4img.webp" // Replace with your 2nd image
         },
@@ -180,7 +180,7 @@ export default function Banner1() {
                                     <div className="col-lg-5">
                                         <div className="section_title type_one">
                                             <div className="title_whole">
-                                                <h4 className="title">{slide.title}</h4>
+                                                <h1 className="title">{slide.title}</h1>
                                             </div>
                                             <p>{slide.description}</p>
                                         </div>

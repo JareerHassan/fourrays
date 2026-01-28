@@ -1,10 +1,110 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
 import { sendForm2 } from "@/http/form2Api";
 
 export default function Contact() {
+useEffect(() => {
+    const baseUrl = "https://medjaafsolutions.com";
+    const pagePath = "/contact";
+    const pageUrl = `${baseUrl}${pagePath}`;
 
+    const title = "Contact Credentialing Team | Med Jaaf Solutions";
+    const description =
+      "Contact Credentialing Team for medical credentialing and payer enrollment support. Share your details and we’ll guide you with the next steps to start.";
+    const keywords =
+      "Contact Credentialing Team, credentialing consultation, provider enrollment help, talk to credentialing specialist, credentialing services quote, payer enrollment support contact";
+
+    const upsertMeta = (key, content, attr = "name") => {
+      if (!content) return;
+      const selector =
+        attr === "property"
+          ? `meta[property="${key}"]`
+          : `meta[name="${key}"]`;
+      let tag = document.head.querySelector(selector);
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute(attr, key);
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute("content", content);
+    };
+
+    const setCanonical = (url) => {
+      if (!url) return;
+      let link = document.head.querySelector('link[rel="canonical"]');
+      if (!link) {
+        link = document.createElement("link");
+        link.setAttribute("rel", "canonical");
+        document.head.appendChild(link);
+      }
+      link.setAttribute("href", url);
+    };
+
+    const setJsonLd = (id, json) => {
+      if (!json) return;
+      let script = document.getElementById(id);
+      if (!script) {
+        script = document.createElement("script");
+        script.type = "application/ld+json";
+        script.id = id;
+        document.head.appendChild(script);
+      }
+      script.text = JSON.stringify(json);
+    };
+
+    // Apply SEO
+    document.title = title;
+    upsertMeta("description", description);
+    upsertMeta("keywords", keywords);
+
+    setCanonical(pageUrl);
+
+    // Open Graph
+    upsertMeta("og:title", title, "property");
+    upsertMeta("og:description", description, "property");
+    upsertMeta("og:url", pageUrl, "property");
+    upsertMeta("og:type", "website", "property");
+    upsertMeta("og:site_name", "Med Jaaf Solutions", "property");
+
+    // Twitter
+    upsertMeta("twitter:card", "summary_large_image");
+    upsertMeta("twitter:title", title);
+    upsertMeta("twitter:description", description);
+
+    // Schema: ContactPage + Organization
+    const schema = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": `${baseUrl}/#organization`,
+          name: "Med Jaaf Solutions",
+          url: baseUrl,
+          // Optional: "telephone": "+1-XXX-XXX-XXXX",
+          // Optional: "email": "info@medjaafsolutions.com",
+        },
+        {
+          "@type": "WebSite",
+          "@id": `${baseUrl}/#website`,
+          url: baseUrl,
+          name: "Med Jaaf Solutions",
+          publisher: { "@id": `${baseUrl}/#organization` },
+        },
+        {
+          "@type": "ContactPage",
+          "@id": `${pageUrl}#contactpage`,
+          url: pageUrl,
+          name: title,
+          description,
+          isPartOf: { "@id": `${baseUrl}/#website` },
+          about: { "@id": `${baseUrl}/#organization` },
+        },
+      ],
+    };
+
+    setJsonLd("schema-contact", schema);
+  }, []);
     const [formData, setFormData] = useState({
         organization_name: "",
         organization_location: "",
@@ -136,9 +236,9 @@ export default function Contact() {
                             <div className="col-lg-4 col-md-12">
                                 <div className="section_title type_one">
                                     <h4 className="sm_title">Contact Us</h4>
-                                    <div className="title_whole">
-                                        <h3 className="title"> We have two ears and one mouth so we can listen twice as much as we speak.
-                                        </h3>
+                                    <div className="title_whole" >
+                                        <h1 className="title" style={{fontSize: "30px"}}>Contact Credentialing Team for medical credentialing and payer enrollment support.
+                                        </h1>
                                     </div>
                                     <p>Epictetus, Greek Philosopher</p>
                                 </div>

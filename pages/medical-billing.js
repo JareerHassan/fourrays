@@ -1,7 +1,117 @@
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 export default function ServiceStyle2() {
+
+    useEffect(() => {
+    const baseUrl = "https://medjaafsolutions.com";
+    const pagePath = "/medical-billing"; // ✅ your route
+    const pageUrl = `${baseUrl}${pagePath}`;
+
+    const title = "Medical Billing Services | Revenue Cycle Management | Med Jaaf";
+    const description =
+      "Medical billing services and revenue cycle management to improve collections. Claims, denials, posting and follow-ups—streamline billing for your practice.";
+    const keywords =
+      "medical billing services, revenue cycle management services, RCM services, medical billing and coding, claims management services, denial management, insurance verification, payment posting";
+
+    const upsertMeta = (key, content, attr = "name") => {
+      if (!content) return;
+      const selector =
+        attr === "property"
+          ? `meta[property="${key}"]`
+          : `meta[name="${key}"]`;
+      let tag = document.head.querySelector(selector);
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute(attr, key);
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute("content", content);
+    };
+
+    const setCanonical = (url) => {
+      if (!url) return;
+      let link = document.head.querySelector('link[rel="canonical"]');
+      if (!link) {
+        link = document.createElement("link");
+        link.setAttribute("rel", "canonical");
+        document.head.appendChild(link);
+      }
+      link.setAttribute("href", url);
+    };
+
+    const setJsonLd = (id, json) => {
+      if (!json) return;
+      let script = document.getElementById(id);
+      if (!script) {
+        script = document.createElement("script");
+        script.type = "application/ld+json";
+        script.id = id;
+        document.head.appendChild(script);
+      }
+      script.text = JSON.stringify(json);
+    };
+
+    // Apply SEO
+    document.title = title;
+    upsertMeta("description", description);
+    upsertMeta("keywords", keywords);
+    setCanonical(pageUrl);
+
+    // Open Graph
+    upsertMeta("og:title", title, "property");
+    upsertMeta("og:description", description, "property");
+    upsertMeta("og:url", pageUrl, "property");
+    upsertMeta("og:type", "website", "property");
+    upsertMeta("og:site_name", "Med Jaaf Solutions", "property");
+
+    // Twitter
+    upsertMeta("twitter:card", "summary_large_image");
+    upsertMeta("twitter:title", title);
+    upsertMeta("twitter:description", description);
+
+    // Schema
+    const schema = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": `${baseUrl}/#organization`,
+          name: "Med Jaaf Solutions",
+          url: baseUrl,
+        },
+        {
+          "@type": "WebSite",
+          "@id": `${baseUrl}/#website`,
+          url: baseUrl,
+          name: "Med Jaaf Solutions",
+          publisher: { "@id": `${baseUrl}/#organization` },
+        },
+        {
+          "@type": "WebPage",
+          "@id": `${pageUrl}#webpage`,
+          url: pageUrl,
+          name: title,
+          description,
+          isPartOf: { "@id": `${baseUrl}/#website` },
+          about: { "@id": `${baseUrl}/#organization` },
+          inLanguage: "en",
+        },
+        {
+          "@type": "Service",
+          "@id": `${pageUrl}#service`,
+          name: "Medical Billing & Revenue Cycle Management (RCM)",
+          serviceType:
+            "Medical billing and coding, claims submission, denial management, insurance verification, payment posting, follow-ups, revenue cycle management",
+          provider: { "@id": `${baseUrl}/#organization` },
+          areaServed: "United States",
+        },
+      ],
+    };
+
+    setJsonLd("schema-medical-billing", schema);
+  }, []);
+
     const [isActive, setIsActive] = useState({
         status: false,
         key: 1,

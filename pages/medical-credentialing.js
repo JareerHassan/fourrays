@@ -1,7 +1,116 @@
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
+import { useEffect } from "react";
 export default function ServiceStyle1() {
+useEffect(() => {
+    const baseUrl = "https://medjaafsolutions.com";
+    const pagePath = "/medical-credentialing";
+    const pageUrl = `${baseUrl}${pagePath}`;
 
+    const title = "Medical Credentialing Services | Med Jaaf Solutions";
+    const description =
+      "End-to-end medical credentialing services including verification, CAQH management, payer applications, follow-ups and ongoing maintenance for providers.";
+    const keywords =
+      "medical credentialing services, provider credentialing, insurance credentialing, primary source verification, credentialing verification, physician credentialing services, credentialing for clinics, credentialing specialists";
+
+    // ---- helpers (inline) ----
+    const upsertMeta = (key, content, attr = "name") => {
+      if (!content) return;
+      const selector =
+        attr === "property"
+          ? `meta[property="${key}"]`
+          : `meta[name="${key}"]`;
+      let tag = document.head.querySelector(selector);
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute(attr, key);
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute("content", content);
+    };
+
+    const setCanonical = (url) => {
+      if (!url) return;
+      let link = document.head.querySelector('link[rel="canonical"]');
+      if (!link) {
+        link = document.createElement("link");
+        link.setAttribute("rel", "canonical");
+        document.head.appendChild(link);
+      }
+      link.setAttribute("href", url);
+    };
+
+    const setJsonLd = (id, json) => {
+      if (!json) return;
+      let script = document.getElementById(id);
+      if (!script) {
+        script = document.createElement("script");
+        script.type = "application/ld+json";
+        script.id = id;
+        document.head.appendChild(script);
+      }
+      script.text = JSON.stringify(json);
+    };
+
+    // ---- apply SEO ----
+    document.title = title;
+    upsertMeta("description", description);
+    upsertMeta("keywords", keywords);
+    setCanonical(pageUrl);
+
+    // Open Graph
+    upsertMeta("og:title", title, "property");
+    upsertMeta("og:description", description, "property");
+    upsertMeta("og:url", pageUrl, "property");
+    upsertMeta("og:type", "website", "property");
+    upsertMeta("og:site_name", "Med Jaaf Solutions", "property");
+
+    // Twitter
+    upsertMeta("twitter:card", "summary_large_image");
+    upsertMeta("twitter:title", title);
+    upsertMeta("twitter:description", description);
+
+    // ---- Schema Markup ----
+    const schema = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": `${baseUrl}/#organization`,
+          name: "Med Jaaf Solutions",
+          url: baseUrl,
+        },
+        {
+          "@type": "WebSite",
+          "@id": `${baseUrl}/#website`,
+          url: baseUrl,
+          name: "Med Jaaf Solutions",
+          publisher: { "@id": `${baseUrl}/#organization` },
+        },
+        {
+          "@type": "WebPage",
+          "@id": `${pageUrl}#webpage`,
+          url: pageUrl,
+          name: title,
+          description,
+          isPartOf: { "@id": `${baseUrl}/#website` },
+          about: { "@id": `${baseUrl}/#organization` },
+          inLanguage: "en",
+        },
+        {
+          "@type": "Service",
+          "@id": `${pageUrl}#service`,
+          name: "Medical Credentialing Services",
+          serviceType:
+            "Primary source verification, CAQH management, payer applications, follow-ups, ongoing credentialing maintenance",
+          provider: { "@id": `${baseUrl}/#organization` },
+          areaServed: "United States",
+        },
+      ],
+    };
+
+    setJsonLd("schema-medical-credentialing", schema);
+  }, []);
     return (
         <>
             <Layout breadcrumbTitle="Medical Credentialing">
@@ -15,8 +124,8 @@ export default function ServiceStyle1() {
                             <div className="col-lg-6">
                                 <div className="section_title type_one">
                                     <div className="title_whole">
-                                        <h2 className="title">Our Comprehensive Medical Credentialing Services
-                                        </h2>
+                                        <h1 className="title">Our Comprehensive Medical Credentialing Services
+                                        </h1>
                                     </div>
                                 </div>
                                 {/*-============spacing==========-*/}
