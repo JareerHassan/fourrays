@@ -9,7 +9,7 @@ import {
     ShieldCheck,
     CheckCircle2
 } from 'lucide-react';
-import { sendForm3 } from "@/http/form3Api";
+// import { sendForm3 } from "@/http/form3Api";
 
 export default function Team() {
      useEffect(() => {
@@ -199,7 +199,6 @@ export default function Team() {
                     <div className="row justify-content-center">
                         <div className="col-lg-10">
                             <div className="form-header mb-5">
-                                <h1 className="title text-center"> Provider enrollment services to get you in-network faster</h1>
                                 <h2 className="display-6 fw-bold text-dark">Provider/Facility Details</h2>
                             </div>
 
@@ -438,12 +437,12 @@ export default function Team() {
                 .bg-info-light { background: #e3fafc; }
                 .icon-box { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 12px; }
                 .custom-input { padding: 0.75rem 1rem; border: 1px solid #dee2e6; border-radius: 10px; transition: all 0.2s ease; }
-                .custom-input:focus { border-color: #0d6efd; box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.1); background-color: #fff; }
+                .custom-input:focus { border-color: #4ea1d4; box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.1); background-color: #fff; }
                 .upload-card { background: #f8f9fa; border: 2px dashed #dee2e6; padding: 15px; border-radius: 12px; transition: all 0.2s ease; }
-                .upload-card:hover { border-color: #0d6efd; background: #fff; }
+                .upload-card:hover { border-color: #4ea1d4; background: #fff; }
                 .insurance-check-card .btn-outline-primary { border-color: #eee; color: #444; background: white; padding: 10px; border-radius: 8px; font-size: 0.85rem; }
                 .insurance-check-card .icon-check { opacity: 0; transition: 0.2s; }
-                .btn-check:checked + .btn { background-color: #0d6efd !important; color: white !important; border-color: #0d6efd; }
+                .btn-check:checked + .btn { background-color: #4ea1d4 !important; color: white !important; border-color: #4ea1d4; }
                 .btn-check:checked + .btn .icon-check { opacity: 1; }
                 .bg-soft-danger { background-color: #fee2e2; }
             `}</style>

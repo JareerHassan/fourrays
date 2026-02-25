@@ -4,25 +4,25 @@
 :root {
   --font-family-main: "DM Sans";
   --font-family-text: "DM Sans";
-  --color-set-one-1:#008BF9;
+  --color-set-one-1:#4ea1d4;
   --color-set-one-2:#0F3567;
   --color-set-one-3:#36619A;
   --color-set-one-4:#3B5279;
   --color-set-one-5:#133E76;
-  --color-set-one-6:#36DB9F;
+  --color-set-one-6:#0F3567;
   --color-set-one-7:#082e5f;
   --color-set-one-8:#08254B;
-  --color-set-two-three-1:#00868c;
+  --color-set-two-three-1:#153e7d;
   --color-set-two-three-2:#263959;
   --color-set-two-three-3:#213438;
   --color-set-two-three-4:#1d3050;
   --color-set-two-three-5:#152427;
-  --color-set-two-three-6:#138f82;
-  --color-set-four-1:#f86403;
-  --color-set-four-2:#d65501;
-  --color-set-four-3:#00868C;
+  --color-set-two-three-6:#0F3567;
+  --color-set-four-1:#4ea1d4;
+  --color-set-four-2:#4ea1d4;
+  --color-set-four-3:#153e7d;
   --color-set-four-4:#181818;
-  --preloader-background-color: #008BF9;
+  --preloader-background-color: #4ea1d4;
   --preloader-background-color-2: #0F3567;
   --preloader-text-color: #ffffff;
   --color-set-one-bg-1: #EDF7FE;
@@ -47,7 +47,7 @@
   --dropdown-bg:#ffffff;
   --dropdown-menu-color:#0F3567;
   --mobile-menu-color:#0F3567;
-  --mobile-menu-active-color:#008BF9;
+  --mobile-menu-active-color:#4ea1d4;
   --box-shadow: 0 5px 22px 0px rgba(15 ,53 ,103 , 0.05);
   --box-shadow-two: 0px 10px 60px rgba(0, 0, 0, 0.07);
   --box-shadow-three: 0px 10px 60px rgba(15, 53, 103, 0.1);
@@ -4063,7 +4063,7 @@ body .service_post.style_one .owl-carousel .owl-dots {
   color: var(--heading-color-two);
 }
 .service_box.type_seven.color_two:hover .icon i {
-  color: #F86403 !important;
+  color: #4ea1d4 !important;
 }
 .service_box.type_seven.color_two:hover .icon svg path {
   fill: var(--color-white) !important;

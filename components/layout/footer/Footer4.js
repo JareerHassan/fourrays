@@ -28,7 +28,7 @@ export default function Footer4({ }) {
                             </div>
                             <div className="content">
                                 <h6 className="tite">Need Help?</h6>
-                                <div className="title_20"><Link href="tel:+9592350229">+9592350229</Link></div>
+                                <div className="title_20"><Link href="tel:+9592354567">+9592354567</Link></div>
                             </div>
                         </div>
                     </div>
@@ -107,7 +107,7 @@ export default function Footer4({ }) {
                             <div className="col-lg-5" >
                                 <div className="logo_box" >
                                     <Link href="/" className="logo navbar-brand" >
-                                        <img style={{ height: '50px' }} src="/assets/images/logo1.png" alt="Medjaff" className="logo_default" />
+                                        <img style={{ height: '50px' }} src="/assets/images/logo-rays.png" alt="Medjaff" className="logo_default" />
                                     </Link>
                                 </div>
                             </div>

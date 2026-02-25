@@ -240,7 +240,7 @@ useEffect(() => {
 
                                     <h6>Contact Information</h6>
                                     <p>
-                                        For questions about these Terms, please contact us at <a href="mailto:Medjaafsolutions@gmail.com">Medjaafsolutions@gmail.com</a>.
+                                        For questions about these Terms, please contact us at <a href="mailto:fourrays@gmail.com">fourrays@gmail.com</a>.
                                     </p>
 
                                     <p>

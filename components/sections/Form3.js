@@ -2,52 +2,52 @@ import { useState } from "react";
 import { sendForm1 } from "../../http/form1Api"; // Axios API
 
 export default function Form3() {
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-    });
+    // const [formData, setFormData] = useState({
+    //     name: "",
+    //     email: "",
+    //     subject: "",
+    //     message: "",
+    // });
 
 
     const [loading, setLoading] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
 
 
-    const handleChange = (e) => {
-        const { name, value, files } = e.target;
-        if (files) {
-            setFormData({ ...formData, files: Array.from(files) });
-        } else {
-            setFormData({ ...formData, [name]: value });
-        }
-    };
+    // const handleChange = (e) => {
+    //     const { name, value, files } = e.target;
+    //     if (files) {
+    //         setFormData({ ...formData, files: Array.from(files) });
+    //     } else {
+    //         setFormData({ ...formData, [name]: value });
+    //     }
+    // };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
 
-        if (!formData.name || !formData.email) {
-            alert("Name and Email are required");
-            return;
-        }
+    //     if (!formData.name || !formData.email) {
+    //         alert("Name and Email are required");
+    //         return;
+    //     }
 
-        setLoading(true);
-        try {
-            const response = await sendForm1(formData);
+    //     setLoading(true);
+    //     try {
+    //         const response = await sendForm1(formData);
 
-            // Popup show karne ke liye
-            setShowSuccess(true);
+    //         // Popup show karne ke liye
+    //         setShowSuccess(true);
 
-            // Form reset
-            setFormData({ name: "", email: "", subject: "", message: "" });
+    //         // Form reset
+    //         setFormData({ name: "", email: "", subject: "", message: "" });
 
-            // Agar alert bhi chahiye to ye use kar sakte ho
-            // alert(response.message);
-        } catch (err) {
-            alert(err.error || "Something went wrong!");
-        }
-        setLoading(false);
-    };
+    //         // Agar alert bhi chahiye to ye use kar sakte ho
+    //         // alert(response.message);
+    //     } catch (err) {
+    //         alert(err.error || "Something went wrong!");
+    //     }
+    //     setLoading(false);
+    // };
 
 
     return (
@@ -67,15 +67,15 @@ export default function Form3() {
                             </div>
 
                             <div className="contact_form_shortcode">
-                                <form onSubmit={handleSubmit}>
+                                <form >
                                     <div className="forms-field-name mr_bottom_20">
                                         <input
                                             type="text"
                                             name="name"
                                             placeholder="Your Name"
-                                            value={formData.name}
-                                            onChange={handleChange}
-                                            required
+                                            // value={formData.name}
+                                            // onChange={handleChange}
+                                            // required
                                         />
                                     </div>
 
@@ -85,9 +85,9 @@ export default function Form3() {
                                             name="email"
                                             placeholder="Email"
                                             spellCheck="false"
-                                            value={formData.email}
-                                            onChange={handleChange}
-                                            required
+                                            // value={formData.email}
+                                            // onChange={handleChange}
+                                            // required
                                         />
                                     </div>
 
@@ -96,9 +96,9 @@ export default function Form3() {
                                             type="text"
                                             name="subject"
                                             placeholder="Subject (Optional)"
-                                            value={formData.subject}
-                                            onChange={handleChange}
-                                            required
+                                            // value={formData.subject}
+                                            // onChange={handleChange}
+                                            // required
                                         />
                                     </div>
 
@@ -106,13 +106,19 @@ export default function Form3() {
                                         <textarea
                                             name="message"
                                             placeholder="Additional Information... (Optional)"
-                                            value={formData.message}
-                                            onChange={handleChange}
-                                            required
+                                            // value={formData.message}
+                                            // onChange={handleChange}
+                                            // required
                                         />
                                     </div>
-
-                                    <button type="submit" disabled={loading}>
+                                    <button
+                                        type="submit"
+                                        disabled={loading}
+                                        style={{
+                                            opacity: loading ? 0.6 : 1,
+                                            cursor: loading ? "not-allowed" : "pointer"
+                                        }}
+                                    >
                                         {loading ? "Sending..." : "Submit"}
                                     </button>
                                 </form>

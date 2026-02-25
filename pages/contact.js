@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
-import { sendForm2 } from "@/http/form2Api";
+// import { sendForm2 } from "@/http/form2Api";
 
 export default function Contact() {
 useEffect(() => {
@@ -178,9 +178,8 @@ useEffect(() => {
                                     </div>
                                     <h6 className="title_no_a_24 mb-3">Location</h6>
                                     <p className="mb-0">
-                                        Med Jaaf Solutions LLC<br />
-                                        86 LACKAWANNA AVE STE 103<br />
-                                        WOODLAND PARK, NJ 07424
+                                        Four Rays LLC<br />
+                                    
                                     </p>
                                 </div>
                             </div>
@@ -190,8 +189,8 @@ useEffect(() => {
                                         <img src="/assets/images/cont-2.png" alt="Email icon" className="img-fluid" width={60} />
                                     </div>
                                     <h6 className="title_no_a_24 mb-3">Email</h6>
-                                    <Link href="mailto:Medjaafsolutions@gmail.com" className="text_primary hover_underline">
-                                        Medjaafsolutions@gmail.com
+                                    <Link href="mailto:fourrays@gmail.com" className="text_primary hover_underline">
+                                        fourrays@gmail.com
                                     </Link>
                                 </div>
                             </div>
@@ -201,8 +200,8 @@ useEffect(() => {
                                         <img src="/assets/images/cont-3.png" alt="Phone icon" className="img-fluid" width={60} />
                                     </div>
                                     <h6 className="title_no_a_24 mb-3">Call Us</h6>
-                                    <Link href="tel:+9592350229" className="text_primary hover_underline">
-                                        +959 235 0229
+                                    <Link href="tel:+9592354567" className="text_primary hover_underline">
+                                        +959 235 4567
                                     </Link>
                                 </div>
                             </div>

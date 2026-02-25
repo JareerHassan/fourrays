@@ -51,12 +51,12 @@ export default function Banner1() {
                 .mySwiper .swiper-pagination-bullet-active {
                     opacity: 1;
                     transform: scale(1.2);
-                    background: #00868c !important; 
+                    background: #153e7d !important; 
                     
                 }
                 /* Customizing Navigation Arrows */
                 .mySwiper .swiper-button-prev {
-                    color: #00868c;
+                    color: #153e7d;
                     z-index: 101;
                 }
                 .mySwiper .swiper-button-next:after, 
@@ -124,14 +124,14 @@ export default function Banner1() {
 
 .contact-option:hover {
     background: #f0fafa;
-    border-color: #00868c;
+    border-color: #153e7d;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .contact-option i {
     font-size: 22px;
-    color: #00868c;
+    color: #153e7d;
     margin-right: 15px;
     width: 35px;
     text-align: center;
@@ -191,18 +191,18 @@ export default function Banner1() {
                                                     type="button"
                                                     className="btn  btn-sm rounded-pill shadow-sm px-5 py-3 text-uppercase fw-bold d-inline-flex align-items-center justify-content-center"
                                                     style={{
-                                                        backgroundColor: '#00868c',
+                                                        backgroundColor: '#153e7d',
                                                         color: '#fff',
                                                         border: 'none',
                                                         transition: 'all 0.3s ease'
                                                     }}
                                                     onMouseOver={(e) => {
-                                                        e.currentTarget.style.backgroundColor = '#055f61';
+                                                        e.currentTarget.style.backgroundColor = '#0F3567';
                                                         e.currentTarget.style.transform = 'translateY(-3px)';
                                                         e.currentTarget.style.boxShadow = '0 1rem 3rem rgba(0,0,0,.175)';
                                                     }}
                                                     onMouseOut={(e) => {
-                                                        e.currentTarget.style.backgroundColor = '#00868c';
+                                                        e.currentTarget.style.backgroundColor = '#153e7d';
                                                         e.currentTarget.style.transform = 'translateY(0)';
                                                         e.currentTarget.style.boxShadow = 'none';
                                                     }}
@@ -250,13 +250,13 @@ export default function Banner1() {
                 <div className="custom-overlay" onClick={togglePopup}>
                     <div className="custom-popup" onClick={(e) => e.stopPropagation()}>
                         <span className="close-btn" onClick={togglePopup}>&times;</span>
-                        <h3 className="mb-4" style={{ color: '#00868c' }}>What is the best way to connect?</h3>
+                        <h3 className="mb-4" style={{ color: '#153e7d' }}>What is the best way to connect?</h3>
 
                         <a href="mailto:Info@speedycredentialing.com" className="contact-option">
                             <i className="fa fa-envelope"></i>
                             <div>
                                 <strong>Email Us</strong>
-                                <span>Medjaafsolutions@gmail.com</span>
+                                <span>fourrays@gmail.com</span>
                             </div>
                         </a>
 

@@ -12,7 +12,7 @@ export default function StickyHeader({ scroll, handleSearch, handleOptionalPanel
                                 <div className="col-xl-2 col-lg-12 col-md-5 col-sm-5 col-xs-5">
                                     <div className="logobox">
                                         <Link href="/" className="logo navbar-brand">
-                                            <img src="/assets/images/logo.png" alt="Vankine" className="logo_default" />
+                                            <img src="/assets/images/logo-rays.png" alt="Vankine" className="logo_default" />
                                         </Link>
                                     </div>
                                 </div>

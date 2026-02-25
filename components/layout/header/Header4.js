@@ -12,7 +12,7 @@ export default function Header4({ handleSearch, handleOptionalPanel, handleMobil
                                 <div className="col-xl-2 col-lg-12 col-md-5 col-sm-5 col-xs-5">
                                     <div className="logobox">
                                         <Link href="/" className="logo navbar-brand">
-                                            <img src="/assets/images/logo.png" alt="Vankine" className="logo_default" />
+                                            <img src="/assets/images/logo-rays.png" alt="Vankine" className="logo_default" />
                                         </Link>
                                     </div>
                                 </div>
@@ -33,7 +33,7 @@ export default function Header4({ handleSearch, handleOptionalPanel, handleMobil
                                             <span className="line" />
                                         </div>
                                         {/*menu icon*/}
-                                        <div className="button  " style={{ borderRadius:'11px', backgroundColor:'#00868c' }}>
+                                        <div className="button  " style={{ borderRadius:'11px', backgroundColor:'#153e7d' }}>
                                             <Link href="/enrollment" className="theme_btn" style={{color:'white',}}>
                                                Enrollment
                                                 {/* <svg width={12} height={12}  color="black" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
