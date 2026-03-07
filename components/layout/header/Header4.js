@@ -36,9 +36,9 @@ export default function Header4({ handleSearch, handleOptionalPanel, handleMobil
                                         <div className="button  " style={{ borderRadius:'11px', backgroundColor:'#153e7d' }}>
                                             <Link href="/enrollment" className="theme_btn" style={{color:'white',}}>
                                                Enrollment
-                                                {/* <svg width={12} height={12}  color="black" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg width={12} height={12}  color="black" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M1 11L11 1M11 1H3.5M11 1V8.5" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                                </svg> */}
+                                                </svg>
                                             </Link>
                                         </div>
                                         {/* <div className="contact-toggler" onClick={handleOptionalPanel}>

@@ -28,8 +28,8 @@ export default function MobileMenu({ handleMobileMenu, isMobileMenu }) {
                                     <i className="fi-rs-headphones" />9592350229</Link>
                             </div>
                             <div className="single-mobile-header-info cont_over">
-                                <Link href="mailto:fourrays@gmail.com" className="cnt">
-                                    <i className="fi-rs-envelope" />fourrays@gmail.com </Link>
+                                <Link href="mailto:info@fourraysrcm.com" className="cnt">
+                                    <i className="fi-rs-envelope" />info@fourraysrcm.com </Link>
                             </div>
                             <div className="single-mobile-header-info" >
                                 <Link href="/enrollment" className="theme_btn " >  Enrollment</Link>

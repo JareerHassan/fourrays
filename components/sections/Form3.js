@@ -146,7 +146,7 @@ export default function Form3() {
 
                     <div className="col-lg-6 col-md-12 mr_left_minus_100">
                         <div className="image_box_only type_nine">
-                            <img src="/assets/images/form-image-1.jpg" className="img-fluid" alt="img" />
+                            <img src="https://speedycredentialing.com/wp-content/uploads/2025/05/aboutUsIMG1.webp" className="img-fluid" alt="img" />
                         </div>
                     </div>
                 </div>

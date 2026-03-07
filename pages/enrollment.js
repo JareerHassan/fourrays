@@ -9,7 +9,7 @@ import {
     ShieldCheck,
     CheckCircle2
 } from 'lucide-react';
-// import { sendForm3 } from "@/http/form3Api";
+import { sendForm3 } from "@/http/form3Api";
 
 export default function Team() {
      useEffect(() => {
@@ -17,7 +17,7 @@ export default function Team() {
     const pagePath = "/enrollment";
     const pageUrl = `${baseUrl}${pagePath}`;
 
-    const title = "Provider Enrollment Services | Med Jaaf Solutions";
+    const title = "Provider Enrollment Services | FourRays";
     const description =
       "Provider enrollment services to get you in-network faster. We submit, track, and follow up on payer applications while keeping profiles accurate and complete.";
     const keywords =
@@ -70,7 +70,7 @@ export default function Team() {
     upsertMeta("og:description", description, "property");
     upsertMeta("og:url", pageUrl, "property");
     upsertMeta("og:type", "website", "property");
-    upsertMeta("og:site_name", "Med Jaaf Solutions", "property");
+    upsertMeta("og:site_name", "FourRays", "property");
 
     // Twitter
     upsertMeta("twitter:card", "summary_large_image");
@@ -84,14 +84,14 @@ export default function Team() {
         {
           "@type": "Organization",
           "@id": `${baseUrl}/#organization`,
-          name: "Med Jaaf Solutions",
+          name: "FourRays",
           url: baseUrl,
         },
         {
           "@type": "WebSite",
           "@id": `${baseUrl}/#website`,
           url: baseUrl,
-          name: "Med Jaaf Solutions",
+          name: "FourRays",
           publisher: { "@id": `${baseUrl}/#organization` },
         },
         {
@@ -417,9 +417,9 @@ export default function Team() {
                                 <div className="position-fixed top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center" style={{ backgroundColor: "rgba(0,0,0,0.5)", zIndex: 9999 }}>
                                     <div className="bg-white rounded shadow p-5 text-center" style={{ maxWidth: "500px", animation: "fadeIn 0.5s" }}>
                                         <div className="mb-4">
-                                            <i className="fas fa-check-circle text-primary" style={{ fontSize: "60px" }}></i>
+                                            <i className="fas fa-check-circle text-[#4ea1d4]" style={{ fontSize: "60px" }}></i>
                                         </div>
-                                        <h4 className="text-primary mb-3">Message Sent Successfully!</h4>
+                                        <h4 className="text-[#4ea1d4] mb-3">Message Sent Successfully!</h4>
                                         <p>Thank you for contacting us. We will get back to you shortly.</p>
                                         <button className="theme_btn mt-3" onClick={() => setShowSuccess(false)}>Close</button>
                                     </div>

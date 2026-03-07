@@ -21,7 +21,7 @@ export default function Testimonial3() {
         <>
             <section className="testimonial-section position-relative bg_light_2 bg_op_6" style={{ backgroundImage: 'url(assets/images/map-frame-2.png)!important' }}>
                 {/*-============spacing==========-*/}
-                <div className="pd_top_320" />
+                <div className="pd_top_120" />
                 {/*-============spacing==========-*/}
                 <div className="medium-container">
                     <div className="row">
@@ -40,10 +40,19 @@ export default function Testimonial3() {
                     {/*-============spacing==========-*/}
                     <div className="row align-items-center">
                         <div className="col-lg-6 col-md-12">
-                            <div className="image_box_only type_ten mr_bottom_minus_100">
-                                <img src="/assets/images/new-images/16img.webp" className="img-fluid" alt="img" />
-                            </div>
-                        </div>
+  <div className="image_box_only type_ten mr_bottom_minus_100">
+    <img
+      src="/assets/images/new-5.jpg"
+      alt="img"
+      className="img-fluid"
+      style={{
+        width: "100%",
+        height: "720px",
+        objectFit: "cover"
+      }}
+    />
+  </div>
+</div>
                         <div className="col-lg-6 col-md-12 pd_left_60">
                             <div className="tsingle_two position-relative color_two">
                                 <Slider {...settings} className="slickslider">

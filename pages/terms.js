@@ -7,9 +7,9 @@ useEffect(() => {
     const pagePath = "/terms";
     const pageUrl = `${baseUrl}${pagePath}`;
 
-    const title = "Terms and Conditions | Med Jaaf Solutions";
+    const title = "Terms and Conditions | FourRays";
     const description =
-      "View the Terms and Conditions Med Jaaf Solutions for website and services, including responsibilities, limitations, and policy guidelines.";
+      "View the Terms and Conditions FourRays for website and services, including responsibilities, limitations, and policy guidelines.";
     const keywords =
       "terms and conditions, service terms, website terms, user terms, legal terms and conditions";
 
@@ -63,7 +63,7 @@ useEffect(() => {
     upsertMeta("og:description", description, "property");
     upsertMeta("og:url", pageUrl, "property");
     upsertMeta("og:type", "website", "property");
-    upsertMeta("og:site_name", "Med Jaaf Solutions", "property");
+    upsertMeta("og:site_name", "FourRays", "property");
 
     // Twitter
     upsertMeta("twitter:card", "summary_large_image");
@@ -77,14 +77,14 @@ useEffect(() => {
         {
           "@type": "Organization",
           "@id": `${baseUrl}/#organization`,
-          name: "Med Jaaf Solutions",
+          name: "FourRays",
           url: baseUrl,
         },
         {
           "@type": "WebSite",
           "@id": `${baseUrl}/#website`,
           url: baseUrl,
-          name: "Med Jaaf Solutions",
+          name: "FourRays",
           publisher: { "@id": `${baseUrl}/#organization` },
         },
         {
@@ -113,19 +113,19 @@ useEffect(() => {
                     <div className="container">
                          <div className="section_title type_one my-5 text-center">
                                     <div className="title_whole">
-                                        <h1 className="title">View the Terms and Conditions Med Jaaf Solutions for website and services</h1>
+                                        <h1 className="title">View the Terms and Conditions FourRays for website and services</h1>
                                     </div>
                                 </div>
                         <div className="row">
                             <div className="col-lg-12">
                                 <div className="terms-content">
                                     <p>
-                                        Welcome to Med Jaaf website. By accessing or using this Site, you agree to comply with and be bound by these Terms and Conditions. If you do not agree with any part of these Terms, you must not use this Site.
+                                        Welcome to FourRayswebsite. By accessing or using this Site, you agree to comply with and be bound by these Terms and Conditions. If you do not agree with any part of these Terms, you must not use this Site.
                                     </p>
 
                                     <h6>Consent</h6>
                                     <p>
-                                        By submitting phone number in the contact us form or initiating a message to Med Jaaf phone number, you consent to receive marketing messages from Med Jaaf. Message and data rates may apply. Message frequency varies. Unsubscribe anytime by replying STOP. Reply HELP for help.
+                                        By submitting phone number in the contact us form or initiating a message to FourRaysphone number, you consent to receive marketing messages from Med Jaaf. Message and data rates may apply. Message frequency varies. Unsubscribe anytime by replying STOP. Reply HELP for help.
                                     </p>
 
                                     <h6>Changes to Terms</h6>
@@ -135,7 +135,7 @@ useEffect(() => {
 
                                     <h6>Intellectual Property</h6>
                                     <p>
-                                        All content on this Site, including text, graphics, logos, images, audio clips, and software, is the property of Med Jaaf and protected by intellectual property laws. You may not use, reproduce, distribute, modify, or create derivative works without our express written consent.
+                                        All content on this Site, including text, graphics, logos, images, audio clips, and software, is the property of FourRaysand protected by intellectual property laws. You may not use, reproduce, distribute, modify, or create derivative works without our express written consent.
                                     </p>
 
                                     <h6>Privacy</h6>
@@ -160,7 +160,7 @@ useEffect(() => {
 
                                     <h6>Limitation of Liability</h6>
                                     <p>
-                                        To the fullest extent permitted by applicable law, Med Jaaf shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues.
+                                        To the fullest extent permitted by applicable law, FourRaysshall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues.
                                     </p>
 
                                     <h6>Governing Law</h6>
@@ -220,7 +220,7 @@ useEffect(() => {
 
                                     <h6>Entire Agreement</h6>
                                     <p>
-                                        These Terms constitute the entire agreement between you and Med Jaaf regarding the Site.
+                                        These Terms constitute the entire agreement between you and FourRaysregarding the Site.
                                     </p>
 
                                     <h6>Headings</h6>
@@ -240,7 +240,7 @@ useEffect(() => {
 
                                     <h6>Contact Information</h6>
                                     <p>
-                                        For questions about these Terms, please contact us at <a href="mailto:fourrays@gmail.com">fourrays@gmail.com</a>.
+                                        For questions about these Terms, please contact us at <a href="mailto:info@fourraysrcm.com">info@fourraysrcm.com</a>.
                                     </p>
 
                                     <p>

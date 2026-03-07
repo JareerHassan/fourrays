@@ -4,7 +4,7 @@ export default function Breadcrumb({breadcrumbTitle}) {
     return (
         <>
             <section className="page_header_default pg_bg_cover alignment_center"  style={{ minHeight: "480px" }} >
-                <div className="bakground_cover" style={{ backgroundImage: 'url(/assets/images/new-images/3img.webp)' }} />
+                <div className="bakground_cover" style={{ backgroundImage: 'url(/assets/images/new-22.jpeg)' }} />
                 <div className="page_header_content">
                     <div className="container mt-5">
                         <div className="row">

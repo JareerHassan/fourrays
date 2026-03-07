@@ -11,10 +11,9 @@ export default function Service7() {
                     <div className="row">
                         <div className="col-lg-7">
                             <div className="section_title color_white type_five">
-                                <h4 className="sm_title"> Our Services
-                                </h4>
+                                <h4 className="sm_title">Our Premium Services</h4>
                                 <div className="title_whole">
-                                    <h2 className="title">The Protection You Deserve.</h2>
+                                    <h2 className="title">Comprehensive Protection for You.</h2>
                                 </div>
                             </div>
                             {/*-============spacing==========-*/}
@@ -37,11 +36,11 @@ export default function Service7() {
                                         <div className="left">
                                             <div className="title_26">
                                                 <Link href="/medical-credentialing">
-                                                   Health Plans
+                                                   Personalized Health Plans
                                                 </Link>
                                             </div>
                                             <p className="trans">
-                                              Stay healthy and worry-free with our tailored health coverage.
+                                              Customized health coverage to keep you safe and stress-free.
                                             </p>
                                         </div>
                                         <div className="right">
@@ -60,6 +59,7 @@ export default function Service7() {
                                     </div>
                                 </div>
                             </div>
+
                             <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                                 <div className="service_box type_seven trans color_two">
                                     <div className="icon trans">
@@ -72,9 +72,10 @@ export default function Service7() {
                                         <img src="/assets/images/service/service-8-min.jpg" className="img-fluid" alt="service" />
                                         <div className="left">
                                             <div className="title_26">
-                                                <Link href="/medical-credentialing">Mobile Protection</Link></div>
+                                                <Link href="/medical-credentialing">Mobile Device Security</Link></div>
                                             <p className="trans">
-                                                Stay connected worry-free with our mobile protection.</p>
+                                                Keep your mobile devices safe with our advanced protection plans.
+                                            </p>
                                         </div>
                                         <div className="right">
                                             <Link href="/medical-credentialing" className="link">
@@ -92,77 +93,8 @@ export default function Service7() {
                                     </div>
                                 </div>
                             </div>
-                            {/* <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                <div className="service_box type_seven trans color_two">
-                                    <div className="icon trans">
-                                        <svg width={110} height={130} viewBox="0 0 110 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M0 124.009C0 127.128 2.82523 129.486 5.89443 128.928L105.894 110.746C108.272 110.314 110 108.244 110 105.827V5C110 2.23858 107.761 0 105 0H5C2.23858 0 0 2.23858 0 5V124.009Z" fill="var(--color-set-four-3)" />
-                                        </svg>
-                                        <i className=" flaticon-marriage trans" />
-                                    </div>
-                                    <div className="content d-flex align-items-center">
-                                        <img src="/assets/images/service/service-6-min.jpg" className="img-fluid" alt="service" />
-                                        <div className="left">
-                                            <div className="title_26">
-                                                <Link href="/medical-credentialing">
-                                           Emergency Coverage
-                                                </Link>
-                                            </div>
-                                            <p className="trans">
-                                    Reliable coverage for life’s unexpected moments.                                            </p>
-                                        </div>
-                                        <div className="right">
-                                            <Link href="/medical-credentialing" className="link">
-                                                <svg width={25} height={25} viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path fillRule="evenodd" clipRule="evenodd" d="M6.53522 0H22.9415C23.2315 0 23.5098 0.115234 23.7149 0.320352C23.92 0.52547 24.0352 0.803669 24.0352 1.09375V17.5C24.0352 17.7901 23.92 18.0683 23.7149 18.2734C23.5098 18.4785 23.2315 18.5937 22.9415 18.5937C22.6514 18.5937 22.3732 18.4785 22.1681 18.2734C21.963 18.0683 21.8477 17.7901 21.8477 17.5V3.73333L1.83938 23.7417C1.63205 23.9349 1.35781 24.04 1.07446 24.035C0.791099 24.03 0.520746 23.9153 0.320352 23.7149C0.119958 23.5145 0.00516988 23.2441 0.000170402 22.9608C-0.00482908 22.6774 0.100351 22.4032 0.293551 22.1958L20.3019 2.1875H6.53522C6.24514 2.1875 5.96694 2.07227 5.76182 1.86715C5.5567 1.66203 5.44147 1.38383 5.44147 1.09375C5.44147 0.803669 5.5567 0.52547 5.76182 0.320352C5.96694 0.115234 6.24514 0 6.53522 0Z" fill="url(#paint0_linear_1_4036)" />
-                                                    <defs>
-                                                        <linearGradient id="paint0_linear_1_4036" x1="-0.34336" y1="13.9061" x2="24.0352" y2="13.9061" gradientUnits="userSpaceOnUse">
-                                                            <stop offset={1} stopColor="#4ea1d4" />
-                                                            <stop offset={1} stopColor="#4ea1d4" />
-                                                        </linearGradient>
-                                                    </defs>
-                                                </svg>
-                                            </Link>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                                <div className="service_box type_seven trans color_two">
-                                    <div className="icon trans">
-                                        <svg width={110} height={130} viewBox="0 0 110 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M0 124.009C0 127.128 2.82523 129.486 5.89443 128.928L105.894 110.746C108.272 110.314 110 108.244 110 105.827V5C110 2.23858 107.761 0 105 0H5C2.23858 0 0 2.23858 0 5V124.009Z" fill="var(--color-set-four-3)" />
-                                        </svg>
-                                        <i className=" flaticon-insurance-2 trans" />
-                                    </div>
-                                    <div className="content d-flex align-items-center">
-                                        <img src="/assets/images/service/service-1-min-1.jpg" className="img-fluid" alt="service" />
-                                        <div className="left">
-                                            <div className="title_26">
-                                                <Link href="/medical-credentialing">
-                                                    Life insurance
-                                                </Link>
-                                            </div>
-                                            <p className="trans">
-                                               Ensure your family’s security with the right life coverage.
-                                            </p>
-                                        </div>
-                                        <div className="right">
-                                            <Link href="/medical-credentialing" className="link">
-                                                <svg width={25} height={25} viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path fillRule="evenodd" clipRule="evenodd" d="M6.53522 0H22.9415C23.2315 0 23.5098 0.115234 23.7149 0.320352C23.92 0.52547 24.0352 0.803669 24.0352 1.09375V17.5C24.0352 17.7901 23.92 18.0683 23.7149 18.2734C23.5098 18.4785 23.2315 18.5937 22.9415 18.5937C22.6514 18.5937 22.3732 18.4785 22.1681 18.2734C21.963 18.0683 21.8477 17.7901 21.8477 17.5V3.73333L1.83938 23.7417C1.63205 23.9349 1.35781 24.04 1.07446 24.035C0.791099 24.03 0.520746 23.9153 0.320352 23.7149C0.119958 23.5145 0.00516988 23.2441 0.000170402 22.9608C-0.00482908 22.6774 0.100351 22.4032 0.293551 22.1958L20.3019 2.1875H6.53522C6.24514 2.1875 5.96694 2.07227 5.76182 1.86715C5.5567 1.66203 5.44147 1.38383 5.44147 1.09375C5.44147 0.803669 5.5567 0.52547 5.76182 0.320352C5.96694 0.115234 6.24514 0 6.53522 0Z" fill="url(#paint0_linear_1_403)" />
-                                                    <defs>
-                                                        <linearGradient id="paint0_linear_1_403" x1="-0.34336" y1="13.9061" x2="24.0352" y2="13.9061" gradientUnits="userSpaceOnUse">
-                                                            <stop offset={1} stopColor="#4ea1d4" />
-                                                            <stop offset={1} stopColor="#4ea1d4" />
-                                                        </linearGradient>
-                                                    </defs>
-                                                </svg>
-                                            </Link>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> */}
+
+                            {/* Content for Home Insurance */}
                             <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                                 <div className="service_box type_seven trans color_two">
                                     <div className="icon trans">
@@ -175,11 +107,11 @@ export default function Service7() {
                                         <div className="left">
                                             <div className="title_26">
                                                 <Link href="/medical-credentialing">
-                                                  Home Insurance
+                                                  Secure Home Coverage
                                                 </Link>
                                             </div>
                                             <p className="trans">
-                                              Protect your home and everything in it with reliable insurance.
+                                              Ensure your home and belongings are protected with ease.
                                             </p>
                                         </div>
                                         <div className="right">
@@ -198,6 +130,8 @@ export default function Service7() {
                                     </div>
                                 </div>
                             </div>
+
+                            {/* Content for Asset Security */}
                             <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                                 <div className="service_box type_seven trans color_two">
                                     <div className="icon trans">
@@ -211,11 +145,11 @@ export default function Service7() {
                                         <div className="left">
                                             <div className="title_26">
                                                 <Link href="/medical-credentialing">
-                                                  Asset Security
+                                             Asset Protection
                                                 </Link>
                                             </div>
                                             <p className="trans">
-                                               Protect your valuable assets with trusted coverage.
+                                               Keep your valuable assets secure with our reliable plans.
                                             </p>
                                         </div>
                                         <div className="right">
@@ -234,6 +168,7 @@ export default function Service7() {
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>

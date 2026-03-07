@@ -9,110 +9,121 @@ const CounterUp = dynamic(() => import('@/components/elements/CounterUp'), {
 })
 export default function AboutUs() {
 
+
     const [activeIndex, setActiveIndex] = useState(1)
     const handleOnClick = (index) => {
         setActiveIndex(index)
     }
 
-     useEffect(() => {
-    const baseUrl = "https://medjaafsolutions.com";
-    const pagePath = "/about";
-    const pageUrl = `${baseUrl}${pagePath}`;
+    const logos = [
+        "/assets/images/new-images/img1.webp",
+        "/assets/images/new-images/img4.webp",
+        "/assets/images/new-images/img1.webp",
+        "/assets/images/new-images/img2.webp",
+    ];
 
-    const title = "Medical Credentialing Company | About Med Jaaf Solutions";
-    const description =
-      "Meet Med Jaaf Solutions, a medical credentialing company helping providers with payer enrollment, CAQH management, re-credentialing and compliance support.";
-    const keywords =
-      "medical credentialing company, credentialing specialists, provider enrollment experts, healthcare credentialing team, credentialing services provider, insurance enrollment support, CAQH specialists";
 
-    // ---- helpers (inline) ----
-    const upsertMeta = (key, content, attr = "name") => {
-      if (!content) return;
-      const selector =
-        attr === "property"
-          ? `meta[property="${key}"]`
-          : `meta[name="${key}"]`;
-      let tag = document.head.querySelector(selector);
-      if (!tag) {
-        tag = document.createElement("meta");
-        tag.setAttribute(attr, key);
-        document.head.appendChild(tag);
-      }
-      tag.setAttribute("content", content);
-    };
+    const sliderLogos = [...logos, ...logos, ...logos];
 
-    const setCanonical = (url) => {
-      if (!url) return;
-      let link = document.head.querySelector('link[rel="canonical"]');
-      if (!link) {
-        link = document.createElement("link");
-        link.setAttribute("rel", "canonical");
-        document.head.appendChild(link);
-      }
-      link.setAttribute("href", url);
-    };
+    useEffect(() => {
+        const baseUrl = "https://medjaafsolutions.com";
+        const pagePath = "/about";
+        const pageUrl = `${baseUrl}${pagePath}`;
 
-    const setJsonLd = (id, json) => {
-      if (!json) return;
-      let script = document.getElementById(id);
-      if (!script) {
-        script = document.createElement("script");
-        script.type = "application/ld+json";
-        script.id = id;
-        document.head.appendChild(script);
-      }
-      script.text = JSON.stringify(json);
-    };
+        const title = "Medical Credentialing Company | About FourRays";
+        const description =
+            "Meet FourRays, a medical credentialing company helping providers with payer enrollment, CAQH management, re-credentialing and compliance support.";
+        const keywords =
+            "medical credentialing company, credentialing specialists, provider enrollment experts, healthcare credentialing team, credentialing services provider, insurance enrollment support, CAQH specialists";
 
-    // ---- apply SEO ----
-    document.title = title;
-    upsertMeta("description", description);
-    upsertMeta("keywords", keywords);
-    setCanonical(pageUrl);
+        // ---- helpers (inline) ----
+        const upsertMeta = (key, content, attr = "name") => {
+            if (!content) return;
+            const selector =
+                attr === "property"
+                    ? `meta[property="${key}"]`
+                    : `meta[name="${key}"]`;
+            let tag = document.head.querySelector(selector);
+            if (!tag) {
+                tag = document.createElement("meta");
+                tag.setAttribute(attr, key);
+                document.head.appendChild(tag);
+            }
+            tag.setAttribute("content", content);
+        };
 
-    // Open Graph
-    upsertMeta("og:title", title, "property");
-    upsertMeta("og:description", description, "property");
-    upsertMeta("og:url", pageUrl, "property");
-    upsertMeta("og:type", "website", "property");
-    upsertMeta("og:site_name", "Med Jaaf Solutions", "property");
+        const setCanonical = (url) => {
+            if (!url) return;
+            let link = document.head.querySelector('link[rel="canonical"]');
+            if (!link) {
+                link = document.createElement("link");
+                link.setAttribute("rel", "canonical");
+                document.head.appendChild(link);
+            }
+            link.setAttribute("href", url);
+        };
 
-    // Twitter
-    upsertMeta("twitter:card", "summary_large_image");
-    upsertMeta("twitter:title", title);
-    upsertMeta("twitter:description", description);
+        const setJsonLd = (id, json) => {
+            if (!json) return;
+            let script = document.getElementById(id);
+            if (!script) {
+                script = document.createElement("script");
+                script.type = "application/ld+json";
+                script.id = id;
+                document.head.appendChild(script);
+            }
+            script.text = JSON.stringify(json);
+        };
 
-    // ---- Schema Markup (AboutPage + Organization) ----
-    const schema = {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "@id": `${baseUrl}/#organization`,
-          name: "Med Jaaf Solutions",
-          url: baseUrl,
-        },
-        {
-          "@type": "WebSite",
-          "@id": `${baseUrl}/#website`,
-          url: baseUrl,
-          name: "Med Jaaf Solutions",
-          publisher: { "@id": `${baseUrl}/#organization` },
-        },
-        {
-          "@type": "AboutPage",
-          "@id": `${pageUrl}#aboutpage`,
-          url: pageUrl,
-          name: title,
-          description,
-          isPartOf: { "@id": `${baseUrl}/#website` },
-          about: { "@id": `${baseUrl}/#organization` },
-        },
-      ],
-    };
+        // ---- apply SEO ----
+        document.title = title;
+        upsertMeta("description", description);
+        upsertMeta("keywords", keywords);
+        setCanonical(pageUrl);
 
-    setJsonLd("schema-about", schema);
-  }, []);
+        // Open Graph
+        upsertMeta("og:title", title, "property");
+        upsertMeta("og:description", description, "property");
+        upsertMeta("og:url", pageUrl, "property");
+        upsertMeta("og:type", "website", "property");
+        upsertMeta("og:site_name", "FourRays", "property");
+
+        // Twitter
+        upsertMeta("twitter:card", "summary_large_image");
+        upsertMeta("twitter:title", title);
+        upsertMeta("twitter:description", description);
+
+        // ---- Schema Markup (AboutPage + Organization) ----
+        const schema = {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "Organization",
+                    "@id": `${baseUrl}/#organization`,
+                    name: "FourRays",
+                    url: baseUrl,
+                },
+                {
+                    "@type": "WebSite",
+                    "@id": `${baseUrl}/#website`,
+                    url: baseUrl,
+                    name: "FourRays",
+                    publisher: { "@id": `${baseUrl}/#organization` },
+                },
+                {
+                    "@type": "AboutPage",
+                    "@id": `${pageUrl}#aboutpage`,
+                    url: pageUrl,
+                    name: title,
+                    description,
+                    isPartOf: { "@id": `${baseUrl}/#website` },
+                    about: { "@id": `${baseUrl}/#organization` },
+                },
+            ],
+        };
+
+        setJsonLd("schema-about", schema);
+    }, []);
     return (
         <>
             <Layout breadcrumbTitle="About Us">
@@ -188,15 +199,15 @@ export default function AboutUs() {
                                         </Link>
                                     </div>
                                     <div className="m_image">
-                                        <img src="/assets/images/new-images/19img.jpg" alt="img" className="img-fluid" />
+                                        <img src="/assets/images/new-6.jpg" alt="img" className="img-fluid" />
                                     </div>
                                 </div>
                             </div>
                             <div className="col-lg-6 col-md-6 col-sm-12 pd_left_30">
                                 <div className="section_title type_one">
-                                    <h4 className="sm_title"> About Company</h4>
+                                    <h4 className="sm_title">  About FourRays</h4>
                                     <div className="title_whole">
-                                        <h1 className="title">Medical Credentialing Company | About Med Jaaf Solutions</h1>
+                                        <h1 className="title">FourRays Solutions | Innovative IT & Digital Services</h1>
                                     </div>
                                 </div>
                                 {/*-============spacing==========-*/}
@@ -230,7 +241,8 @@ export default function AboutUs() {
                                         <div className={activeIndex === 1 ? "tab-pane active" : "tab-pane"}>
                                             <div className="tab_content_box">
                                                 <div className="content">
-                                                    Reap the benefits of a practice-partner with expertise in generating long-term sucess.</div>
+                                    FourRays is committed to delivering cutting-edge IT solutions that empower businesses to innovate and grow.
+                                                    </div>
                                                 <div className="d-flex">
                                                     <ul>
                                                         <li>
@@ -623,39 +635,37 @@ export default function AboutUs() {
                 </section>
                 {/*service*/}
                 {/*content*/}
-                <section className="content-section">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-lg-6">
-                                <div className="section_title type_one">
-                                    <div className="title_whole">
-                                        <h2 className="title">Why collaborate with Med Jaaf?</h2>
-                                    </div>
-                                    <p> At Med Jaaf, we specialize in delivering top-tier medical billing and insurance credentialing services tailored to the unique needs of healthcare providers across the USA. With a focus on accuracy, speed, and reliability, we help practices thrive by simplifying complex processes and boosting operational efficiency.
-
-                                        Our expert team understands the challenges of today’s healthcare landscape. That’s why we offer customized solutions that ensure smooth provider enrollments, fast-track credentialing, and maximize revenue potential. From solo practitioners to large healthcare networks, we’re here to support your success every step of the way.
-
-                                        Backed by years of experience and a commitment to excellence, Med Jaaf is more than a service provider — we’re a strategic partner dedicated to helping you grow with confidence.</p>
-                                </div>
-                                {/*-============spacing==========-*/}
-                                <div className="pd_bottom_40" />
-                                {/*-============spacing==========-*/}
-
-                                {/*-============spacing==========-*/}
-                                <div className="pd_bottom_40" />
-                                {/*-============spacing==========-*/}
-                            </div>
-                            <div className="col-lg-6">
-                                <div className="image_video_box_only  type_one mr_bottom_minus_90 z_1">
-                                    <div className="image one height_530px">
-                                        <img src="/assets/images/new-images/17img.webp" alt="img" className="img-fluid height_530px" />
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+             <section className="content-section">
+    <div className="container">
+        <div className="row">
+            <div className="col-lg-6">
+                <div className="section_title type_one">
+                    <div className="title_whole">
+                        <h2 className="title">Why collaborate with FourRays?</h2>
                     </div>
-                </section>
+                    <p>
+                        At FourRays, we specialize in delivering innovative IT solutions designed to help businesses grow, scale, and succeed in the digital world. Our team focuses on building high-quality web applications, modern digital platforms, and smart technology solutions that streamline operations and improve business performance.
+                        
+                        We understand that every business has unique goals and challenges. That’s why we provide customized solutions tailored to your needs, ensuring reliability, efficiency, and long-term success. From startups to established enterprises, FourRays supports organizations with modern technology and expert development services.
+                        
+                        With a strong commitment to quality, creativity, and innovation, FourRays is more than just a service provider — we are a trusted technology partner dedicated to helping your business move forward with confidence.
+                    </p>
+                </div>
+
+                <div className="pd_bottom_40" />
+                <div className="pd_bottom_40" />
+            </div>
+
+            <div className="col-lg-6">
+                <div className="image_video_box_only type_one mr_bottom_minus_90 z_1">
+                    <div className="image one height_530px">
+                        <img src="/assets/images/new-7.jpg" alt="img" className="img-fluid height_530px" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
                 {/*content*/}
                 {/*funfacts*/}
                 <section className="analysis-section position-relative bg_1 overflow-hidden">
@@ -765,71 +775,125 @@ export default function AboutUs() {
 
                 {/*team*/}
                 {/*client*/}
-                <section className="client-section ">
-                    {/*-============spacing==========-*/}
-                    <div className="pd_top_40" />
-                    {/*-============spacing==========-*/}
-                    <div className="container">
-                        <div className="row align-items-center">
-                            <div className="col-lg-4 col-md-12 pd_right_60">
-                                <div className="section_title type_one small">
-                                    {/* <h4 className="sm_title"> Popular Clients</h4> */}
-                                    <div className="title_whole">
-                                        <h2 className="title"> Over Trusted Companies
-                                        </h2>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-8 col-md-12">
-                                <div className="row" style={{ margin: "-5px" }}>
+                <section
+                    className="client-section"
+                    style={{
+                        background: "#f9fafb",
+                        overflow: "hidden",
+                    }}
+                >
+                    <div className="pd_top_190" />
 
-                                    <div className="col-6" style={{ padding: "5px" }}>
-                                        <div style={{ textAlign: "center" }}>
-                                            <img
-                                                src="/assets/images/new-images/img1.webp"
-                                                alt="client"
-                                                style={{ width: "220px", height: "auto" }}
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className="col-6" style={{ padding: "5px" }}>
-                                        <div style={{ textAlign: "center" }}>
-                                            <img
-                                                src="/assets/images/new-images/img4.webp"
-                                                alt="client"
-                                                style={{ width: "220px", height: "auto" }}
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className="col-6" style={{ padding: "5px" }}>
-                                        <div style={{ textAlign: "center" }}>
-                                            <img
-                                                src="/assets/images/new-images/img4.webp"
-                                                alt="client"
-                                                style={{ width: "220px", height: "auto" }}
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className="col-6" style={{ padding: "5px" }}>
-                                        <div style={{ textAlign: "center" }}>
-                                            <img
-                                                src="/assets/images/new-images/img2.webp"
-                                                alt="client"
-                                                style={{ width: "220px", height: "auto" }}
-                                            />
-                                        </div>
-                                    </div>
-
+                    <div className="container-fluid">
+                        {/* Heading Center */}
+                        <div className="row">
+                            <div className="col-12">
+                                <div style={{ textAlign: "center", marginBottom: "35px" }}>
+                                    <h2
+                                        style={{
+                                            fontSize: "34px",
+                                            fontWeight: "800",
+                                            marginBottom: "10px",
+                                        }}
+                                    >
+                                        Trusted by Leading Companies
+                                    </h2>
+                                    <p
+                                        style={{
+                                            //   maxWidth: "650px",
+                                            margin: "0 auto",
+                                            color: "#6c757d",
+                                            fontSize: "16px",
+                                            lineHeight: "26px",
+                                        }}
+                                    >
+                                        We’re proud to work with brands that value quality, reliability,
+                                        and long-term partnerships.
+                                    </p>
                                 </div>
                             </div>
                         </div>
+
+                        {/* Slider Wrapper */}
+                        <div
+                            style={{
+                                width: "100%",
+                                overflow: "hidden",
+                                position: "relative",
+                                padding: "10px 0",
+                            }}
+                        >
+                            {/* Track */}
+                            <div
+                                className="logo-track"
+                                style={{
+                                    display: "flex",
+                                    gap: "18px",
+                                    width: "max-content",
+                                    animation: "clientScroll 18s linear infinite",
+                                }}
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.animationPlayState = "paused";
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.animationPlayState = "running";
+                                }}
+                            >
+                                {sliderLogos.map((src, i) => (
+                                    <div
+                                        key={i}
+                                        style={{
+                                            background: "#fff",
+                                            borderRadius: "14px",
+                                            padding: "18px 22px",
+                                            minWidth: "210px",
+                                            height: "95px",
+                                            display: "flex",
+                                            alignItems: "center",
+                                            justifyContent: "center",
+                                            boxShadow: "0 8px 18px rgba(0,0,0,0.05)",
+                                        }}
+                                    >
+                                        <img
+                                            src={src}
+                                            alt={`client-logo-${i}`}
+                                            loading="lazy"
+                                            style={{
+                                                maxHeight: "70px",
+                                                maxWidth: "160px",
+                                                width: "100%",
+                                                height: "auto",
+                                                objectFit: "contain",
+                                                filter: "grayscale(100%)",
+                                                opacity: "0.9",
+                                                transition: "0.3s ease",
+                                            }}
+                                            onMouseEnter={(e) => {
+                                                e.currentTarget.style.filter = "grayscale(0%)";
+                                                e.currentTarget.style.opacity = "1";
+                                            }}
+                                            onMouseLeave={(e) => {
+                                                e.currentTarget.style.filter = "grayscale(100%)";
+                                                e.currentTarget.style.opacity = "0.9";
+                                            }}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* Inline Keyframes (no external CSS) */}
+                            <style>
+                                {`
+              @keyframes clientScroll {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-33.33%); }
+              }
+            `}
+                            </style>
+                        </div>
                     </div>
-                    {/*-============spacing==========-*/}
-                    <div className="pd_bottom_30" />
-                    {/*-============spacing==========-*/}
+
+                    <div className="pd_bottom_60" />
                 </section>
                 {/*client*/}
                 {/*testimonial*/}

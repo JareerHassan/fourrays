@@ -7,7 +7,7 @@ useEffect(() => {
     const pagePath = "/medical-credentialing";
     const pageUrl = `${baseUrl}${pagePath}`;
 
-    const title = "Medical Credentialing Services | Med Jaaf Solutions";
+    const title = "Medical Credentialing Services | FourRays";
     const description =
       "End-to-end medical credentialing services including verification, CAQH management, payer applications, follow-ups and ongoing maintenance for providers.";
     const keywords =
@@ -63,7 +63,7 @@ useEffect(() => {
     upsertMeta("og:description", description, "property");
     upsertMeta("og:url", pageUrl, "property");
     upsertMeta("og:type", "website", "property");
-    upsertMeta("og:site_name", "Med Jaaf Solutions", "property");
+    upsertMeta("og:site_name", "FourRays", "property");
 
     // Twitter
     upsertMeta("twitter:card", "summary_large_image");
@@ -77,14 +77,14 @@ useEffect(() => {
         {
           "@type": "Organization",
           "@id": `${baseUrl}/#organization`,
-          name: "Med Jaaf Solutions",
+          name: "FourRays",
           url: baseUrl,
         },
         {
           "@type": "WebSite",
           "@id": `${baseUrl}/#website`,
           url: baseUrl,
-          name: "Med Jaaf Solutions",
+          name: "FourRays",
           publisher: { "@id": `${baseUrl}/#organization` },
         },
         {
@@ -140,16 +140,16 @@ useEffect(() => {
                         <div className="row">
                             <div className="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                 <div className="service_box type_one color_two">
-                                    <Link href="/service">
+                                    <Link href="/contact">
                                         <div className="image">
-                                            <img className="img-fluid" src="/assets/images/new-images/21img.jpg" alt="Car Insurance" />
+                                            <img className="img-fluid" src="/assets/images/new-8.jpg" alt="Car Insurance" />
                                         </div>
                                     </Link>
                                     <div className="content_box">
                                         <div className="content_inner trans">
 
                                             <h4 className="title_24 trans">
-                                                <Link href="/service">
+                                                <Link href="/contact">
                                                     Provider Enrollment
 
                                                 </Link>
@@ -164,16 +164,16 @@ useEffect(() => {
                             </div>
                             <div className="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                 <div className="service_box type_one color_two">
-                                    <Link href="/service">
+                                    <Link href="/contact">
                                         <div className="image">
-                                            <img className="img-fluid" src="/assets/images/new-images/18img.jpg" alt="Car Insurance" />
+                                            <img className="img-fluid" src="/assets/images/new-9.jpg" alt="Car Insurance" />
                                         </div>
                                     </Link>
                                     <div className="content_box">
                                         <div className="content_inner trans">
 
                                             <h4 className="title_24 trans">
-                                                <Link href="/service">
+                                                <Link href="/contact">
                                                     Primary Source Verification
                                                 </Link>
                                             </h4>
@@ -186,16 +186,16 @@ useEffect(() => {
                             </div>
                             <div className="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                 <div className="service_box type_one color_two">
-                                    <Link href="/service/">
+                                    <Link href="/contact/">
                                         <div className="image">
-                                            <img className="img-fluid" src="/assets/images/new-images/23img.webp" alt="Car Insurance" />
+                                            <img className="img-fluid" src="/assets/images/new-10.jpeg" alt="Car Insurance" />
                                         </div>
                                     </Link>
                                     <div className="content_box">
                                         <div className="content_inner trans">
 
                                             <h4 className="title_24 trans">
-                                                <Link href="/service/">
+                                                <Link href="/contact/">
                                                     Hospital Privilege Credentialing
 
                                                 </Link>
@@ -210,16 +210,16 @@ useEffect(() => {
                             </div>
                             <div className="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                 <div className="service_box type_one color_two">
-                                    <Link href="/service">
+                                    <Link href="/contact">
                                         <div className="image">
-                                            <img className="img-fluid" src="/assets/images/new-images/24img.webp" alt="Car Insurance" />
+                                            <img className="img-fluid" src="/assets/images/new-11.jpeg" alt="Car Insurance" />
                                         </div>
                                     </Link>
                                     <div className="content_box">
                                         <div className="content_inner trans">
 
                                             <h4 className="title_24 trans">
-                                                <Link href="/service">
+                                                <Link href="/contact">
                                                     Ongoing Monitoring and Re-credentialing
                                                 </Link>
                                             </h4>
@@ -233,16 +233,16 @@ useEffect(() => {
                             </div>
                             <div className="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                 <div className="service_box type_one color_two">
-                                    <Link href="/service">
+                                    <Link href="/contact">
                                         <div className="image">
-                                            <img className="img-fluid" src="/assets/images/new-images/26img.jpg" alt="Car Insurance" />
+                                            <img className="img-fluid" src="/assets/images/new-12.jpeg" alt="Car Insurance" />
                                         </div>
                                     </Link>
                                     <div className="content_box">
                                         <div className="content_inner trans">
 
                                             <h4 className="title_24 trans">
-                                                <Link href="/service">
+                                                <Link href="/contact">
                                                     Payor Contract Negotiation
                                                 </Link>
                                             </h4>
@@ -255,16 +255,16 @@ useEffect(() => {
                             </div>
                             <div className="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                 <div className="service_box type_one color_two">
-                                    <Link href="/service">
+                                    <Link href="/contact">
                                         <div className="image">
-                                            <img className="img-fluid" src="/assets/images/new-images/28img.webp" alt="Car Insurance" />
+                                            <img className="img-fluid" src="/assets/images/new-13.jpeg" alt="Car Insurance" />
                                         </div>
                                     </Link>
                                     <div className="content_box">
                                         <div className="content_inner trans">
 
                                             <h4 className="title_24 trans">
-                                                <Link href="/service">
+                                                <Link href="/contact">
                                                     License Verification
                                                 </Link>
                                             </h4>

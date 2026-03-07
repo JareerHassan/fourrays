@@ -13,8 +13,7 @@ export default function Footer4({ }) {
                             <div className="title_whole">
                                 <h4 className="sm_title"> Contact Us</h4>
                                 <h2 className="title">
-                                    We have two ears and one mouth so we can listen twice as much as we speak.
-                                </h2>
+                                    Listen twice as much as you speak.                                </h2>
                             </div>
                         </div>
                         <div className="theme_btn_all">
@@ -28,7 +27,7 @@ export default function Footer4({ }) {
                             </div>
                             <div className="content">
                                 <h6 className="tite">Need Help?</h6>
-                                <div className="title_20"><Link href="tel:+9592354567">+9592354567</Link></div>
+                                <div className="title_20"><Link href="tel:+18552478482">+1-855-247-8482</Link></div>
                             </div>
                         </div>
                     </div>
@@ -82,10 +81,10 @@ export default function Footer4({ }) {
                                         <div className="d-flex align-items-center">
                                             <div className="icon trans" />
                                             <Link className="links color_white" href="/faqs">
-                                                   FAQ’s </Link>
+                                                FAQ’s </Link>
                                         </div>
                                     </li>
-                    
+
                                     <li>
                                         <div className="d-flex align-items-center">
                                             <div className="icon trans" />
@@ -107,13 +106,20 @@ export default function Footer4({ }) {
                             <div className="col-lg-5" >
                                 <div className="logo_box" >
                                     <Link href="/" className="logo navbar-brand" >
-                                        <img style={{ height: '50px' }} src="/assets/images/logo-rays.png" alt="Medjaff" className="logo_default" />
+                                        <img style={{ height: '50px' }} src="/assets/images/logo1-rays.png" alt="Medjaff" className="logo_default" />
                                     </Link>
                                 </div>
                             </div>
                             <div className="col-lg-7 text-md-end">
                                 <div className="position-relative color_white">
-                                    Copyright {new Date().getFullYear()},  All Rights Reserved.</div>
+                                    Copyright {new Date().getFullYear()},  All Rights Reserved. <Link
+                                        href="https://oxmite.com"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-[#4ea1d4]  "
+                                    >
+                                        Developed by Oxmite Digital Ltd.
+                                    </Link></div>
                             </div>
                         </div>
                     </div>

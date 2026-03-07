@@ -8,9 +8,9 @@ useEffect(() => {
     const pagePath = "/virtual-appointment";
     const pageUrl = `${baseUrl}${pagePath}`;
 
-    const title = "Book Credentialing Consultation | Virtual Appointment | Med Jaaf";
+    const title = "Book Credentialing Consultation | Virtual Appointment | FourRays";
     const description =
-      "Book a Credentialing Consultation with Med Jaaf Solutions to discuss credentialing, payer enrollment, timelines and requirements. Get clear next steps fast.";
+      "Book a Credentialing Consultation with FourRays to discuss credentialing, payer enrollment, timelines and requirements. Get clear next steps fast.";
     const keywords =
       "credentialing consultation, schedule credentialing consultation, book credentialing call, provider enrollment consultation, credentialing services meeting, virtual consultation for providers";
 
@@ -63,7 +63,7 @@ useEffect(() => {
     upsertMeta("og:description", description, "property");
     upsertMeta("og:url", pageUrl, "property");
     upsertMeta("og:type", "website", "property");
-    upsertMeta("og:site_name", "Med Jaaf Solutions", "property");
+    upsertMeta("og:site_name", "FourRays", "property");
 
     // Twitter
     upsertMeta("twitter:card", "summary_large_image");
@@ -77,14 +77,14 @@ useEffect(() => {
         {
           "@type": "Organization",
           "@id": `${baseUrl}/#organization`,
-          name: "Med Jaaf Solutions",
+          name: "FourRays",
           url: baseUrl,
         },
         {
           "@type": "WebSite",
           "@id": `${baseUrl}/#website`,
           url: baseUrl,
-          name: "Med Jaaf Solutions",
+          name: "FourRays",
           publisher: { "@id": `${baseUrl}/#organization` },
         },
         {
@@ -125,7 +125,7 @@ useEffect(() => {
                             {/* LEFT CONTENT */}
                             <div className="content-box" style={{ flex: "1 1 48%" }}>
                                 <div className="section_title type_one">
-                                    <h1 className="title">Book a Credentialing Consultation with Med Jaaf Solutions</h1>
+                                    <h1 className="title">Book a Credentialing Consultation with FourRays</h1>
                                     <p>
                                         Virtual Appointments are now an essential part of modern healthcare, allowing patients to connect with providers quickly and conveniently. Our Virtual Appointment Management service helps practices set up secure, HIPAA-compliant telehealth platforms, manage online scheduling, and ensure smooth communication with patients.
                                         We assist clinics in organizing virtual visit workflows, maintaining proper documentation, and understanding telehealth billing guidelines to help reduce claim issues. This service also includes basic technology setup support and patient communication guidance.
@@ -139,7 +139,7 @@ useEffect(() => {
                             <div className="image-box" style={{ flex: "1 1 49%" }}>
                                 <img
                                     className="img-fluid rounded-3"
-                                    src="/assets/images/new-images/8img.webp"
+                                    src="/assets/images/new-21.jpeg"
                                     alt="Car Insurance"
                                     style={{ width: "100%", objectFit: "cover", height: "550px", }}
                                 />

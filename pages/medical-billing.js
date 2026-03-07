@@ -159,7 +159,7 @@ export default function ServiceStyle2() {
                         <div className="row">
                             <div className="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                 <div className="service_box type_one color_two">
-                                    <Link href="/service">
+                                    <Link href="/contact">
                                         <div className="image">
                                             <img className="img-fluid" src="/assets/images/new-images/30img.webp" alt="Car Insurance" />
                                         </div>
@@ -168,7 +168,7 @@ export default function ServiceStyle2() {
                                         <div className="content_inner trans">
 
                                             <h4 className="title_24 trans">
-                                                <Link href="/service">
+                                                <Link href="/contact">
                                                     Daily claims entry
 
 
@@ -183,7 +183,7 @@ export default function ServiceStyle2() {
                             </div>
                             <div className="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                 <div className="service_box type_one color_two">
-                                    <Link href="/service">
+                                    <Link href="/contact">
                                         <div className="image">
                                             <img className="img-fluid" src="/assets/images/new-images/19img.jpg" alt="Car Insurance" />
                                         </div>
@@ -192,7 +192,7 @@ export default function ServiceStyle2() {
                                         <div className="content_inner trans">
 
                                             <h4 className="title_24 trans">
-                                                <Link href="/service">
+                                                <Link href="/contact">
                                                     Electronic and paper claim submission
                                                 </Link>
                                             </h4>
@@ -205,7 +205,7 @@ export default function ServiceStyle2() {
                             </div>
                             <div className="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                 <div className="service_box type_one color_two">
-                                    <Link href="/service/">
+                                    <Link href="/contact/">
                                         <div className="image">
                                             <img className="img-fluid" src="/assets/images/new-images/25img.jpg" alt="Car Insurance" />
                                         </div>
@@ -214,7 +214,7 @@ export default function ServiceStyle2() {
                                         <div className="content_inner trans">
 
                                             <h4 className="title_24 trans">
-                                                <Link href="/service/">
+                                                <Link href="/contact/">
                                                     Dedicated follow-up
 
 
@@ -229,7 +229,7 @@ export default function ServiceStyle2() {
                             </div>
                             <div className="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                 <div className="service_box type_one color_two">
-                                    <Link href="/service">
+                                    <Link href="/contact">
                                         <div className="image">
                                             <img className="img-fluid" src="/assets/images/new-images/3img.webp" alt="Car Insurance" />
                                         </div>
@@ -238,7 +238,7 @@ export default function ServiceStyle2() {
                                         <div className="content_inner trans">
 
                                             <h4 className="title_24 trans">
-                                                <Link href="/service">
+                                                <Link href="/contact">
                                                     Monthly customized reports
 
                                                 </Link>
@@ -252,7 +252,7 @@ export default function ServiceStyle2() {
                             </div>
                             <div className="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                 <div className="service_box type_one color_two">
-                                    <Link href="/service">
+                                    <Link href="/contact">
                                         <div className="image">
                                             <img className="img-fluid" src="/assets/images/new-images/4img.webp" alt="Car Insurance" />
                                         </div>
@@ -261,7 +261,7 @@ export default function ServiceStyle2() {
                                         <div className="content_inner trans">
 
                                             <h4 className="title_24 trans">
-                                                <Link href="/service">
+                                                <Link href="/contact">
                                                     Patient statements
 
                                                 </Link>
@@ -275,7 +275,7 @@ export default function ServiceStyle2() {
                             </div>
                             <div className="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                                 <div className="service_box type_one color_two">
-                                    <Link href="/service">
+                                    <Link href="/contact">
                                         <div className="image">
                                             <img className="img-fluid" src="/assets/images/new-images/7img.webp" alt="Car Insurance" />
                                         </div>
@@ -284,7 +284,7 @@ export default function ServiceStyle2() {
                                         <div className="content_inner trans">
 
                                             <h4 className="title_24 trans">
-                                                <Link href="/service">
+                                                <Link href="/contact">
                                                     Tracking / claims management
                                                 </Link>
                                             </h4>

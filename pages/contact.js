@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
-// import { sendForm2 } from "@/http/form2Api";
+import { sendForm2 } from "@/http/form2Api";
 
 export default function Contact() {
 useEffect(() => {
@@ -9,7 +9,7 @@ useEffect(() => {
     const pagePath = "/contact";
     const pageUrl = `${baseUrl}${pagePath}`;
 
-    const title = "Contact Credentialing Team | Med Jaaf Solutions";
+    const title = "Contact Credentialing Team | FourRays";
     const description =
       "Contact Credentialing Team for medical credentialing and payer enrollment support. Share your details and we’ll guide you with the next steps to start.";
     const keywords =
@@ -65,7 +65,7 @@ useEffect(() => {
     upsertMeta("og:description", description, "property");
     upsertMeta("og:url", pageUrl, "property");
     upsertMeta("og:type", "website", "property");
-    upsertMeta("og:site_name", "Med Jaaf Solutions", "property");
+    upsertMeta("og:site_name", "FourRays", "property");
 
     // Twitter
     upsertMeta("twitter:card", "summary_large_image");
@@ -79,7 +79,7 @@ useEffect(() => {
         {
           "@type": "Organization",
           "@id": `${baseUrl}/#organization`,
-          name: "Med Jaaf Solutions",
+          name: "FourRays",
           url: baseUrl,
           // Optional: "telephone": "+1-XXX-XXX-XXXX",
           // Optional: "email": "info@medjaafsolutions.com",
@@ -88,7 +88,7 @@ useEffect(() => {
           "@type": "WebSite",
           "@id": `${baseUrl}/#website`,
           url: baseUrl,
-          name: "Med Jaaf Solutions",
+          name: "FourRays",
           publisher: { "@id": `${baseUrl}/#organization` },
         },
         {
@@ -167,66 +167,8 @@ useEffect(() => {
     return (
         <>
             <Layout breadcrumbTitle="Contact">
-                {/*-contact*/}
-                <section className="contact-section pd_top_90 pd_bottom_70">
-                    <div className="container">
-                        <div className="row justify-content-center">
-                            <div className="col-lg-4 col-md-6 col-sm-12 mb-4">
-                                <div className="contact_box_content bg_white shadow_sm rounded p-5 text-center h-100">
-                                    <div className="icon trans mb-4">
-                                        <img src="/assets/images/cont-1.png" alt="Location icon" className="img-fluid" width={60} />
-                                    </div>
-                                    <h6 className="title_no_a_24 mb-3">Location</h6>
-                                    <p className="mb-0">
-                                        Four Rays LLC<br />
-                                    
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="col-lg-4 col-md-6 col-sm-12 mb-4">
-                                <div className="contact_box_content bg_white shadow_sm rounded p-5 text-center h-100">
-                                    <div className="icon trans mb-4">
-                                        <img src="/assets/images/cont-2.png" alt="Email icon" className="img-fluid" width={60} />
-                                    </div>
-                                    <h6 className="title_no_a_24 mb-3">Email</h6>
-                                    <Link href="mailto:fourrays@gmail.com" className="text_primary hover_underline">
-                                        fourrays@gmail.com
-                                    </Link>
-                                </div>
-                            </div>
-                            <div className="col-lg-4 col-md-6 col-sm-12 mb-4">
-                                <div className="contact_box_content bg_white shadow_sm rounded p-5 text-center h-100">
-                                    <div className="icon trans mb-4">
-                                        <img src="/assets/images/cont-3.png" alt="Phone icon" className="img-fluid" width={60} />
-                                    </div>
-                                    <h6 className="title_no_a_24 mb-3">Call Us</h6>
-                                    <Link href="tel:+9592354567" className="text_primary hover_underline">
-                                        +959 235 4567
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                {/*-contact end*/}\
-                {/*map*/}
-                <section className="contact-map-section">
-                    <div className="container-no">
-                        <div className="row">
-                            <div className="col-lg-12">
-                                <section className="map-section">
-                                    {/*Map Outer*/}
-                                    <div className="map-outer">
-                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2643.6895046810805!2d-122.52642526124438!3d38.00014098339506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085976736097a2f%3A0xbe014d20e6e22654!2sSan%20Rafael%2C%20California%2C%20Hoa%20K%E1%BB%B3!5e0!3m2!1svi!2s!4v1678975266976!5m2!1svi!2s" height={570} style={{ border: 0, width: "100%" }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
-                                    </div>
-                                </section>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                {/*map*/}
-                {/*form*/}
-                <section className="form-section bg_light_1 position-relative">
+
+                       <section className="form-section bg_light_1 position-relative">
                     {/*-============spacing==========-*/}
                     <div className="pd_top_90" />
                     {/*-============spacing==========-*/}
@@ -566,9 +508,9 @@ useEffect(() => {
                         <div className="position-fixed top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center" style={{ backgroundColor: "rgba(0,0,0,0.5)", zIndex: 9999 }}>
                             <div className="bg-white rounded shadow p-5 text-center" style={{ maxWidth: "500px", animation: "fadeIn 0.5s" }}>
                                 <div className="mb-4">
-                                    <i className="fas fa-check-circle text-primary" style={{ fontSize: "60px" }}></i>
+                                    <i className="fas fa-check-circle text-[#4ea1d4]" style={{ fontSize: "60px" }}></i>
                                 </div>
-                                <h4 className="text-primary mb-3">Message Sent Successfully!</h4>
+                                <h4 className="text-[#4ea1d4] mb-3">Message Sent Successfully!</h4>
                                 <p>Thank you for contacting us. We will get back to you shortly.</p>
                                 <button
                                     className="theme_btn mt-3"
@@ -586,6 +528,69 @@ useEffect(() => {
                     <div className="pd_bottom_90" />
                     {/*-============spacing==========-*/}
                 </section>
+
+                   {/*map*/}
+                <section className="contact-map-section">
+                    <div className="container-no">
+                        <div className="row">
+                            <div className="col-lg-12">
+                                <section className="map-section">
+                                    {/*Map Outer*/}
+                                    <div className="map-outer">
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3468.173352742698!2d-95.7124035!3d29.627708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640e036ef0f2089%3A0x15920714c55e146d!2s442%20Papershell%20Path%2C%20Richmond%2C%20TX%2077406%2C%20USA!5e0!3m2!1sen!2s!4v1772867011056!5m2!1sen!2s" height={570} style={{ border: 0, width: "100%" }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/*-contact*/}
+                <section className="contact-section pd_top_90 pd_bottom_70">
+                    <div className="px-3">
+                        <div className="row justify-content-center">
+                            <div className="col-lg-4 col-md-6 col-sm-12 mb-4">
+                                <div className="contact_box_content bg_white shadow_sm rounded p-5 text-center h-100">
+                                    <div className="icon trans mb-4">
+                                        <img src="/assets/images/cont-1.png" alt="Location icon" className="img-fluid" width={60} />
+                                    </div>
+                                    <h6 className="title_no_a_24 mb-3">Location</h6>
+                                    <p className="mb-0">
+                                       442 Papershell Path, Richmond, TX 77406<br />
+                                    
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="col-lg-4 col-md-6 col-sm-12 mb-4">
+                                <div className="contact_box_content bg_white shadow_sm rounded p-5 text-center h-100">
+                                    <div className="icon trans mb-4">
+                                        <img src="/assets/images/cont-2.png" alt="Email icon" className="img-fluid" width={60} />
+                                    </div>
+                                    <h6 className="title_no_a_24 mb-3">Email</h6>
+                                    <Link href="mailto:info@fourraysrcm.com" className="text_primary hover_underline">
+                                        info@fourraysrcm.com
+                                    </Link>
+                                </div>
+                            </div>
+                            <div className="col-lg-4 col-md-6 col-sm-12 mb-4">
+                                <div className="contact_box_content bg_white shadow_sm rounded p-5 text-center h-100">
+                                    <div className="icon trans mb-4">
+                                        <img src="/assets/images/cont-3.png" alt="Phone icon" className="img-fluid" width={60} />
+                                    </div>
+                                    <h6 className="title_no_a_24 mb-3">Call Us</h6>
+                                    <Link href="tel:+18552478482" className="text_primary hover_underline">
+                                  +1-855-247-8482
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                {/*-contact end*/}\
+             
+                {/*map*/}
+                {/*form*/}
+         
                 {/*form*/}
 
 

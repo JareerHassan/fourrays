@@ -8,7 +8,7 @@ export default function Blog() {
     const pagePath = "/blog";
     const pageUrl = `${baseUrl}${pagePath}`;
 
-    const title = "Medical Credentialing Blog | Med Jaaf Solutions";
+    const title = "Medical Credentialing Blog | FourRays";
     const description =
       "Medical Credentialing Blog, provider enrollment, CAQH management, compliance and re-credentialing—built to reduce delays and denials.";
     const keywords =
@@ -65,7 +65,7 @@ export default function Blog() {
     upsertMeta("og:description", description, "property");
     upsertMeta("og:url", pageUrl, "property");
     upsertMeta("og:type", "website", "property");
-    upsertMeta("og:site_name", "Med Jaaf Solutions", "property");
+    upsertMeta("og:site_name", "FourRays", "property");
 
     // Twitter
     upsertMeta("twitter:card", "summary_large_image");
@@ -79,14 +79,14 @@ export default function Blog() {
         {
           "@type": "Organization",
           "@id": `${baseUrl}/#organization`,
-          name: "Med Jaaf Solutions",
+          name: "FourRays",
           url: baseUrl,
         },
         {
           "@type": "WebSite",
           "@id": `${baseUrl}/#website`,
           url: baseUrl,
-          name: "Med Jaaf Solutions",
+          name: "FourRays",
           publisher: { "@id": `${baseUrl}/#organization` },
         },
         {
@@ -102,7 +102,7 @@ export default function Blog() {
           "@type": "Blog",
           "@id": `${pageUrl}#blog`,
           url: pageUrl,
-          name: "Med Jaaf Solutions Blog",
+          name: "FourRays Blog",
           description,
           publisher: { "@id": `${baseUrl}/#organization` },
           inLanguage: "en",

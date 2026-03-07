@@ -8,7 +8,7 @@ export default function Faq() {
     const pagePath = "/faqs";
     const pageUrl = `${baseUrl}${pagePath}`;
 
-    const title = "Medical Credentialing FAQs | Med Jaaf Solutions";
+    const title = "Medical Credentialing FAQs | FourRays";
     const description =
       "Answers to common medical credentialing faqs questions: enrollment timelines, CAQH, documents needed, re-credentialing, compliance, and how our process works.";
     const keywords =
@@ -61,7 +61,7 @@ export default function Faq() {
     upsertMeta("og:description", description, "property");
     upsertMeta("og:url", pageUrl, "property");
     upsertMeta("og:type", "website", "property");
-    upsertMeta("og:site_name", "Med Jaaf Solutions", "property");
+    upsertMeta("og:site_name", "FourRays", "property");
 
     // Twitter
     upsertMeta("twitter:card", "summary_large_image");
@@ -137,14 +137,14 @@ export default function Faq() {
         {
           "@type": "Organization",
           "@id": `${baseUrl}/#organization`,
-          name: "Med Jaaf Solutions",
+          name: "FourRays",
           url: baseUrl,
         },
         {
           "@type": "WebSite",
           "@id": `${baseUrl}/#website`,
           url: baseUrl,
-          name: "Med Jaaf Solutions",
+          name: "FourRays",
           publisher: { "@id": `${baseUrl}/#organization` },
         },
         {

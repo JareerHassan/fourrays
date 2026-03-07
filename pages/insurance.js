@@ -7,7 +7,7 @@ export default function ServiceStyle3() {
     const pagePath = "/insurance"; // ✅ your route
     const pageUrl = `${baseUrl}${pagePath}`;
 
-    const title = "Insurance Contract Negotiations | Med Jaaf Solutions";
+    const title = "Insurance Contract Negotiations | FourRays";
     const description =
       "Insurance contract negotiations for providers and practices. We support payer contracting, contract review, and negotiation strategy to improve network outcomes.";
     const keywords =
@@ -62,7 +62,7 @@ export default function ServiceStyle3() {
     upsertMeta("og:description", description, "property");
     upsertMeta("og:url", pageUrl, "property");
     upsertMeta("og:type", "website", "property");
-    upsertMeta("og:site_name", "Med Jaaf Solutions", "property");
+    upsertMeta("og:site_name", "FourRays", "property");
 
     // Twitter
     upsertMeta("twitter:card", "summary_large_image");
@@ -76,14 +76,14 @@ export default function ServiceStyle3() {
         {
           "@type": "Organization",
           "@id": `${baseUrl}/#organization`,
-          name: "Med Jaaf Solutions",
+          name: "FourRays",
           url: baseUrl,
         },
         {
           "@type": "WebSite",
           "@id": `${baseUrl}/#website`,
           url: baseUrl,
-          name: "Med Jaaf Solutions",
+          name: "FourRays",
           publisher: { "@id": `${baseUrl}/#organization` },
         },
         {
@@ -137,7 +137,7 @@ export default function ServiceStyle3() {
                             <div className="image-box" style={{ flex: "1 1 49%" }}>
                                 <img
                                     className="img-fluid rounded-3"
-                                    src="/assets/images/new-images/24img.webp"
+                                    src="/assets/images/new-20.jpeg"
                                     alt="Car Insurance"
                                     style={{ width: "100%", objectFit: "cover",     height: "550px",  }}
                                 />

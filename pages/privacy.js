@@ -7,9 +7,9 @@ useEffect(() => {
     const pagePath = "/privacy";
     const pageUrl = `${baseUrl}${pagePath}`;
 
-    const title = "Privacy Policy | Med Jaaf Solutions";
+    const title = "Privacy Policy | FourRays";
     const description =
-      "Read Med Jaaf Solutions Privacy Policy explaining how we collect, use, and protect information when you visit our website or contact our team.";
+      "Read FourRays Privacy Policy explaining how we collect, use, and protect information when you visit our website or contact our team.";
     const keywords =
       "privacy policy, data privacy policy, information collection policy, website privacy policy, data protection policy";
 
@@ -63,7 +63,7 @@ useEffect(() => {
     upsertMeta("og:description", description, "property");
     upsertMeta("og:url", pageUrl, "property");
     upsertMeta("og:type", "website", "property");
-    upsertMeta("og:site_name", "Med Jaaf Solutions", "property");
+    upsertMeta("og:site_name", "FourRays", "property");
 
     // Twitter
     upsertMeta("twitter:card", "summary_large_image");
@@ -77,14 +77,14 @@ useEffect(() => {
         {
           "@type": "Organization",
           "@id": `${baseUrl}/#organization`,
-          name: "Med Jaaf Solutions",
+          name: "FourRays",
           url: baseUrl,
         },
         {
           "@type": "WebSite",
           "@id": `${baseUrl}/#website`,
           url: baseUrl,
-          name: "Med Jaaf Solutions",
+          name: "FourRays",
           publisher: { "@id": `${baseUrl}/#organization` },
         },
         {
@@ -113,7 +113,7 @@ useEffect(() => {
                     <div className="container">
                          <div className="section_title type_one my-5 text-center">
                                     <div className="title_whole">
-                                        <h1 className="title">Med Jaaf Solutions Privacy Policy explaining how we collect, use, and protect</h1>
+                                        <h1 className="title">FourRays Privacy Policy explaining how we collect, use, and protect</h1>
                                     </div>
                                 </div>
                         <div className="row">
@@ -121,10 +121,10 @@ useEffect(() => {
                                 <div className="privacy-content">
                                     <p><strong>Effective Date:</strong> January 01, 2025</p>
                                     <p><strong>Last Updated:</strong> March 07, 2025</p>
-                                    <p><strong>Contact:</strong> <a href="mailto:fourrays@gmail.com">fourrays@gmail.com</a></p>
+                                    <p><strong>Contact:</strong> <a href="mailto:info@fourraysrcm.com">info@fourraysrcm.com</a></p>
 
                                     <p>
-                                        Med Jaaf (“we,” “our,” or “us”) is dedicated to safeguarding your privacy and protecting your personal information. This Privacy Policy outlines the types of information we collect, how we use it, and the measures we take to ensure its security. By using our services, you agree to the terms of this Privacy Policy.
+                                        FourRays(“we,” “our,” or “us”) is dedicated to safeguarding your privacy and protecting your personal information. This Privacy Policy outlines the types of information we collect, how we use it, and the measures we take to ensure its security. By using our services, you agree to the terms of this Privacy Policy.
                                     </p>
 
                                     <h6>1. Information Collection and Use</h6>
@@ -162,7 +162,7 @@ useEffect(() => {
 
                                     <h6>7. Contact Us</h6>
                                     <p>
-                                        If you have any questions about this Privacy Policy, please contact us at <a href="mailto:fourrays@gmail.com">fourrays@gmail.com</a>.
+                                        If you have any questions about this Privacy Policy, please contact us at <a href="mailto:info@fourraysrcm.com">info@fourraysrcm.com</a>.
                                     </p>
 
                                     <h4>Cookie Policy</h4>
@@ -195,7 +195,7 @@ useEffect(() => {
 
                                     <h6>6. Contact Us</h6>
                                     <p>
-                                        If you have any questions about our Cookie Policy, please contact us at <a href="mailto:fourrays@gmail.com">fourrays@gmail.com</a>.
+                                        If you have any questions about our Cookie Policy, please contact us at <a href="mailto:info@fourraysrcm.com">info@fourraysrcm.com</a>.
                                     </p>
 
                                     <p>
