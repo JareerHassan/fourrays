@@ -2,13 +2,13 @@
     "name": "name",
     "version": "2.1.0",
     "private": true,
-    "scripts": {
-        "dev": "next dev",
-        "build": "next build",
-        "start": "next start",
-        "lint": "next lint",
-        "sass": "sass --watch public/assets/css/theme.scss:public/assets/css/theme.css"
-    },
+     "scripts": {
+    "dev": "next dev -p 4002",
+    "build": "next build",
+    "start": "next start -p 4002",
+    "lint": "next lint",
+    "sass": "sass --watch public/assets/css/theme.scss:public/assets/css/theme.css"
+  },
     "dependencies": {
         "axios": "^1.13.2",
         "axois": "^0.0.1-security",
