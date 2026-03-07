@@ -26,7 +26,7 @@ export default function About4() {
                                 </div>
                                 <div className="fun_facts type_two color_two">
                                     <h4>
-                                        <CounterUp count={10} time={1} />
+                                        <CounterUp count={12} time={1} />
                                         <small>+</small>
                                     </h4>
                                     <h6 className="title_no_a_26">Years Of Experience</h6>

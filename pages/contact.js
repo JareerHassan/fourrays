@@ -5,7 +5,7 @@ import { sendForm2 } from "@/http/form2Api";
 
 export default function Contact() {
 useEffect(() => {
-    const baseUrl = "https://medjaafsolutions.com";
+    const baseUrl = "https://FourRayssolutions.com";
     const pagePath = "/contact";
     const pageUrl = `${baseUrl}${pagePath}`;
 
@@ -82,7 +82,7 @@ useEffect(() => {
           name: "FourRays",
           url: baseUrl,
           // Optional: "telephone": "+1-XXX-XXX-XXXX",
-          // Optional: "email": "info@medjaafsolutions.com",
+          // Optional: "email": "info@FourRayssolutions.com",
         },
         {
           "@type": "WebSite",
@@ -455,7 +455,7 @@ useEffect(() => {
 
                                                     <div className="col-sm-12">
                                                         <p className="text-muted small pt-3">
-                                                            By texting START or initiating a conversation with +959 235 0229, you consent to receive marketing text messages from Speedy Credentialing. Consent is not a condition of purchase. Message and data rates may apply. Message frequency varies. Unsubscribe at any time by replying STOP. Reply HELP for help.
+                                                            By texting START or initiating a conversation with +1-855-247-8482, you consent to receive marketing text messages from Speedy Credentialing. Consent is not a condition of purchase. Message and data rates may apply. Message frequency varies. Unsubscribe at any time by replying STOP. Reply HELP for help.
                                                             <a style={{
                                                                 position: "relative",
                                                                 zIndex: 9999,

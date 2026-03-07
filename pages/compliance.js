@@ -13,7 +13,7 @@ import "swiper/css/pagination";
 export default function Compliance() {
     const [activeIndex, setActiveIndex] = useState(1);
 useEffect(() => {
-    const baseUrl = "https://medjaafsolutions.com";
+    const baseUrl = "https://FourRayssolutions.com";
     const pagePath = "/compliance";
     const pageUrl = `${baseUrl}${pagePath}`;
 

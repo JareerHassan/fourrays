@@ -3,7 +3,7 @@ import Link from "next/link"
 import { useEffect } from "react";
 export default function TermsAndConditions() {
 useEffect(() => {
-    const baseUrl = "https://medjaafsolutions.com";
+    const baseUrl = "https://FourRayssolutions.com";
     const pagePath = "/terms";
     const pageUrl = `${baseUrl}${pagePath}`;
 
@@ -125,7 +125,7 @@ useEffect(() => {
 
                                     <h6>Consent</h6>
                                     <p>
-                                        By submitting phone number in the contact us form or initiating a message to FourRaysphone number, you consent to receive marketing messages from Med Jaaf. Message and data rates may apply. Message frequency varies. Unsubscribe anytime by replying STOP. Reply HELP for help.
+                                        By submitting phone number in the contact us form or initiating a message to FourRaysphone number, you consent to receive marketing messages from FourRays. Message and data rates may apply. Message frequency varies. Unsubscribe anytime by replying STOP. Reply HELP for help.
                                     </p>
 
                                     <h6>Changes to Terms</h6>

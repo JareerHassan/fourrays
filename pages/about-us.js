@@ -26,7 +26,7 @@ export default function AboutUs() {
     const sliderLogos = [...logos, ...logos, ...logos];
 
     useEffect(() => {
-        const baseUrl = "https://medjaafsolutions.com";
+        const baseUrl = "https://FourRayssolutions.com";
         const pagePath = "/about";
         const pageUrl = `${baseUrl}${pagePath}`;
 
@@ -166,7 +166,7 @@ export default function AboutUs() {
                                     <div className="fun_facts type_two">
                                         <h4>
 
-                                            <CounterUp count={10} time={1} />
+                                            <CounterUp count={12} time={1} />
                                             <small>
                                                 + </small></h4>
                                         <h6 className="title_no_a_26">Years Of

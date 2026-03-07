@@ -4,11 +4,11 @@ import { useState, useEffect } from "react"
 export default function ServiceStyle2() {
 
     useEffect(() => {
-    const baseUrl = "https://medjaafsolutions.com";
+    const baseUrl = "https://FourRayssolutions.com";
     const pagePath = "/medical-billing"; // ✅ your route
     const pageUrl = `${baseUrl}${pagePath}`;
 
-    const title = "Medical Billing Services | Revenue Cycle Management | Med Jaaf";
+    const title = "Medical Billing Services | Revenue Cycle Management | FourRays";
     const description =
       "Medical billing services and revenue cycle management to improve collections. Claims, denials, posting and follow-ups—streamline billing for your practice.";
     const keywords =
@@ -63,7 +63,7 @@ export default function ServiceStyle2() {
     upsertMeta("og:description", description, "property");
     upsertMeta("og:url", pageUrl, "property");
     upsertMeta("og:type", "website", "property");
-    upsertMeta("og:site_name", "Med Jaaf Solutions", "property");
+    upsertMeta("og:site_name", "FourRays Solutions", "property");
 
     // Twitter
     upsertMeta("twitter:card", "summary_large_image");
@@ -77,14 +77,14 @@ export default function ServiceStyle2() {
         {
           "@type": "Organization",
           "@id": `${baseUrl}/#organization`,
-          name: "Med Jaaf Solutions",
+          name: "FourRays Solutions",
           url: baseUrl,
         },
         {
           "@type": "WebSite",
           "@id": `${baseUrl}/#website`,
           url: baseUrl,
-          name: "Med Jaaf Solutions",
+          name: "FourRays Solutions",
           publisher: { "@id": `${baseUrl}/#organization` },
         },
         {

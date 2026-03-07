@@ -13,7 +13,7 @@ import { sendForm3 } from "@/http/form3Api";
 
 export default function Team() {
      useEffect(() => {
-    const baseUrl = "https://medjaafsolutions.com";
+    const baseUrl = "https://FourRayssolutions.com";
     const pagePath = "/enrollment";
     const pageUrl = `${baseUrl}${pagePath}`;
 

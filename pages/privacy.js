@@ -3,7 +3,7 @@ import Link from "next/link"
 import { useEffect } from "react";
 export default function PrivacyPolicy() {
 useEffect(() => {
-    const baseUrl = "https://medjaafsolutions.com";
+    const baseUrl = "https://FourRayssolutions.com";
     const pagePath = "/privacy";
     const pageUrl = `${baseUrl}${pagePath}`;
 

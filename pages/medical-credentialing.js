@@ -3,7 +3,7 @@ import Link from "next/link"
 import { useEffect } from "react";
 export default function ServiceStyle1() {
 useEffect(() => {
-    const baseUrl = "https://medjaafsolutions.com";
+    const baseUrl = "https://FourRayssolutions.com";
     const pagePath = "/medical-credentialing";
     const pageUrl = `${baseUrl}${pagePath}`;
 

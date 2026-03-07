@@ -19,7 +19,7 @@ const CounterUp = dynamic(() => import('@/components/elements/CounterUp'), {
 })
 export default function Home4() {
     useEffect(() => {
-        const baseUrl = "https://medjaafsolutions.com";
+        const baseUrl = "https://FourRayssolutions.com";
         const pageUrl = `${baseUrl}/`;
 
         const title = "Medical Credentialing Services | FourRays";
@@ -181,7 +181,7 @@ export default function Home4() {
                                         </div>
                                     </div>
                                     <h4>
-                                        <CounterUp count={10} time={1} /><small>Yrs</small>
+                                        <CounterUp count={12} time={1} /><small>Yrs</small>
                                     </h4>
                                     <h6 className="title_no_a_18">Trusted Since 2014</h6>
                                 </div>
