@@ -17,7 +17,7 @@ ${urls
 }
 
 export async function getServerSideProps({ res }) {
-  const baseUrl = "https://FourRayssolutions.com";
+  const baseUrl = "https://fourraysrcm.com"; 
   const lastmod = new Date().toISOString();
 
   const staticPages = [

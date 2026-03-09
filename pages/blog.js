@@ -4,7 +4,7 @@ import Link from "next/link"
 import { useEffect } from "react";
 export default function Blog() {
  useEffect(() => {
-    const baseUrl = "https://FourRayssolutions.com";
+   const baseUrl = "https://fourraysrcm.com"; 
     const pagePath = "/blog";
     const pageUrl = `${baseUrl}${pagePath}`;
 

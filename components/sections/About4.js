@@ -40,7 +40,7 @@ export default function About4() {
                             <div className="section_title type_five">
                                 <h4 className="sm_title">About Four Rays RCM</h4>
                                 <div className="title_whole">
-                                    <h2 className="title">Simplifying Credentialing & Revenue Cycle Management</h2>
+                                    <h1 className="title">Simplifying Credentialing & Revenue Cycle Management</h1>
                                 </div>
                                 <p>
                                     Four Rays RCM is a dedicated healthcare credentialing and revenue cycle management company committed to simplifying administrative and financial operations for healthcare providers.

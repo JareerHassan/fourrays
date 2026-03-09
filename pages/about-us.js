@@ -26,17 +26,17 @@ export default function AboutUs() {
     const sliderLogos = [...logos, ...logos, ...logos];
 
     useEffect(() => {
-        const baseUrl = "https://FourRayssolutions.com";
-        const pagePath = "/about";
+        const baseUrl = "https://fourraysrcm.com";
+        const pagePath = "/about-us";
         const pageUrl = `${baseUrl}${pagePath}`;
 
-        const title = "Medical Credentialing Company | About FourRays";
+        const title = "About FourRays RCM | Medical Billing & Credentialing Experts";
         const description =
-            "Meet FourRays, a medical credentialing company helping providers with payer enrollment, CAQH management, re-credentialing and compliance support.";
+            "Learn about FourRays RCM, a trusted provider of medical billing, credentialing, and revenue cycle management services helping healthcare providers streamline operations and maximize revenue.";
         const keywords =
-            "medical credentialing company, credentialing specialists, provider enrollment experts, healthcare credentialing team, credentialing services provider, insurance enrollment support, CAQH specialists";
+            "about FourRays RCM, medical billing company, revenue cycle management experts, healthcare billing specialists, provider credentialing services, RCM company USA";
 
-        // ---- helpers (inline) ----
+        // ---- helpers ----
         const upsertMeta = (key, content, attr = "name") => {
             if (!content) return;
             const selector =
@@ -75,7 +75,7 @@ export default function AboutUs() {
             script.text = JSON.stringify(json);
         };
 
-        // ---- apply SEO ----
+        // ---- SEO Apply ----
         document.title = title;
         upsertMeta("description", description);
         upsertMeta("keywords", keywords);
@@ -86,28 +86,28 @@ export default function AboutUs() {
         upsertMeta("og:description", description, "property");
         upsertMeta("og:url", pageUrl, "property");
         upsertMeta("og:type", "website", "property");
-        upsertMeta("og:site_name", "FourRays", "property");
+        upsertMeta("og:site_name", "FourRays RCM", "property");
 
         // Twitter
         upsertMeta("twitter:card", "summary_large_image");
         upsertMeta("twitter:title", title);
         upsertMeta("twitter:description", description);
 
-        // ---- Schema Markup (AboutPage + Organization) ----
+        // ---- Schema Markup ----
         const schema = {
             "@context": "https://schema.org",
             "@graph": [
                 {
                     "@type": "Organization",
                     "@id": `${baseUrl}/#organization`,
-                    name: "FourRays",
+                    name: "FourRays RCM",
                     url: baseUrl,
                 },
                 {
                     "@type": "WebSite",
                     "@id": `${baseUrl}/#website`,
                     url: baseUrl,
-                    name: "FourRays",
+                    name: "FourRays RCM",
                     publisher: { "@id": `${baseUrl}/#organization` },
                 },
                 {
@@ -124,6 +124,7 @@ export default function AboutUs() {
 
         setJsonLd("schema-about", schema);
     }, []);
+
     return (
         <>
             <Layout breadcrumbTitle="About Us">
@@ -241,8 +242,8 @@ export default function AboutUs() {
                                         <div className={activeIndex === 1 ? "tab-pane active" : "tab-pane"}>
                                             <div className="tab_content_box">
                                                 <div className="content">
-                                    FourRays is committed to delivering cutting-edge IT solutions that empower businesses to innovate and grow.
-                                                    </div>
+                                                    FourRays is committed to delivering cutting-edge IT solutions that empower businesses to innovate and grow.
+                                                </div>
                                                 <div className="d-flex">
                                                     <ul>
                                                         <li>
@@ -635,37 +636,37 @@ export default function AboutUs() {
                 </section>
                 {/*service*/}
                 {/*content*/}
-             <section className="content-section">
-    <div className="container">
-        <div className="row">
-            <div className="col-lg-6">
-                <div className="section_title type_one">
-                    <div className="title_whole">
-                        <h2 className="title">Why collaborate with FourRays?</h2>
-                    </div>
-                    <p>
-                        At FourRays, we specialize in delivering innovative IT solutions designed to help businesses grow, scale, and succeed in the digital world. Our team focuses on building high-quality web applications, modern digital platforms, and smart technology solutions that streamline operations and improve business performance.
-                        
-                        We understand that every business has unique goals and challenges. That’s why we provide customized solutions tailored to your needs, ensuring reliability, efficiency, and long-term success. From startups to established enterprises, FourRays supports organizations with modern technology and expert development services.
-                        
-                        With a strong commitment to quality, creativity, and innovation, FourRays is more than just a service provider — we are a trusted technology partner dedicated to helping your business move forward with confidence.
-                    </p>
-                </div>
+                <section className="content-section">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-6">
+                                <div className="section_title type_one">
+                                    <div className="title_whole">
+                                        <h2 className="title">Why collaborate with FourRays?</h2>
+                                    </div>
+                                    <p>
+                                        At FourRays, we specialize in delivering innovative IT solutions designed to help businesses grow, scale, and succeed in the digital world. Our team focuses on building high-quality web applications, modern digital platforms, and smart technology solutions that streamline operations and improve business performance.
 
-                <div className="pd_bottom_40" />
-                <div className="pd_bottom_40" />
-            </div>
+                                        We understand that every business has unique goals and challenges. That’s why we provide customized solutions tailored to your needs, ensuring reliability, efficiency, and long-term success. From startups to established enterprises, FourRays supports organizations with modern technology and expert development services.
 
-            <div className="col-lg-6">
-                <div className="image_video_box_only type_one mr_bottom_minus_90 z_1">
-                    <div className="image one height_530px">
-                        <img src="/assets/images/new-7.jpg" alt="img" className="img-fluid height_530px" />
+                                        With a strong commitment to quality, creativity, and innovation, FourRays is more than just a service provider — we are a trusted technology partner dedicated to helping your business move forward with confidence.
+                                    </p>
+                                </div>
+
+                                <div className="pd_bottom_40" />
+                                <div className="pd_bottom_40" />
+                            </div>
+
+                            <div className="col-lg-6">
+                                <div className="image_video_box_only type_one mr_bottom_minus_90 z_1">
+                                    <div className="image one height_530px">
+                                        <img src="/assets/images/new-7.jpg" alt="img" className="img-fluid height_530px" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+                </section>
                 {/*content*/}
                 {/*funfacts*/}
                 <section className="analysis-section position-relative bg_1 overflow-hidden">

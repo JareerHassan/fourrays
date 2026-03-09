@@ -2,8 +2,9 @@ import Layout from "@/components/layout/Layout"
 import Link from "next/link"
 import { useEffect } from "react";
 export default function ServiceStyle1() {
+
 useEffect(() => {
-    const baseUrl = "https://FourRayssolutions.com";
+    const baseUrl = "https://fourraysrcm.com"; // Production domain
     const pagePath = "/medical-credentialing";
     const pageUrl = `${baseUrl}${pagePath}`;
 
@@ -110,7 +111,7 @@ useEffect(() => {
     };
 
     setJsonLd("schema-medical-credentialing", schema);
-  }, []);
+}, []);
     return (
         <>
             <Layout breadcrumbTitle="Medical Credentialing">

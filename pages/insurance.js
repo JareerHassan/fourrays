@@ -3,7 +3,7 @@ import Link from "next/link"
 import { useEffect } from "react";
 export default function ServiceStyle3() {
     useEffect(() => {
-    const baseUrl = "https://FourRayssolutions.com";
+   const baseUrl = "https://fourraysrcm.com"; 
     const pagePath = "/insurance"; // ✅ your route
     const pageUrl = `${baseUrl}${pagePath}`;
 

@@ -129,7 +129,7 @@ export default function Banner1() {
         }
 
         /* Title typography */
-        .hero_v2 .section_title.type_one h1.title {
+        .hero_v2 .section_title.type_one h2.title {
           color: #fff;
           font-weight: 800;
           line-height: 1.05;
@@ -451,7 +451,7 @@ export default function Banner1() {
                       </div>
 
                       <div className="title_whole">
-                        <h1 className="title">{slide.title}</h1>
+                        <h2 className="title">{slide.title}</h2>
                       </div>
 
                       <p>{slide.description}</p>

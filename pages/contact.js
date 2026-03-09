@@ -5,7 +5,7 @@ import { sendForm2 } from "@/http/form2Api";
 
 export default function Contact() {
 useEffect(() => {
-    const baseUrl = "https://FourRayssolutions.com";
+    const baseUrl = "https://fourraysrcm.com"; 
     const pagePath = "/contact";
     const pageUrl = `${baseUrl}${pagePath}`;
 

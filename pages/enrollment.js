@@ -13,7 +13,7 @@ import { sendForm3 } from "@/http/form3Api";
 
 export default function Team() {
      useEffect(() => {
-    const baseUrl = "https://FourRayssolutions.com";
+   const baseUrl = "https://fourraysrcm.com"; 
     const pagePath = "/enrollment";
     const pageUrl = `${baseUrl}${pagePath}`;
 
@@ -199,7 +199,7 @@ export default function Team() {
                     <div className="row justify-content-center">
                         <div className="col-lg-10">
                             <div className="form-header mb-5">
-                                <h2 className="display-6 fw-bold text-dark">Provider/Facility Details</h2>
+                                <h1 className="display-6 fw-bold text-dark">Provider/Facility Details</h1>
                             </div>
 
                             <form ref={form} onSubmit={handleSubmit} className="enrollment-form bg-white p-4 p-md-5 rounded-4 shadow-sm border">

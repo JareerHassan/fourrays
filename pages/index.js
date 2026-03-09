@@ -18,17 +18,18 @@ const CounterUp = dynamic(() => import('@/components/elements/CounterUp'), {
     ssr: false,
 })
 export default function Home4() {
+
     useEffect(() => {
-        const baseUrl = "https://FourRayssolutions.com";
+        const baseUrl = "https://fourraysrcm.com";
         const pageUrl = `${baseUrl}/`;
 
-        const title = "Medical Credentialing Services | FourRays";
+        const title = "FourRays RCM | Medical Billing & Credentialing Services";
         const description =
-            "Medical credentialing services for providers & clinics. We handle payer enrollment, CAQH, re-credentialing and compliance—reduce delays and get in-network faster.";
+            "FourRays RCM provides professional medical billing, credentialing, and revenue cycle management services for healthcare providers across the USA. Simplify your billing and maximize revenue with our expert team.";
         const keywords =
-            "medical credentialing services, provider credentialing services, insurance credentialing services, payer enrollment services, CAQH profile management, recredentialing services, healthcare credentialing company, credentialing support for providers, medical credentialing agency";
+            "medical billing services, revenue cycle management, RCM services, medical credentialing services, insurance credentialing, healthcare billing company, provider enrollment services, FourRays RCM";
 
-        // ---- helpers (inline) ----
+        // ---- helpers ----
         const upsertMeta = (key, content, attr = "name") => {
             if (!content) return;
             const selector =
@@ -67,7 +68,7 @@ export default function Home4() {
             script.text = JSON.stringify(json);
         };
 
-        // ---- apply SEO ----
+        // ---- SEO Apply ----
         document.title = title;
         upsertMeta("description", description);
         upsertMeta("keywords", keywords);
@@ -79,7 +80,7 @@ export default function Home4() {
         upsertMeta("og:description", description, "property");
         upsertMeta("og:url", pageUrl, "property");
         upsertMeta("og:type", "website", "property");
-        upsertMeta("og:site_name", "FourRays", "property");
+        upsertMeta("og:site_name", "FourRays RCM", "property");
 
         // Twitter
         upsertMeta("twitter:card", "summary_large_image");
@@ -93,14 +94,14 @@ export default function Home4() {
                 {
                     "@type": "Organization",
                     "@id": `${baseUrl}/#organization`,
-                    name: "FourRays",
+                    name: "FourRays RCM",
                     url: baseUrl,
                 },
                 {
                     "@type": "WebSite",
                     "@id": `${baseUrl}/#website`,
                     url: baseUrl,
-                    name: "FourRays",
+                    name: "FourRays RCM",
                     publisher: { "@id": `${baseUrl}/#organization` },
                 },
                 {
@@ -114,11 +115,11 @@ export default function Home4() {
                 },
                 {
                     "@type": "Service",
-                    name: "Medical Credentialing Services",
+                    name: "Medical Billing & Credentialing Services",
                     provider: { "@id": `${baseUrl}/#organization` },
                     areaServed: "United States",
                     serviceType:
-                        "Medical credentialing services, payer enrollment services, CAQH profile management, re-credentialing services, compliance support",
+                        "Medical billing services, revenue cycle management, insurance credentialing, provider enrollment, RCM solutions",
                 },
             ],
         };
