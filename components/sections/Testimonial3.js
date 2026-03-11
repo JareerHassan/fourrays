@@ -42,7 +42,7 @@ export default function Testimonial3() {
                         <div className="col-lg-6 col-md-12">
   <div className="image_box_only type_ten mr_bottom_minus_100">
     <img
-      src="/assets/images/new-5.jpg"
+      src="/assets/images/new-1.jpg"
       alt="img"
       className="img-fluid"
       style={{

@@ -133,7 +133,7 @@ export default function Sidebar() {
                         <li className="menu-item nav-item">
                             <Link href="/medical-credentialing" className="nav_link">
                                 <span className="text-link">
-                                    Medical Credentialing
+                                    Credentialing
                                 </span>
                             </Link>
                         </li>

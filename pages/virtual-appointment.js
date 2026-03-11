@@ -102,7 +102,7 @@ useEffect(() => {
           "@id": `${pageUrl}#service`,
           name: "Credentialing Consultation (Virtual Appointment)",
           serviceType:
-            "Virtual consultation for medical credentialing, payer enrollment, CAQH management, timelines and requirements",
+            "Virtual consultation for Credentialing, payer enrollment, CAQH management, timelines and requirements",
           provider: { "@id": `${baseUrl}/#organization` },
           areaServed: "United States",
         },

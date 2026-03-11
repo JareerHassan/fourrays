@@ -135,14 +135,14 @@ export default function Team() {
     ];
 
     const documentList = [
-        { label: "State License", name: "state_license", required: true },
+        { label: "State License", name: "state_license", required: false },
         { label: "IRS Letter", name: "irs_letter", required: true, note: "Compulsory" },
         { label: "Accreditation Letter", name: "accreditation_letter", required: false },
-        { label: "Malpractice/PLI/COI", name: "malpractice_pli_coi", required: true }, // ✅ name fixed
-        { label: "W9 Form", name: "w9_form", required: true },
-        { label: "Voided Check/Bank Letter", name: "void_check", required: true },
-        { label: "Owner Driving License", name: "owner_driving_license", required: true },
-        { label: "Resume / CV", name: "resume_cv", required: true },
+        { label: "Malpractice/PLI/COI", name: "malpractice_pli_coi", required: false }, // ✅ name fixed
+        { label: "W9 Form", name: "w9_form", required: false },
+        { label: "Voided Check/Bank Letter", name: "void_check", required: false },
+        { label: "Owner Driving License", name: "owner_driving_license", required: false },
+        { label: "Resume / CV", name: "resume_cv", required: false },
         { label: "Bank Statement", name: "bank_statement", required: false } // ✅ optional field added
     ];
 

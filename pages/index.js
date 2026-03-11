@@ -27,7 +27,7 @@ export default function Home4() {
         const description =
             "FourRays RCM provides professional medical billing, credentialing, and revenue cycle management services for healthcare providers across the USA. Simplify your billing and maximize revenue with our expert team.";
         const keywords =
-            "medical billing services, revenue cycle management, RCM services, medical credentialing services, insurance credentialing, healthcare billing company, provider enrollment services, FourRays RCM";
+            "medical billing services, revenue cycle management, RCM services, Credentialing services, insurance credentialing, healthcare billing company, provider enrollment services, FourRays RCM";
 
         // ---- helpers ----
         const upsertMeta = (key, content, attr = "name") => {

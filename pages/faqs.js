@@ -8,11 +8,11 @@ export default function Faq() {
     const pagePath = "/faqs";
     const pageUrl = `${baseUrl}${pagePath}`;
 
-    const title = "Medical Credentialing FAQs | FourRays";
+    const title = "Credentialing FAQs | FourRays";
     const description =
-      "Answers to common medical credentialing faqs questions: enrollment timelines, CAQH, documents needed, re-credentialing, compliance, and how our process works.";
+      "Answers to common Credentialing faqs questions: enrollment timelines, CAQH, documents needed, re-credentialing, compliance, and how our process works.";
     const keywords =
-      "medical credentialing FAQs, provider enrollment FAQs, CAQH questions, recredentialing FAQs, credentialing timeline questions, payer enrollment process, credentialing requirements";
+      "Credentialing FAQs, provider enrollment FAQs, CAQH questions, recredentialing FAQs, credentialing timeline questions, payer enrollment process, credentialing requirements";
 
     const upsertMeta = (key, content, attr = "name") => {
       if (!content) return;
@@ -75,11 +75,11 @@ export default function Faq() {
       mainEntity: [
         {
           "@type": "Question",
-          name: "What is medical credentialing?",
+          name: "What is Credentialing?",
           acceptedAnswer: {
             "@type": "Answer",
             text:
-              "Medical credentialing is the process of verifying a provider’s qualifications and submitting required documents so the provider can join insurance payer networks.",
+              "Credentialing is the process of verifying a provider’s qualifications and submitting required documents so the provider can join insurance payer networks.",
           },
         },
         {
@@ -348,7 +348,7 @@ export default function Faq() {
                                         <div className={isActive.key == 7 ? "accordion  active-block" : "accordion"}>
                                             <div className={isActive.key == 7 ? "question faq_header active" : "question faq_header"} onClick={() => handleToggle(7)}>
                                                 <div className="question_box ">
-                                                    <div className="title_no_a_18 trans">Why would someone want or need medical credentialing?
+                                                    <div className="title_no_a_18 trans">Why would someone want or need Credentialing?
                                                     </div>
                                                     <span className="icon_fq trans fi-rs-arrow-small-right" />
                                                 </div>
@@ -373,7 +373,7 @@ export default function Faq() {
                                             <div className={isActive.key == 9 ? "question faq_header active" : "question faq_header"} onClick={() => handleToggle(9)}>
                                                 <div className="question_box ">
                                                     <div className="title_no_a_18 trans">
-                                                        How can I track my Medical credentialing progress?
+                                                        How can I track my Credentialing progress?
                                                     </div>
                                                     <span className="icon_fq trans fi-rs-arrow-small-right" />
                                                 </div>

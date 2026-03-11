@@ -8,11 +8,11 @@ export default function Blog() {
     const pagePath = "/blog";
     const pageUrl = `${baseUrl}${pagePath}`;
 
-    const title = "Medical Credentialing Blog | FourRays";
+    const title = "Credentialing Blog | FourRays";
     const description =
-      "Medical Credentialing Blog, provider enrollment, CAQH management, compliance and re-credentialing—built to reduce delays and denials.";
+      "Credentialing Blog, provider enrollment, CAQH management, compliance and re-credentialing—built to reduce delays and denials.";
     const keywords =
-      "medical credentialing blog, provider enrollment guide, credentialing tips, CAQH help articles, recredentialing checklist, credentialing updates, payer enrollment process";
+      "Credentialing blog, provider enrollment guide, credentialing tips, CAQH help articles, recredentialing checklist, credentialing updates, payer enrollment process";
 
     // ---- helpers (inline) ----
     const upsertMeta = (key, content, attr = "name") => {
@@ -123,7 +123,7 @@ export default function Blog() {
                     <div className="container">
                         <div className="section_title type_one my-5 text-center">
                                     <div className="title_whole">
-                                        <h1 className="title">Medical Credentialing Blog, provider enrollment, CAQH management, compliance.</h1>
+                                        <h1 className="title">Credentialing Blog, provider enrollment, CAQH management, compliance.</h1>
                                     </div>
                                 </div>
                         <div className="row">

@@ -8,11 +8,11 @@ useEffect(() => {
     const pagePath = "/medical-credentialing";
     const pageUrl = `${baseUrl}${pagePath}`;
 
-    const title = "Medical Credentialing Services | FourRays";
+    const title = "Credentialing Services | FourRays";
     const description =
-      "End-to-end medical credentialing services including verification, CAQH management, payer applications, follow-ups and ongoing maintenance for providers.";
+      "End-to-end Credentialing services including verification, CAQH management, payer applications, follow-ups and ongoing maintenance for providers.";
     const keywords =
-      "medical credentialing services, provider credentialing, insurance credentialing, primary source verification, credentialing verification, physician credentialing services, credentialing for clinics, credentialing specialists";
+      "Credentialing services, provider credentialing, insurance credentialing, primary source verification, credentialing verification, physician credentialing services, credentialing for clinics, credentialing specialists";
 
     // ---- helpers (inline) ----
     const upsertMeta = (key, content, attr = "name") => {
@@ -101,7 +101,7 @@ useEffect(() => {
         {
           "@type": "Service",
           "@id": `${pageUrl}#service`,
-          name: "Medical Credentialing Services",
+          name: "Credentialing Services",
           serviceType:
             "Primary source verification, CAQH management, payer applications, follow-ups, ongoing credentialing maintenance",
           provider: { "@id": `${baseUrl}/#organization` },
@@ -114,7 +114,7 @@ useEffect(() => {
 }, []);
     return (
         <>
-            <Layout breadcrumbTitle="Medical Credentialing">
+            <Layout breadcrumbTitle="Credentialing">
                 {/*-service*/}
                 <section className="service-section-one">
                     {/*-============spacing==========-*/}
@@ -125,7 +125,7 @@ useEffect(() => {
                             <div className="col-lg-6">
                                 <div className="section_title type_one">
                                     <div className="title_whole">
-                                        <h1 className="title">Our Comprehensive Medical Credentialing Services
+                                        <h1 className="title">Our Comprehensive Credentialing Services
                                         </h1>
                                     </div>
                                 </div>
