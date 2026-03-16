@@ -28,6 +28,7 @@ export default function Footer4({ }) {
                             <div className="content">
                                 <h6 className="tite">Need Help?</h6>
                                 <div className="title_20"><Link href="tel:+18552478482">+1-855-247-8482</Link></div>
+                                <div className="title_20"><Link href="mailto:info@fourraysrcm.com">info@fourraysrcm.com</Link></div>
                             </div>
                         </div>
                     </div>

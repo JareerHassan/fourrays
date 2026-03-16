@@ -7435,9 +7435,9 @@ body ul.portfolio_filter.color_two li.current, body ul.portfolio_filter.color_tw
   line-height: 40px;
   color: var(--color-white);
 }
-.call_to_action.style_one .theme_btn_all {
+/* .call_to_action.style_one .theme_btn_all {
   padding: 40px 0px 40px 40px;
-}
+} */
 .call_to_action.style_one .theme_btn_all .theme_btn {
   border-color: var(--color-white);
   padding: 5px 30px 10px 34px !important;
@@ -7448,11 +7448,11 @@ body ul.portfolio_filter.color_two li.current, body ul.portfolio_filter.color_tw
   font-size: 24px !important;
   transform: rotate(45deg) !important;
 }
-.call_to_action.style_one .theme_btn_all .theme_btn:hover {
+/* .call_to_action.style_one .theme_btn_all .theme_btn:hover {
   background: var(--color-white);
   color: var(--color-set-one-1);
   border-color: var(--color-white);
-}
+} */
 .call_to_action.style_one .contact_header_one {
   padding: 40px 20px 40px 20px;
 }
@@ -13821,6 +13821,10 @@ input[type=range i]:hover::-webkit-slider-thumb, input[type=range i]:focus::-web
   top: 200px;
   right: -5px;
 }
+
+
+
+
 .footer.style_five {
   overflow: unset;
 }
