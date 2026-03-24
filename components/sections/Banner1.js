@@ -511,7 +511,7 @@ export default function Banner1() {
               <i className="fa fa-phone" />
               <div>
                 <strong>Call Us</strong>
-                <span>+1-855-247-8482</span>
+                <span>+1-346-228-4848</span>
               </div>
             </a>
 

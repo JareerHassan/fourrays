@@ -494,7 +494,7 @@ export default function Contact() {
 
         <label htmlFor="sms_consent" className="sms-consent-text">
             I agree to receive marketing text messages from Speedy Credentialing at{" "}
-            <a href="tel:+18552478482">+1-855-247-8482</a>. Consent is not a
+            <a href="tel:+18552478482">+1-346-228-4848</a>. Consent is not a
             condition of purchase. Message and data rates may apply. Message
             frequency varies. Reply STOP to unsubscribe and HELP for help.{" "}
             <a href="/privacy">Privacy Policy</a> |{" "}
@@ -675,7 +675,7 @@ export default function Contact() {
                                         href="tel:+18552478482"
                                         className="text_primary hover_underline"
                                     >
-                                        +1-855-247-8482
+                                        +1-346-228-4848
                                     </Link>
                                 </div>
                             </div>

@@ -25,7 +25,7 @@ export default function MobileMenu({ handleMobileMenu, isMobileMenu }) {
                         <div className="mobile-header-info-wrap">
                             <div className="single-mobile-header-info">
                                 <Link href="tel:+18552478482" className="cnt">
-                                    <i className="fi-rs-headphones" />+1-855-247-8482</Link>
+                                    <i className="fi-rs-headphones" />+1-346-228-4848</Link>
                             </div>
                             <div className="single-mobile-header-info cont_over">
                                 <Link href="mailto:info@fourraysrcm.com" className="cnt">

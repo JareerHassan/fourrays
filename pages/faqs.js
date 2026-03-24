@@ -338,7 +338,7 @@ export default function Faq() {
 
                                     At Credentialing, we provide a full-service credentialing solution. Let us handle the complicated processes and the repeated follow up calls with insurance companies for you.
 
-                                    Listed below are answers to some of the most frequently asked questions about the credentialing process. Take some time and review the information below or simply call us at <a className="text-primary">+1-855-247-8482</a> with your questions, and we’ll be happy to help!
+                                    Listed below are answers to some of the most frequently asked questions about the credentialing process. Take some time and review the information below or simply call us at <a className="text-primary">+1-346-228-4848</a> with your questions, and we’ll be happy to help!
                                 </div>
                                 {/*-============spacing==========-*/}
                                 <div className="pd_bottom_30" />

@@ -36,7 +36,7 @@ export default function Footer4({}) {
                     className="fi-rr-phone-call"
                     style={{ marginRight: "8px", color: "var(--color-white)" }}
                   ></i>
-                  <Link href="tel:+18552478482">+1-855-247-8482</Link>
+                  <Link href="tel:+18552478482">+1-346-228-4848</Link>
                 </div>
 
                 <div
