@@ -8,4 +8,4 @@ Disallow: /_next/
 Disallow: /admin/
 
 # ✅ Sitemap location
-Sitemap: https://FourRayssolutions.com/sitemap.xml
+Sitemap: https://fourraysrcm.com/sitemap.xml
