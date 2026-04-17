@@ -12,112 +12,112 @@ import {
 import { sendForm3 } from "@/http/form3Api";
 
 export default function Team() {
-     useEffect(() => {
-   const baseUrl = "https://fourraysrcm.com"; 
-    const pagePath = "/enrollment";
-    const pageUrl = `${baseUrl}${pagePath}`;
+    useEffect(() => {
+        const baseUrl = "https://fourraysrcm.com";
+        const pagePath = "/enrollment";
+        const pageUrl = `${baseUrl}${pagePath}`;
 
-    const title = "Provider Enrollment Services | FourRays";
-    const description =
-      "Provider enrollment services to get you in-network faster. We submit, track, and follow up on payer applications while keeping profiles accurate and complete.";
-    const keywords =
-      "provider enrollment services, payer enrollment services, insurance enrollment for providers, Medicare provider enrollment, Medicaid enrollment services, commercial payer enrollment, credentialing and enrollment services";
+        const title = "Provider Enrollment Services | FourRays";
+        const description =
+            "Provider enrollment services to get you in-network faster. We submit, track, and follow up on payer applications while keeping profiles accurate and complete.";
+        const keywords =
+            "provider enrollment services, payer enrollment services, insurance enrollment for providers, Medicare provider enrollment, Medicaid enrollment services, commercial payer enrollment, credentialing and enrollment services";
 
-    const upsertMeta = (key, content, attr = "name") => {
-      if (!content) return;
-      const selector =
-        attr === "property" ? `meta[property="${key}"]` : `meta[name="${key}"]`;
-      let tag = document.head.querySelector(selector);
-      if (!tag) {
-        tag = document.createElement("meta");
-        tag.setAttribute(attr, key);
-        document.head.appendChild(tag);
-      }
-      tag.setAttribute("content", content);
-    };
+        const upsertMeta = (key, content, attr = "name") => {
+            if (!content) return;
+            const selector =
+                attr === "property" ? `meta[property="${key}"]` : `meta[name="${key}"]`;
+            let tag = document.head.querySelector(selector);
+            if (!tag) {
+                tag = document.createElement("meta");
+                tag.setAttribute(attr, key);
+                document.head.appendChild(tag);
+            }
+            tag.setAttribute("content", content);
+        };
 
-    const setCanonical = (url) => {
-      if (!url) return;
-      let link = document.head.querySelector('link[rel="canonical"]');
-      if (!link) {
-        link = document.createElement("link");
-        link.setAttribute("rel", "canonical");
-        document.head.appendChild(link);
-      }
-      link.setAttribute("href", url);
-    };
+        const setCanonical = (url) => {
+            if (!url) return;
+            let link = document.head.querySelector('link[rel="canonical"]');
+            if (!link) {
+                link = document.createElement("link");
+                link.setAttribute("rel", "canonical");
+                document.head.appendChild(link);
+            }
+            link.setAttribute("href", url);
+        };
 
-    const setJsonLd = (id, json) => {
-      if (!json) return;
-      let script = document.getElementById(id);
-      if (!script) {
-        script = document.createElement("script");
-        script.type = "application/ld+json";
-        script.id = id;
-        document.head.appendChild(script);
-      }
-      script.text = JSON.stringify(json);
-    };
+        const setJsonLd = (id, json) => {
+            if (!json) return;
+            let script = document.getElementById(id);
+            if (!script) {
+                script = document.createElement("script");
+                script.type = "application/ld+json";
+                script.id = id;
+                document.head.appendChild(script);
+            }
+            script.text = JSON.stringify(json);
+        };
 
-    // Apply SEO
-    document.title = title;
-    upsertMeta("description", description);
-    upsertMeta("keywords", keywords);
-    setCanonical(pageUrl);
+        // Apply SEO
+        document.title = title;
+        upsertMeta("description", description);
+        upsertMeta("keywords", keywords);
+        setCanonical(pageUrl);
 
-    // Open Graph
-    upsertMeta("og:title", title, "property");
-    upsertMeta("og:description", description, "property");
-    upsertMeta("og:url", pageUrl, "property");
-    upsertMeta("og:type", "website", "property");
-    upsertMeta("og:site_name", "FourRays", "property");
+        // Open Graph
+        upsertMeta("og:title", title, "property");
+        upsertMeta("og:description", description, "property");
+        upsertMeta("og:url", pageUrl, "property");
+        upsertMeta("og:type", "website", "property");
+        upsertMeta("og:site_name", "FourRays", "property");
 
-    // Twitter
-    upsertMeta("twitter:card", "summary_large_image");
-    upsertMeta("twitter:title", title);
-    upsertMeta("twitter:description", description);
+        // Twitter
+        upsertMeta("twitter:card", "summary_large_image");
+        upsertMeta("twitter:title", title);
+        upsertMeta("twitter:description", description);
 
-    // Schema
-    const schema = {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "@id": `${baseUrl}/#organization`,
-          name: "FourRays",
-          url: baseUrl,
-        },
-        {
-          "@type": "WebSite",
-          "@id": `${baseUrl}/#website`,
-          url: baseUrl,
-          name: "FourRays",
-          publisher: { "@id": `${baseUrl}/#organization` },
-        },
-        {
-          "@type": "WebPage",
-          "@id": `${pageUrl}#webpage`,
-          url: pageUrl,
-          name: title,
-          description,
-          isPartOf: { "@id": `${baseUrl}/#website` },
-          about: { "@id": `${baseUrl}/#organization` },
-          inLanguage: "en",
-        },
-        {
-          "@type": "Service",
-          "@id": `${pageUrl}#service`,
-          name: "Provider Enrollment Services",
-          serviceType:
-            "Payer enrollment services, Medicare/Medicaid enrollment, commercial payer enrollment, application submission, tracking and follow-ups, provider profile accuracy",
-          provider: { "@id": `${baseUrl}/#organization` },
-          areaServed: "United States",
-        },
-      ],
-    };
+        // Schema
+        const schema = {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "Organization",
+                    "@id": `${baseUrl}/#organization`,
+                    name: "FourRays",
+                    url: baseUrl,
+                },
+                {
+                    "@type": "WebSite",
+                    "@id": `${baseUrl}/#website`,
+                    url: baseUrl,
+                    name: "FourRays",
+                    publisher: { "@id": `${baseUrl}/#organization` },
+                },
+                {
+                    "@type": "WebPage",
+                    "@id": `${pageUrl}#webpage`,
+                    url: pageUrl,
+                    name: title,
+                    description,
+                    isPartOf: { "@id": `${baseUrl}/#website` },
+                    about: { "@id": `${baseUrl}/#organization` },
+                    inLanguage: "en",
+                },
+                {
+                    "@type": "Service",
+                    "@id": `${pageUrl}#service`,
+                    name: "Provider Enrollment Services",
+                    serviceType:
+                        "Payer enrollment services, Medicare/Medicaid enrollment, commercial payer enrollment, application submission, tracking and follow-ups, provider profile accuracy",
+                    provider: { "@id": `${baseUrl}/#organization` },
+                    areaServed: "United States",
+                },
+            ],
+        };
 
-    setJsonLd("schema-enrollment", schema);
-  }, []);
+        setJsonLd("schema-enrollment", schema);
+    }, []);
 
     const [loading, setLoading] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
@@ -219,27 +219,27 @@ export default function Team() {
                                         </div>
                                         <div className="col-md-3">
                                             <label className="form-label small fw-bold text-uppercase text-muted">SSN (Last 4)</label>
-                                            <input type="text" name="ssn_last_4" className="form-control custom-input" placeholder="0000" maxLength={4} required />
+                                            <input type="text" name="ssn_last_4" className="form-control custom-input" placeholder="0000" maxLength={4} />
                                         </div>
                                         <div className="col-md-3">
                                             <label className="form-label small fw-bold text-uppercase text-muted">Date of Birth</label>
-                                            <input type="date" name="date_of_birth" className="form-control custom-input" required />
+                                            <input type="date" name="date_of_birth" className="form-control custom-input" />
                                         </div>
                                         <div className="col-md-4">
                                             <label className="form-label small fw-bold text-uppercase text-muted">Percentage of Ownership</label>
-                                            <input type="text" name="percentage_of_ownership" className="form-control custom-input" placeholder="%" required />
+                                            <input type="text" name="percentage_of_ownership" className="form-control custom-input" placeholder="%" />
                                         </div>
                                         <div className="col-md-4">
                                             <label className="form-label small fw-bold text-uppercase text-muted">NPPES username</label>
-                                            <input type="text" name="nppes_username" className="form-control custom-input" placeholder="NPPES username" required />
+                                            <input type="text" name="nppes_username" className="form-control custom-input" placeholder="NPPES username" />
                                         </div>
                                         <div className="col-md-4">
                                             <label className="form-label small fw-bold text-uppercase text-muted">NPPES password</label>
-                                            <input type="text" name="nppes_password" className="form-control custom-input" placeholder="NPPES password" required />
+                                            <input type="text" name="nppes_password" className="form-control custom-input" placeholder="NPPES password" />
                                         </div>
                                         <div className="col-md-4">
                                             <label className="form-label small fw-bold text-uppercase text-muted">Speciality</label>
-                                            <input type="text" name="speciality" className="form-control custom-input" placeholder="e.g. Cardiology" required />
+                                            <input type="text" name="speciality" className="form-control custom-input" placeholder="e.g. Cardiology" />
                                         </div>
                                         <div className="col-md-4">
                                             <label className="form-label small fw-bold text-uppercase text-muted">Email Address *</label>
@@ -247,7 +247,7 @@ export default function Team() {
                                         </div>
                                         <div className="col-md-4">
                                             <label className="form-label small fw-bold text-uppercase text-muted">Cell No.</label>
-                                            <input type="tel" name="cell_no" className="form-control custom-input" placeholder="+1..." required />
+                                            <input type="tel" name="cell_no" className="form-control custom-input" placeholder="+1..." />
                                         </div>
                                     </div>
                                 </div>
@@ -263,55 +263,55 @@ export default function Team() {
                                     <div className="row g-4">
                                         <div className="col-md-12">
                                             <label className="form-label small fw-bold text-uppercase text-muted">Facility/Agency Name</label>
-                                            <input type="text" name="facility_agency_name" placeholder="Facility/Agency Name" className="form-control custom-input" required />
+                                            <input type="text" name="facility_agency_name" placeholder="Facility/Agency Name" className="form-control custom-input" />
                                         </div>
                                         <div className="col-md-6">
                                             <label className="form-label small fw-bold text-uppercase text-muted">Tax ID</label>
-                                            <input type="text" name="tax_id" placeholder="Tax ID" className="form-control custom-input" required />
+                                            <input type="text" name="tax_id" placeholder="Tax ID" className="form-control custom-input" />
                                         </div>
                                         <div className="col-md-6">
                                             <label className="form-label small fw-bold text-uppercase text-muted">NPI Type 1 (Individual)</label>
-                                            <input type="text" name="npi_type_1_individual" placeholder="NPI Type 1 (Individual)" className="form-control custom-input" required />
+                                            <input type="text" name="npi_type_1_individual" placeholder="NPI Type 1 (Individual)" className="form-control custom-input" />
                                         </div>
                                         <div className="col-md-6">
                                             <label className="form-label small fw-bold text-uppercase text-muted">NPI Type 2 (Group)</label>
-                                            <input type="text" name="npi_type_2_group" placeholder="NPI Type 2 (Group)" className="form-control custom-input" required />
+                                            <input type="text" name="npi_type_2_group" placeholder="NPI Type 2 (Group)" className="form-control custom-input" />
                                         </div>
                                         <div className="col-md-6">
                                             <label className="form-label small fw-bold text-uppercase text-muted">Primary Service Address</label>
-                                            <input type="text" name="primary_service_address" placeholder="Primary Service Address" className="form-control custom-input" required />
+                                            <input type="text" name="primary_service_address" placeholder="Primary Service Address" className="form-control custom-input" />
                                         </div>
                                         <div className="col-md-6">
                                             <label className="form-label small fw-bold text-uppercase text-muted">Pay to Address</label>
-                                            <input type="text" name="pay_to_address" placeholder="Pay to Address" className="form-control custom-input" required />
+                                            <input type="text" name="pay_to_address" placeholder="Pay to Address" className="form-control custom-input" />
                                         </div>
                                         <div className="col-md-6">
                                             <label className="form-label small fw-bold text-uppercase text-muted">Mailing Address</label>
-                                            <input type="text" name="mailing_address" placeholder="Mailing Address" className="form-control custom-input" required />
+                                            <input type="text" name="mailing_address" placeholder="Mailing Address" className="form-control custom-input" />
                                         </div>
                                         <div className="col-md-6">
                                             <label className="form-label small fw-bold text-uppercase text-muted">Office Hours</label>
-                                            <input type="text" name="office_hours_at_location" placeholder="Office Hours" className="form-control custom-input" required />
+                                            <input type="text" name="office_hours_at_location" placeholder="Office Hours" className="form-control custom-input" />
                                         </div>
                                         <div className="col-md-6">
                                             <label className="form-label small fw-bold text-uppercase text-muted">Appointment Phone No.</label>
-                                            <input type="text" name="appointment_phone_no" placeholder="Appointment Phone No." className="form-control custom-input" required />
+                                            <input type="text" name="appointment_phone_no" placeholder="Appointment Phone No." className="form-control custom-input" />
                                         </div>
                                         <div className="col-md-6">
                                             <label className="form-label small fw-bold text-uppercase text-muted">Fax No.</label>
-                                            <input type="text" name="fax_no" placeholder="Fax No." className="form-control custom-input" required />
+                                            <input type="text" name="fax_no" placeholder="Fax No." className="form-control custom-input" />
                                         </div>
                                         <div className="col-md-6">
                                             <label className="form-label small fw-bold text-uppercase text-muted">Office Email</label>
-                                            <input type="text" name="office_email" placeholder="Office Email" className="form-control custom-input" required />
+                                            <input type="text" name="office_email" placeholder="Office Email" className="form-control custom-input" />
                                         </div>
                                         <div className="col-md-6">
                                             <label className="form-label small fw-bold text-uppercase text-muted">Office Manager/Contact</label>
-                                            <input type="text" name="office_manager_contact" placeholder="Office Manager/Contact" className="form-control custom-input" required />
+                                            <input type="text" name="office_manager_contact" placeholder="Office Manager/Contact" className="form-control custom-input" />
                                         </div>
                                         <div className="col-md-6">
                                             <label className="form-label small fw-bold text-uppercase text-muted">CAQH logins</label>
-                                            <input type="text" name="caqh_logins" placeholder="CAQH logins" className="form-control custom-input" required />
+                                            <input type="text" name="caqh_logins" placeholder="CAQH logins" className="form-control custom-input" />
                                         </div>
                                     </div>
                                 </div>
@@ -339,7 +339,7 @@ export default function Team() {
                                                         name={doc.name}
                                                         className="form-control form-control-sm"
                                                         accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
-                                                    // required
+                                                        required={doc.required}
                                                     />
                                                 </div>
                                             </div>
@@ -394,7 +394,7 @@ export default function Team() {
                                 <div className="submit-area border-top pt-5">
                                     <div className="col-md-12 mb-3">
                                         <p>Write Other Insurance Companies not mentioned in our list</p>
-                                        <textarea name="other_insurances" rows="4" className="form-control custom-input" placeholder="Enter any other insurance companies..." required ></textarea>
+                                        <textarea name="other_insurances" rows="4" className="form-control custom-input" placeholder="Enter any other insurance companies..."  ></textarea>
                                     </div>
 
                                     <button
