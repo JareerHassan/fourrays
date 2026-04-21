@@ -1,75 +1,17 @@
 import Layout from "@/components/layout/Layout"
 import Testimonial4 from "@/components/sections/Testimonial4"
 import Link from "next/link"
-import { useState, useEffect } from "react"
-export default function Faq() {
-     useEffect(() => {
-    const baseUrl = "https://fourraysrcm.com"; 
-    const pagePath = "/faqs";
-    const pageUrl = `${baseUrl}${pagePath}`;
+import { useState } from "react"
+import SeoHead, { SITE_URL } from "@/components/seo/SeoHead";
 
-    const title = "Credentialing FAQs | FourRays";
-    const description =
-      "Answers to common Credentialing faqs questions: enrollment timelines, CAQH, documents needed, re-credentialing, compliance, and how our process works.";
-    const keywords =
-      "Credentialing FAQs, provider enrollment FAQs, CAQH questions, recredentialing FAQs, credentialing timeline questions, payer enrollment process, credentialing requirements";
+const FAQS_PAGE_URL = `${SITE_URL}/faqs`;
+const FAQS_TITLE = "Credentialing FAQs | FourRays";
+const FAQS_DESCRIPTION =
+    "Answers to common Credentialing faqs questions: enrollment timelines, CAQH, documents needed, re-credentialing, compliance, and how our process works.";
+const FAQS_KEYWORDS =
+    "Credentialing FAQs, provider enrollment FAQs, CAQH questions, recredentialing FAQs, credentialing timeline questions, payer enrollment process, credentialing requirements";
 
-    const upsertMeta = (key, content, attr = "name") => {
-      if (!content) return;
-      const selector =
-        attr === "property" ? `meta[property="${key}"]` : `meta[name="${key}"]`;
-      let tag = document.head.querySelector(selector);
-      if (!tag) {
-        tag = document.createElement("meta");
-        tag.setAttribute(attr, key);
-        document.head.appendChild(tag);
-      }
-      tag.setAttribute("content", content);
-    };
-
-    const setCanonical = (url) => {
-      if (!url) return;
-      let link = document.head.querySelector('link[rel="canonical"]');
-      if (!link) {
-        link = document.createElement("link");
-        link.setAttribute("rel", "canonical");
-        document.head.appendChild(link);
-      }
-      link.setAttribute("href", url);
-    };
-
-    const setJsonLd = (id, json) => {
-      if (!json) return;
-      let script = document.getElementById(id);
-      if (!script) {
-        script = document.createElement("script");
-        script.type = "application/ld+json";
-        script.id = id;
-        document.head.appendChild(script);
-      }
-      script.text = JSON.stringify(json);
-    };
-
-    // Apply SEO
-    document.title = title;
-    upsertMeta("description", description);
-    upsertMeta("keywords", keywords);
-    setCanonical(pageUrl);
-
-    // Open Graph
-    upsertMeta("og:title", title, "property");
-    upsertMeta("og:description", description, "property");
-    upsertMeta("og:url", pageUrl, "property");
-    upsertMeta("og:type", "website", "property");
-    upsertMeta("og:site_name", "FourRays", "property");
-
-    // Twitter
-    upsertMeta("twitter:card", "summary_large_image");
-    upsertMeta("twitter:title", title);
-    upsertMeta("twitter:description", description);
-
-    // ✅ FAQPage Schema (replace Q/A with your exact visible FAQ content later)
-    const faqSchema = {
+const faqSchema = {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       mainEntity: [
@@ -130,39 +72,36 @@ export default function Faq() {
       ],
     };
 
-    // Also add basic page schema (optional but good)
-    const pageSchema = {
-      "@context": "https://schema.org",
-      "@graph": [
+const faqPageSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
         {
-          "@type": "Organization",
-          "@id": `${baseUrl}/#organization`,
-          name: "FourRays",
-          url: baseUrl,
+            "@type": "Organization",
+            "@id": `${SITE_URL}/#organization`,
+            name: "FourRays",
+            url: SITE_URL,
         },
         {
-          "@type": "WebSite",
-          "@id": `${baseUrl}/#website`,
-          url: baseUrl,
-          name: "FourRays",
-          publisher: { "@id": `${baseUrl}/#organization` },
+            "@type": "WebSite",
+            "@id": `${SITE_URL}/#website`,
+            url: SITE_URL,
+            name: "FourRays",
+            publisher: { "@id": `${SITE_URL}/#organization` },
         },
         {
-          "@type": "WebPage",
-          "@id": `${pageUrl}#webpage`,
-          url: pageUrl,
-          name: title,
-          description,
-          isPartOf: { "@id": `${baseUrl}/#website` },
-          about: { "@id": `${baseUrl}/#organization` },
-          inLanguage: "en",
+            "@type": "WebPage",
+            "@id": `${FAQS_PAGE_URL}#webpage`,
+            url: FAQS_PAGE_URL,
+            name: FAQS_TITLE,
+            description: FAQS_DESCRIPTION,
+            isPartOf: { "@id": `${SITE_URL}/#website` },
+            about: { "@id": `${SITE_URL}/#organization` },
+            inLanguage: "en",
         },
-      ],
-    };
+    ],
+};
 
-    setJsonLd("schema-faq", faqSchema);
-    setJsonLd("schema-faq-page", pageSchema);
-  }, []);
+export default function Faq() {
     const [isActive, setIsActive] = useState({
         status: false,
         key: 1,
@@ -182,6 +121,17 @@ export default function Faq() {
     }
     return (
         <>
+            <SeoHead
+                title={FAQS_TITLE}
+                description={FAQS_DESCRIPTION}
+                keywords={FAQS_KEYWORDS}
+                canonicalPath="/faqs"
+                ogSiteName="FourRays"
+                jsonLdBlocks={[
+                    { id: "schema-faq", json: faqSchema },
+                    { id: "schema-faq-page", json: faqPageSchema },
+                ]}
+            />
             <Layout breadcrumbTitle="FAQ's">
                 {/*-faq*/}
                 {/* <section className="faq-section"> */}

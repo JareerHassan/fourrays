@@ -1,7 +1,7 @@
 'use client';
 
 import Layout from "@/components/layout/Layout";
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import {
     User,
     Building2,
@@ -10,115 +10,54 @@ import {
     CheckCircle2
 } from 'lucide-react';
 import { sendForm3 } from "@/http/form3Api";
+import SeoHead, { SITE_URL } from "@/components/seo/SeoHead";
+
+const ENROLLMENT_PAGE_URL = `${SITE_URL}/enrollment`;
+const ENROLLMENT_TITLE = "Provider Enrollment Services | FourRays";
+const ENROLLMENT_DESCRIPTION =
+    "Provider enrollment services to get you in-network faster. We submit, track, and follow up on payer applications while keeping profiles accurate and complete.";
+const ENROLLMENT_KEYWORDS =
+    "provider enrollment services, payer enrollment services, insurance enrollment for providers, Medicare provider enrollment, Medicaid enrollment services, commercial payer enrollment, credentialing and enrollment services";
+
+const enrollmentJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Organization",
+            "@id": `${SITE_URL}/#organization`,
+            name: "FourRays",
+            url: SITE_URL,
+        },
+        {
+            "@type": "WebSite",
+            "@id": `${SITE_URL}/#website`,
+            url: SITE_URL,
+            name: "FourRays",
+            publisher: { "@id": `${SITE_URL}/#organization` },
+        },
+        {
+            "@type": "WebPage",
+            "@id": `${ENROLLMENT_PAGE_URL}#webpage`,
+            url: ENROLLMENT_PAGE_URL,
+            name: ENROLLMENT_TITLE,
+            description: ENROLLMENT_DESCRIPTION,
+            isPartOf: { "@id": `${SITE_URL}/#website` },
+            about: { "@id": `${SITE_URL}/#organization` },
+            inLanguage: "en",
+        },
+        {
+            "@type": "Service",
+            "@id": `${ENROLLMENT_PAGE_URL}#service`,
+            name: "Provider Enrollment Services",
+            serviceType:
+                "Payer enrollment services, Medicare/Medicaid enrollment, commercial payer enrollment, application submission, tracking and follow-ups, provider profile accuracy",
+            provider: { "@id": `${SITE_URL}/#organization` },
+            areaServed: "United States",
+        },
+    ],
+};
 
 export default function Team() {
-    useEffect(() => {
-        const baseUrl = "https://fourraysrcm.com";
-        const pagePath = "/enrollment";
-        const pageUrl = `${baseUrl}${pagePath}`;
-
-        const title = "Provider Enrollment Services | FourRays";
-        const description =
-            "Provider enrollment services to get you in-network faster. We submit, track, and follow up on payer applications while keeping profiles accurate and complete.";
-        const keywords =
-            "provider enrollment services, payer enrollment services, insurance enrollment for providers, Medicare provider enrollment, Medicaid enrollment services, commercial payer enrollment, credentialing and enrollment services";
-
-        const upsertMeta = (key, content, attr = "name") => {
-            if (!content) return;
-            const selector =
-                attr === "property" ? `meta[property="${key}"]` : `meta[name="${key}"]`;
-            let tag = document.head.querySelector(selector);
-            if (!tag) {
-                tag = document.createElement("meta");
-                tag.setAttribute(attr, key);
-                document.head.appendChild(tag);
-            }
-            tag.setAttribute("content", content);
-        };
-
-        const setCanonical = (url) => {
-            if (!url) return;
-            let link = document.head.querySelector('link[rel="canonical"]');
-            if (!link) {
-                link = document.createElement("link");
-                link.setAttribute("rel", "canonical");
-                document.head.appendChild(link);
-            }
-            link.setAttribute("href", url);
-        };
-
-        const setJsonLd = (id, json) => {
-            if (!json) return;
-            let script = document.getElementById(id);
-            if (!script) {
-                script = document.createElement("script");
-                script.type = "application/ld+json";
-                script.id = id;
-                document.head.appendChild(script);
-            }
-            script.text = JSON.stringify(json);
-        };
-
-        // Apply SEO
-        document.title = title;
-        upsertMeta("description", description);
-        upsertMeta("keywords", keywords);
-        setCanonical(pageUrl);
-
-        // Open Graph
-        upsertMeta("og:title", title, "property");
-        upsertMeta("og:description", description, "property");
-        upsertMeta("og:url", pageUrl, "property");
-        upsertMeta("og:type", "website", "property");
-        upsertMeta("og:site_name", "FourRays", "property");
-
-        // Twitter
-        upsertMeta("twitter:card", "summary_large_image");
-        upsertMeta("twitter:title", title);
-        upsertMeta("twitter:description", description);
-
-        // Schema
-        const schema = {
-            "@context": "https://schema.org",
-            "@graph": [
-                {
-                    "@type": "Organization",
-                    "@id": `${baseUrl}/#organization`,
-                    name: "FourRays",
-                    url: baseUrl,
-                },
-                {
-                    "@type": "WebSite",
-                    "@id": `${baseUrl}/#website`,
-                    url: baseUrl,
-                    name: "FourRays",
-                    publisher: { "@id": `${baseUrl}/#organization` },
-                },
-                {
-                    "@type": "WebPage",
-                    "@id": `${pageUrl}#webpage`,
-                    url: pageUrl,
-                    name: title,
-                    description,
-                    isPartOf: { "@id": `${baseUrl}/#website` },
-                    about: { "@id": `${baseUrl}/#organization` },
-                    inLanguage: "en",
-                },
-                {
-                    "@type": "Service",
-                    "@id": `${pageUrl}#service`,
-                    name: "Provider Enrollment Services",
-                    serviceType:
-                        "Payer enrollment services, Medicare/Medicaid enrollment, commercial payer enrollment, application submission, tracking and follow-ups, provider profile accuracy",
-                    provider: { "@id": `${baseUrl}/#organization` },
-                    areaServed: "United States",
-                },
-            ],
-        };
-
-        setJsonLd("schema-enrollment", schema);
-    }, []);
-
     const [loading, setLoading] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
     const form = useRef();
@@ -193,6 +132,15 @@ export default function Team() {
 
 
     return (
+        <>
+            <SeoHead
+                title={ENROLLMENT_TITLE}
+                description={ENROLLMENT_DESCRIPTION}
+                keywords={ENROLLMENT_KEYWORDS}
+                canonicalPath="/enrollment"
+                ogSiteName="FourRays"
+                jsonLdBlocks={[{ id: "schema-enrollment", json: enrollmentJsonLd }]}
+            />
         <Layout breadcrumbTitle="Enrollment">
             <section className="enrollment-form-area py-5 bg-light min-vh-100">
                 <div className="container">
@@ -447,5 +395,6 @@ export default function Team() {
                 .bg-soft-danger { background-color: #fee2e2; }
             `}</style>
         </Layout>
+        </>
     );
 }

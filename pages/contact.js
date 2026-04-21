@@ -1,105 +1,45 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Layout from "@/components/layout/Layout";
 import Link from "next/link";
 import { sendForm2 } from "@/http/form2Api";
+import SeoHead, { SITE_URL } from "@/components/seo/SeoHead";
+
+const CONTACT_PAGE_URL = `${SITE_URL}/contact`;
+const CONTACT_TITLE = "Contact Credentialing Team | FourRays";
+const CONTACT_DESCRIPTION =
+    "Contact Credentialing Team for Credentialing and payer enrollment support. Share your details and we’ll guide you with the next steps to start.";
+const CONTACT_KEYWORDS =
+    "Contact Credentialing Team, credentialing consultation, provider enrollment help, talk to credentialing specialist, credentialing services quote, payer enrollment support contact";
+
+const contactJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Organization",
+            "@id": `${SITE_URL}/#organization`,
+            name: "FourRays",
+            url: SITE_URL,
+        },
+        {
+            "@type": "WebSite",
+            "@id": `${SITE_URL}/#website`,
+            url: SITE_URL,
+            name: "FourRays",
+            publisher: { "@id": `${SITE_URL}/#organization` },
+        },
+        {
+            "@type": "ContactPage",
+            "@id": `${CONTACT_PAGE_URL}#contactpage`,
+            url: CONTACT_PAGE_URL,
+            name: CONTACT_TITLE,
+            description: CONTACT_DESCRIPTION,
+            isPartOf: { "@id": `${SITE_URL}/#website` },
+            about: { "@id": `${SITE_URL}/#organization` },
+        },
+    ],
+};
 
 export default function Contact() {
-    useEffect(() => {
-        const baseUrl = "https://fourraysrcm.com";
-        const pagePath = "/contact";
-        const pageUrl = `${baseUrl}${pagePath}`;
-
-        const title = "Contact Credentialing Team | FourRays";
-        const description =
-            "Contact Credentialing Team for Credentialing and payer enrollment support. Share your details and we’ll guide you with the next steps to start.";
-        const keywords =
-            "Contact Credentialing Team, credentialing consultation, provider enrollment help, talk to credentialing specialist, credentialing services quote, payer enrollment support contact";
-
-        const upsertMeta = (key, content, attr = "name") => {
-            if (!content) return;
-            const selector =
-                attr === "property"
-                    ? `meta[property="${key}"]`
-                    : `meta[name="${key}"]`;
-            let tag = document.head.querySelector(selector);
-            if (!tag) {
-                tag = document.createElement("meta");
-                tag.setAttribute(attr, key);
-                document.head.appendChild(tag);
-            }
-            tag.setAttribute("content", content);
-        };
-
-        const setCanonical = (url) => {
-            if (!url) return;
-            let link = document.head.querySelector('link[rel="canonical"]');
-            if (!link) {
-                link = document.createElement("link");
-                link.setAttribute("rel", "canonical");
-                document.head.appendChild(link);
-            }
-            link.setAttribute("href", url);
-        };
-
-        const setJsonLd = (id, json) => {
-            if (!json) return;
-            let script = document.getElementById(id);
-            if (!script) {
-                script = document.createElement("script");
-                script.type = "application/ld+json";
-                script.id = id;
-                document.head.appendChild(script);
-            }
-            script.text = JSON.stringify(json);
-        };
-
-        document.title = title;
-        upsertMeta("description", description);
-        upsertMeta("keywords", keywords);
-
-        setCanonical(pageUrl);
-
-        upsertMeta("og:title", title, "property");
-        upsertMeta("og:description", description, "property");
-        upsertMeta("og:url", pageUrl, "property");
-        upsertMeta("og:type", "website", "property");
-        upsertMeta("og:site_name", "FourRays", "property");
-
-        upsertMeta("twitter:card", "summary_large_image");
-        upsertMeta("twitter:title", title);
-        upsertMeta("twitter:description", description);
-
-        const schema = {
-            "@context": "https://schema.org",
-            "@graph": [
-                {
-                    "@type": "Organization",
-                    "@id": `${baseUrl}/#organization`,
-                    name: "FourRays",
-                    url: baseUrl,
-                },
-                {
-                    "@type": "WebSite",
-                    "@id": `${baseUrl}/#website`,
-                    url: baseUrl,
-                    name: "FourRays",
-                    publisher: { "@id": `${baseUrl}/#organization` },
-                },
-                {
-                    "@type": "ContactPage",
-                    "@id": `${pageUrl}#contactpage`,
-                    url: pageUrl,
-                    name: title,
-                    description,
-                    isPartOf: { "@id": `${baseUrl}/#website` },
-                    about: { "@id": `${baseUrl}/#organization` },
-                },
-            ],
-        };
-
-        setJsonLd("schema-contact", schema);
-    }, []);
-
     const [formData, setFormData] = useState({
         organization_name: "",
         organization_location: "",
@@ -173,6 +113,14 @@ export default function Contact() {
 
     return (
         <>
+            <SeoHead
+                title={CONTACT_TITLE}
+                description={CONTACT_DESCRIPTION}
+                keywords={CONTACT_KEYWORDS}
+                canonicalPath="/contact"
+                ogSiteName="FourRays"
+                jsonLdBlocks={[{ id: "schema-contact", json: contactJsonLd }]}
+            />
             <Layout breadcrumbTitle="Contact">
                 <section className="form-section bg_light_1 position-relative">
                     <div className="pd_top_90" />

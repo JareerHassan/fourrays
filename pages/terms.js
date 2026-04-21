@@ -1,109 +1,54 @@
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
-import { useEffect } from "react";
+import SeoHead, { SITE_URL } from "@/components/seo/SeoHead";
+
+const TERMS_PAGE_URL = `${SITE_URL}/terms`;
+const TERMS_TITLE = "Terms and Conditions | FourRays";
+const TERMS_DESCRIPTION =
+    "View the Terms and Conditions FourRays for website and services, including responsibilities, limitations, and policy guidelines.";
+const TERMS_KEYWORDS =
+    "terms and conditions, service terms, website terms, user terms, legal terms and conditions";
+
+const termsJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Organization",
+            "@id": `${SITE_URL}/#organization`,
+            name: "FourRays",
+            url: SITE_URL,
+        },
+        {
+            "@type": "WebSite",
+            "@id": `${SITE_URL}/#website`,
+            url: SITE_URL,
+            name: "FourRays",
+            publisher: { "@id": `${SITE_URL}/#organization` },
+        },
+        {
+            "@type": "WebPage",
+            "@id": `${TERMS_PAGE_URL}#webpage`,
+            url: TERMS_PAGE_URL,
+            name: TERMS_TITLE,
+            description: TERMS_DESCRIPTION,
+            isPartOf: { "@id": `${SITE_URL}/#website` },
+            about: { "@id": `${SITE_URL}/#organization` },
+            inLanguage: "en",
+        },
+    ],
+};
+
 export default function TermsAndConditions() {
-useEffect(() => {
-   const baseUrl = "https://fourraysrcm.com"; 
-    const pagePath = "/terms";
-    const pageUrl = `${baseUrl}${pagePath}`;
-
-    const title = "Terms and Conditions | FourRays";
-    const description =
-      "View the Terms and Conditions FourRays for website and services, including responsibilities, limitations, and policy guidelines.";
-    const keywords =
-      "terms and conditions, service terms, website terms, user terms, legal terms and conditions";
-
-    // ---- helpers (inline) ----
-    const upsertMeta = (key, content, attr = "name") => {
-      if (!content) return;
-      const selector =
-        attr === "property"
-          ? `meta[property="${key}"]`
-          : `meta[name="${key}"]`;
-      let tag = document.head.querySelector(selector);
-      if (!tag) {
-        tag = document.createElement("meta");
-        tag.setAttribute(attr, key);
-        document.head.appendChild(tag);
-      }
-      tag.setAttribute("content", content);
-    };
-
-    const setCanonical = (url) => {
-      if (!url) return;
-      let link = document.head.querySelector('link[rel="canonical"]');
-      if (!link) {
-        link = document.createElement("link");
-        link.setAttribute("rel", "canonical");
-        document.head.appendChild(link);
-      }
-      link.setAttribute("href", url);
-    };
-
-    const setJsonLd = (id, json) => {
-      if (!json) return;
-      let script = document.getElementById(id);
-      if (!script) {
-        script = document.createElement("script");
-        script.type = "application/ld+json";
-        script.id = id;
-        document.head.appendChild(script);
-      }
-      script.text = JSON.stringify(json);
-    };
-
-    // ---- apply SEO ----
-    document.title = title;
-    upsertMeta("description", description);
-    upsertMeta("keywords", keywords);
-    setCanonical(pageUrl);
-
-    // Open Graph
-    upsertMeta("og:title", title, "property");
-    upsertMeta("og:description", description, "property");
-    upsertMeta("og:url", pageUrl, "property");
-    upsertMeta("og:type", "website", "property");
-    upsertMeta("og:site_name", "FourRays", "property");
-
-    // Twitter
-    upsertMeta("twitter:card", "summary_large_image");
-    upsertMeta("twitter:title", title);
-    upsertMeta("twitter:description", description);
-
-    // ---- Schema Markup ----
-    const schema = {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "@id": `${baseUrl}/#organization`,
-          name: "FourRays",
-          url: baseUrl,
-        },
-        {
-          "@type": "WebSite",
-          "@id": `${baseUrl}/#website`,
-          url: baseUrl,
-          name: "FourRays",
-          publisher: { "@id": `${baseUrl}/#organization` },
-        },
-        {
-          "@type": "WebPage",
-          "@id": `${pageUrl}#webpage`,
-          url: pageUrl,
-          name: title,
-          description,
-          isPartOf: { "@id": `${baseUrl}/#website` },
-          about: { "@id": `${baseUrl}/#organization` },
-          inLanguage: "en",
-        },
-      ],
-    };
-
-    setJsonLd("schema-terms", schema);
-  }, []);
     return (
         <>
+            <SeoHead
+                title={TERMS_TITLE}
+                description={TERMS_DESCRIPTION}
+                keywords={TERMS_KEYWORDS}
+                canonicalPath="/terms"
+                ogSiteName="FourRays"
+                jsonLdBlocks={[{ id: "schema-terms", json: termsJsonLd }]}
+            />
             <Layout breadcrumbTitle="Terms & Conditions">
                 {/* Terms & Conditions Section */}
                 <div className="terms-section">

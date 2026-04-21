@@ -1,120 +1,63 @@
 import BlogPost from "@/components/blog/BlogPost"
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
-import { useEffect } from "react";
+import SeoHead, { SITE_URL } from "@/components/seo/SeoHead";
+
+const BLOG_PAGE_URL = `${SITE_URL}/blog`;
+const BLOG_TITLE = "Credentialing Blog | FourRays";
+const BLOG_DESCRIPTION =
+    "Credentialing Blog, provider enrollment, CAQH management, compliance and re-credentialing—built to reduce delays and denials.";
+const BLOG_KEYWORDS =
+    "Credentialing blog, provider enrollment guide, credentialing tips, CAQH help articles, recredentialing checklist, credentialing updates, payer enrollment process";
+
+const blogJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Organization",
+            "@id": `${SITE_URL}/#organization`,
+            name: "FourRays",
+            url: SITE_URL,
+        },
+        {
+            "@type": "WebSite",
+            "@id": `${SITE_URL}/#website`,
+            url: SITE_URL,
+            name: "FourRays",
+            publisher: { "@id": `${SITE_URL}/#organization` },
+        },
+        {
+            "@type": "WebPage",
+            "@id": `${BLOG_PAGE_URL}#webpage`,
+            url: BLOG_PAGE_URL,
+            name: BLOG_TITLE,
+            description: BLOG_DESCRIPTION,
+            isPartOf: { "@id": `${SITE_URL}/#website` },
+            about: { "@id": `${SITE_URL}/#organization` },
+        },
+        {
+            "@type": "Blog",
+            "@id": `${BLOG_PAGE_URL}#blog`,
+            url: BLOG_PAGE_URL,
+            name: "FourRays Blog",
+            description: BLOG_DESCRIPTION,
+            publisher: { "@id": `${SITE_URL}/#organization` },
+            inLanguage: "en",
+        },
+    ],
+};
+
 export default function Blog() {
- useEffect(() => {
-   const baseUrl = "https://fourraysrcm.com"; 
-    const pagePath = "/blog";
-    const pageUrl = `${baseUrl}${pagePath}`;
-
-    const title = "Credentialing Blog | FourRays";
-    const description =
-      "Credentialing Blog, provider enrollment, CAQH management, compliance and re-credentialing—built to reduce delays and denials.";
-    const keywords =
-      "Credentialing blog, provider enrollment guide, credentialing tips, CAQH help articles, recredentialing checklist, credentialing updates, payer enrollment process";
-
-    // ---- helpers (inline) ----
-    const upsertMeta = (key, content, attr = "name") => {
-      if (!content) return;
-      const selector =
-        attr === "property"
-          ? `meta[property="${key}"]`
-          : `meta[name="${key}"]`;
-      let tag = document.head.querySelector(selector);
-      if (!tag) {
-        tag = document.createElement("meta");
-        tag.setAttribute(attr, key);
-        document.head.appendChild(tag);
-      }
-      tag.setAttribute("content", content);
-    };
-
-    const setCanonical = (url) => {
-      if (!url) return;
-      let link = document.head.querySelector('link[rel="canonical"]');
-      if (!link) {
-        link = document.createElement("link");
-        link.setAttribute("rel", "canonical");
-        document.head.appendChild(link);
-      }
-      link.setAttribute("href", url);
-    };
-
-    const setJsonLd = (id, json) => {
-      if (!json) return;
-      let script = document.getElementById(id);
-      if (!script) {
-        script = document.createElement("script");
-        script.type = "application/ld+json";
-        script.id = id;
-        document.head.appendChild(script);
-      }
-      script.text = JSON.stringify(json);
-    };
-
-    // ---- apply SEO ----
-    document.title = title;
-    upsertMeta("description", description);
-    upsertMeta("keywords", keywords);
-
-    setCanonical(pageUrl);
-
-    // Open Graph
-    upsertMeta("og:title", title, "property");
-    upsertMeta("og:description", description, "property");
-    upsertMeta("og:url", pageUrl, "property");
-    upsertMeta("og:type", "website", "property");
-    upsertMeta("og:site_name", "FourRays", "property");
-
-    // Twitter
-    upsertMeta("twitter:card", "summary_large_image");
-    upsertMeta("twitter:title", title);
-    upsertMeta("twitter:description", description);
-
-    // ---- Schema Markup (Blog) ----
-    const schema = {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "@id": `${baseUrl}/#organization`,
-          name: "FourRays",
-          url: baseUrl,
-        },
-        {
-          "@type": "WebSite",
-          "@id": `${baseUrl}/#website`,
-          url: baseUrl,
-          name: "FourRays",
-          publisher: { "@id": `${baseUrl}/#organization` },
-        },
-        {
-          "@type": "WebPage",
-          "@id": `${pageUrl}#webpage`,
-          url: pageUrl,
-          name: title,
-          description,
-          isPartOf: { "@id": `${baseUrl}/#website` },
-          about: { "@id": `${baseUrl}/#organization` },
-        },
-        {
-          "@type": "Blog",
-          "@id": `${pageUrl}#blog`,
-          url: pageUrl,
-          name: "FourRays Blog",
-          description,
-          publisher: { "@id": `${baseUrl}/#organization` },
-          inLanguage: "en",
-        },
-      ],
-    };
-
-    setJsonLd("schema-blog", schema);
-  }, []);
-
     return (
         <>
+            <SeoHead
+                title={BLOG_TITLE}
+                description={BLOG_DESCRIPTION}
+                keywords={BLOG_KEYWORDS}
+                canonicalPath="/blog"
+                ogSiteName="FourRays"
+                jsonLdBlocks={[{ id: "schema-blog", json: blogJsonLd }]}
+            />
             <Layout breadcrumbTitle="Blog">
                 <div className="blog-section">
                     {/*-============spacing==========-*/}

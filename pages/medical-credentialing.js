@@ -1,119 +1,63 @@
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
-import { useEffect } from "react";
+import SeoHead, { SITE_URL } from "@/components/seo/SeoHead";
+
+const MEDICAL_CRED_PAGE_URL = `${SITE_URL}/medical-credentialing`;
+const MEDICAL_CRED_TITLE = "Credentialing Services | FourRays";
+const MEDICAL_CRED_DESCRIPTION =
+    "End-to-end Credentialing services including verification, CAQH management, payer applications, follow-ups and ongoing maintenance for providers.";
+const MEDICAL_CRED_KEYWORDS =
+    "Credentialing services, provider credentialing, insurance credentialing, primary source verification, credentialing verification, physician credentialing services, credentialing for clinics, credentialing specialists";
+
+const medicalCredentialingJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Organization",
+            "@id": `${SITE_URL}/#organization`,
+            name: "FourRays",
+            url: SITE_URL,
+        },
+        {
+            "@type": "WebSite",
+            "@id": `${SITE_URL}/#website`,
+            url: SITE_URL,
+            name: "FourRays",
+            publisher: { "@id": `${SITE_URL}/#organization` },
+        },
+        {
+            "@type": "WebPage",
+            "@id": `${MEDICAL_CRED_PAGE_URL}#webpage`,
+            url: MEDICAL_CRED_PAGE_URL,
+            name: MEDICAL_CRED_TITLE,
+            description: MEDICAL_CRED_DESCRIPTION,
+            isPartOf: { "@id": `${SITE_URL}/#website` },
+            about: { "@id": `${SITE_URL}/#organization` },
+            inLanguage: "en",
+        },
+        {
+            "@type": "Service",
+            "@id": `${MEDICAL_CRED_PAGE_URL}#service`,
+            name: "Credentialing Services",
+            serviceType:
+                "Primary source verification, CAQH management, payer applications, follow-ups, ongoing credentialing maintenance",
+            provider: { "@id": `${SITE_URL}/#organization` },
+            areaServed: "United States",
+        },
+    ],
+};
+
 export default function ServiceStyle1() {
-
-useEffect(() => {
-    const baseUrl = "https://fourraysrcm.com"; // Production domain
-    const pagePath = "/medical-credentialing";
-    const pageUrl = `${baseUrl}${pagePath}`;
-
-    const title = "Credentialing Services | FourRays";
-    const description =
-      "End-to-end Credentialing services including verification, CAQH management, payer applications, follow-ups and ongoing maintenance for providers.";
-    const keywords =
-      "Credentialing services, provider credentialing, insurance credentialing, primary source verification, credentialing verification, physician credentialing services, credentialing for clinics, credentialing specialists";
-
-    // ---- helpers (inline) ----
-    const upsertMeta = (key, content, attr = "name") => {
-      if (!content) return;
-      const selector =
-        attr === "property"
-          ? `meta[property="${key}"]`
-          : `meta[name="${key}"]`;
-      let tag = document.head.querySelector(selector);
-      if (!tag) {
-        tag = document.createElement("meta");
-        tag.setAttribute(attr, key);
-        document.head.appendChild(tag);
-      }
-      tag.setAttribute("content", content);
-    };
-
-    const setCanonical = (url) => {
-      if (!url) return;
-      let link = document.head.querySelector('link[rel="canonical"]');
-      if (!link) {
-        link = document.createElement("link");
-        link.setAttribute("rel", "canonical");
-        document.head.appendChild(link);
-      }
-      link.setAttribute("href", url);
-    };
-
-    const setJsonLd = (id, json) => {
-      if (!json) return;
-      let script = document.getElementById(id);
-      if (!script) {
-        script = document.createElement("script");
-        script.type = "application/ld+json";
-        script.id = id;
-        document.head.appendChild(script);
-      }
-      script.text = JSON.stringify(json);
-    };
-
-    // ---- apply SEO ----
-    document.title = title;
-    upsertMeta("description", description);
-    upsertMeta("keywords", keywords);
-    setCanonical(pageUrl);
-
-    // Open Graph
-    upsertMeta("og:title", title, "property");
-    upsertMeta("og:description", description, "property");
-    upsertMeta("og:url", pageUrl, "property");
-    upsertMeta("og:type", "website", "property");
-    upsertMeta("og:site_name", "FourRays", "property");
-
-    // Twitter
-    upsertMeta("twitter:card", "summary_large_image");
-    upsertMeta("twitter:title", title);
-    upsertMeta("twitter:description", description);
-
-    // ---- Schema Markup ----
-    const schema = {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "@id": `${baseUrl}/#organization`,
-          name: "FourRays",
-          url: baseUrl,
-        },
-        {
-          "@type": "WebSite",
-          "@id": `${baseUrl}/#website`,
-          url: baseUrl,
-          name: "FourRays",
-          publisher: { "@id": `${baseUrl}/#organization` },
-        },
-        {
-          "@type": "WebPage",
-          "@id": `${pageUrl}#webpage`,
-          url: pageUrl,
-          name: title,
-          description,
-          isPartOf: { "@id": `${baseUrl}/#website` },
-          about: { "@id": `${baseUrl}/#organization` },
-          inLanguage: "en",
-        },
-        {
-          "@type": "Service",
-          "@id": `${pageUrl}#service`,
-          name: "Credentialing Services",
-          serviceType:
-            "Primary source verification, CAQH management, payer applications, follow-ups, ongoing credentialing maintenance",
-          provider: { "@id": `${baseUrl}/#organization` },
-          areaServed: "United States",
-        },
-      ],
-    };
-
-    setJsonLd("schema-medical-credentialing", schema);
-}, []);
     return (
         <>
+            <SeoHead
+                title={MEDICAL_CRED_TITLE}
+                description={MEDICAL_CRED_DESCRIPTION}
+                keywords={MEDICAL_CRED_KEYWORDS}
+                canonicalPath="/medical-credentialing"
+                ogSiteName="FourRays"
+                jsonLdBlocks={[{ id: "schema-medical-credentialing", json: medicalCredentialingJsonLd }]}
+            />
             <Layout breadcrumbTitle="Credentialing">
                 {/*-service*/}
                 <section className="service-section-one">

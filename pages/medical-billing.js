@@ -1,117 +1,54 @@
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
-import { useState, useEffect } from "react"
+import { useState } from "react"
+import SeoHead, { SITE_URL } from "@/components/seo/SeoHead";
+
+const MEDICAL_BILLING_PAGE_URL = `${SITE_URL}/medical-billing`;
+const MEDICAL_BILLING_TITLE = "Medical Billing Services | Revenue Cycle Management | FourRays";
+const MEDICAL_BILLING_DESCRIPTION =
+    "Medical billing services and revenue cycle management to improve collections. Claims, denials, posting and follow-ups—streamline billing for your practice.";
+const MEDICAL_BILLING_KEYWORDS =
+    "medical billing services, revenue cycle management services, RCM services, medical billing and coding, claims management services, denial management, insurance verification, payment posting";
+
+const medicalBillingJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Organization",
+            "@id": `${SITE_URL}/#organization`,
+            name: "FourRays",
+            url: SITE_URL,
+        },
+        {
+            "@type": "WebSite",
+            "@id": `${SITE_URL}/#website`,
+            url: SITE_URL,
+            name: "FourRays",
+            publisher: { "@id": `${SITE_URL}/#organization` },
+        },
+        {
+            "@type": "WebPage",
+            "@id": `${MEDICAL_BILLING_PAGE_URL}#webpage`,
+            url: MEDICAL_BILLING_PAGE_URL,
+            name: MEDICAL_BILLING_TITLE,
+            description: MEDICAL_BILLING_DESCRIPTION,
+            isPartOf: { "@id": `${SITE_URL}/#website` },
+            about: { "@id": `${SITE_URL}/#organization` },
+            inLanguage: "en",
+        },
+        {
+            "@type": "Service",
+            "@id": `${MEDICAL_BILLING_PAGE_URL}#service`,
+            name: "Medical Billing & Revenue Cycle Management (RCM)",
+            serviceType:
+                "Medical billing and coding, claims submission, denial management, insurance verification, payment posting, follow-ups, revenue cycle management",
+            provider: { "@id": `${SITE_URL}/#organization` },
+            areaServed: "United States",
+        },
+    ],
+};
+
 export default function ServiceStyle2() {
-
-    useEffect(() => {
-        const baseUrl = "https://fourraysrcm.com"; // Production domain
-        const pagePath = "/medical-billing";
-        const pageUrl = `${baseUrl}${pagePath}`;
-
-        const title = "Medical Billing Services | Revenue Cycle Management | FourRays";
-        const description =
-            "Medical billing services and revenue cycle management to improve collections. Claims, denials, posting and follow-ups—streamline billing for your practice.";
-        const keywords =
-            "medical billing services, revenue cycle management services, RCM services, medical billing and coding, claims management services, denial management, insurance verification, payment posting";
-
-        const upsertMeta = (key, content, attr = "name") => {
-            if (!content) return;
-            const selector =
-                attr === "property"
-                    ? `meta[property="${key}"]`
-                    : `meta[name="${key}"]`;
-            let tag = document.head.querySelector(selector);
-            if (!tag) {
-                tag = document.createElement("meta");
-                tag.setAttribute(attr, key);
-                document.head.appendChild(tag);
-            }
-            tag.setAttribute("content", content);
-        };
-
-        const setCanonical = (url) => {
-            if (!url) return;
-            let link = document.head.querySelector('link[rel="canonical"]');
-            if (!link) {
-                link = document.createElement("link");
-                link.setAttribute("rel", "canonical");
-                document.head.appendChild(link);
-            }
-            link.setAttribute("href", url);
-        };
-
-        const setJsonLd = (id, json) => {
-            if (!json) return;
-            let script = document.getElementById(id);
-            if (!script) {
-                script = document.createElement("script");
-                script.type = "application/ld+json";
-                script.id = id;
-                document.head.appendChild(script);
-            }
-            script.text = JSON.stringify(json);
-        };
-
-        // ---- Apply SEO ----
-        document.title = title;
-        upsertMeta("description", description);
-        upsertMeta("keywords", keywords);
-        setCanonical(pageUrl);
-
-        // Open Graph
-        upsertMeta("og:title", title, "property");
-        upsertMeta("og:description", description, "property");
-        upsertMeta("og:url", pageUrl, "property");
-        upsertMeta("og:type", "website", "property");
-        upsertMeta("og:site_name", "FourRays", "property");
-
-        // Twitter
-        upsertMeta("twitter:card", "summary_large_image");
-        upsertMeta("twitter:title", title);
-        upsertMeta("twitter:description", description);
-
-        // ---- Schema Markup ----
-        const schema = {
-            "@context": "https://schema.org",
-            "@graph": [
-                {
-                    "@type": "Organization",
-                    "@id": `${baseUrl}/#organization`,
-                    name: "FourRays",
-                    url: baseUrl,
-                },
-                {
-                    "@type": "WebSite",
-                    "@id": `${baseUrl}/#website`,
-                    url: baseUrl,
-                    name: "FourRays",
-                    publisher: { "@id": `${baseUrl}/#organization` },
-                },
-                {
-                    "@type": "WebPage",
-                    "@id": `${pageUrl}#webpage`,
-                    url: pageUrl,
-                    name: title,
-                    description,
-                    isPartOf: { "@id": `${baseUrl}/#website` },
-                    about: { "@id": `${baseUrl}/#organization` },
-                    inLanguage: "en",
-                },
-                {
-                    "@type": "Service",
-                    "@id": `${pageUrl}#service`,
-                    name: "Medical Billing & Revenue Cycle Management (RCM)",
-                    serviceType:
-                        "Medical billing and coding, claims submission, denial management, insurance verification, payment posting, follow-ups, revenue cycle management",
-                    provider: { "@id": `${baseUrl}/#organization` },
-                    areaServed: "United States",
-                },
-            ],
-        };
-
-        setJsonLd("schema-medical-billing", schema);
-    }, []);
-
     const [isActive, setIsActive] = useState({
         status: false,
         key: 1,
@@ -131,6 +68,14 @@ export default function ServiceStyle2() {
     }
     return (
         <>
+            <SeoHead
+                title={MEDICAL_BILLING_TITLE}
+                description={MEDICAL_BILLING_DESCRIPTION}
+                keywords={MEDICAL_BILLING_KEYWORDS}
+                canonicalPath="/medical-billing"
+                ogSiteName="FourRays"
+                jsonLdBlocks={[{ id: "schema-medical-billing", json: medicalBillingJsonLd }]}
+            />
             <Layout breadcrumbTitle="Medical Billing/Revenue Cycle Management">
                 {/*-service*/}
                 <section className="service-section-one">

@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import VideoBox from "@/components/elements/VideoBox"
 import Layout from "@/components/layout/Layout"
+import SeoHead, { SITE_URL } from "@/components/seo/SeoHead"
 import Testimonial4 from "@/components/sections/Testimonial4"
 import dynamic from 'next/dynamic'
 import Link from "next/link"
@@ -25,108 +26,51 @@ export default function AboutUs() {
 
     const sliderLogos = [...logos, ...logos, ...logos];
 
-    useEffect(() => {
-        const baseUrl = "https://fourraysrcm.com";
-        const pagePath = "/about-us";
-        const pageUrl = `${baseUrl}${pagePath}`;
+    const ABOUT_PAGE_URL = `${SITE_URL}/about-us`
+    const ABOUT_TITLE = "About FourRays RCM | Medical Billing & Credentialing Experts"
+    const ABOUT_DESCRIPTION =
+        "Learn about FourRays RCM, a trusted provider of medical billing, credentialing, and revenue cycle management services helping healthcare providers streamline operations and maximize revenue."
+    const ABOUT_KEYWORDS =
+        "about FourRays RCM, medical billing company, revenue cycle management experts, healthcare billing specialists, provider credentialing services, RCM company USA"
 
-        const title = "About FourRays RCM | Medical Billing & Credentialing Experts";
-        const description =
-            "Learn about FourRays RCM, a trusted provider of medical billing, credentialing, and revenue cycle management services helping healthcare providers streamline operations and maximize revenue.";
-        const keywords =
-            "about FourRays RCM, medical billing company, revenue cycle management experts, healthcare billing specialists, provider credentialing services, RCM company USA";
-
-        // ---- helpers ----
-        const upsertMeta = (key, content, attr = "name") => {
-            if (!content) return;
-            const selector =
-                attr === "property"
-                    ? `meta[property="${key}"]`
-                    : `meta[name="${key}"]`;
-            let tag = document.head.querySelector(selector);
-            if (!tag) {
-                tag = document.createElement("meta");
-                tag.setAttribute(attr, key);
-                document.head.appendChild(tag);
-            }
-            tag.setAttribute("content", content);
-        };
-
-        const setCanonical = (url) => {
-            if (!url) return;
-            let link = document.head.querySelector('link[rel="canonical"]');
-            if (!link) {
-                link = document.createElement("link");
-                link.setAttribute("rel", "canonical");
-                document.head.appendChild(link);
-            }
-            link.setAttribute("href", url);
-        };
-
-        const setJsonLd = (id, json) => {
-            if (!json) return;
-            let script = document.getElementById(id);
-            if (!script) {
-                script = document.createElement("script");
-                script.type = "application/ld+json";
-                script.id = id;
-                document.head.appendChild(script);
-            }
-            script.text = JSON.stringify(json);
-        };
-
-        // ---- SEO Apply ----
-        document.title = title;
-        upsertMeta("description", description);
-        upsertMeta("keywords", keywords);
-        setCanonical(pageUrl);
-
-        // Open Graph
-        upsertMeta("og:title", title, "property");
-        upsertMeta("og:description", description, "property");
-        upsertMeta("og:url", pageUrl, "property");
-        upsertMeta("og:type", "website", "property");
-        upsertMeta("og:site_name", "FourRays RCM", "property");
-
-        // Twitter
-        upsertMeta("twitter:card", "summary_large_image");
-        upsertMeta("twitter:title", title);
-        upsertMeta("twitter:description", description);
-
-        // ---- Schema Markup ----
-        const schema = {
-            "@context": "https://schema.org",
-            "@graph": [
-                {
-                    "@type": "Organization",
-                    "@id": `${baseUrl}/#organization`,
-                    name: "FourRays RCM",
-                    url: baseUrl,
-                },
-                {
-                    "@type": "WebSite",
-                    "@id": `${baseUrl}/#website`,
-                    url: baseUrl,
-                    name: "FourRays RCM",
-                    publisher: { "@id": `${baseUrl}/#organization` },
-                },
-                {
-                    "@type": "AboutPage",
-                    "@id": `${pageUrl}#aboutpage`,
-                    url: pageUrl,
-                    name: title,
-                    description,
-                    isPartOf: { "@id": `${baseUrl}/#website` },
-                    about: { "@id": `${baseUrl}/#organization` },
-                },
-            ],
-        };
-
-        setJsonLd("schema-about", schema);
-    }, []);
+    const aboutJsonLd = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": `${SITE_URL}/#organization`,
+                name: "FourRays RCM",
+                url: SITE_URL,
+            },
+            {
+                "@type": "WebSite",
+                "@id": `${SITE_URL}/#website`,
+                url: SITE_URL,
+                name: "FourRays RCM",
+                publisher: { "@id": `${SITE_URL}/#organization` },
+            },
+            {
+                "@type": "AboutPage",
+                "@id": `${ABOUT_PAGE_URL}#aboutpage`,
+                url: ABOUT_PAGE_URL,
+                name: ABOUT_TITLE,
+                description: ABOUT_DESCRIPTION,
+                isPartOf: { "@id": `${SITE_URL}/#website` },
+                about: { "@id": `${SITE_URL}/#organization` },
+            },
+        ],
+    }
 
     return (
         <>
+            <SeoHead
+                title={ABOUT_TITLE}
+                description={ABOUT_DESCRIPTION}
+                keywords={ABOUT_KEYWORDS}
+                canonicalPath="/about-us"
+                ogSiteName="FourRays RCM"
+                jsonLdBlocks={[{ id: "schema-about", json: aboutJsonLd }]}
+            />
             <Layout breadcrumbTitle="About Us">
                 {/*-about*/}
                 <section className="about-section position-relative">

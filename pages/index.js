@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
-
 import Layout from "@/components/layout/Layout"
+import SeoHead, { SITE_URL } from "@/components/seo/SeoHead"
 import About4 from "@/components/sections/About4"
 import Banner1 from "@/components/sections/Banner1"
 import Blog4 from "@/components/sections/Blog4"
@@ -17,118 +16,60 @@ import dynamic from 'next/dynamic'
 const CounterUp = dynamic(() => import('@/components/elements/CounterUp'), {
     ssr: false,
 })
+
+const HOME_TITLE = "FourRays RCM | Medical Billing & Credentialing Services"
+const HOME_DESCRIPTION =
+    "FourRays RCM provides professional medical billing, credentialing, and revenue cycle management services for healthcare providers across the USA. Simplify your billing and maximize revenue with our expert team."
+const HOME_KEYWORDS =
+    "medical billing services, revenue cycle management, RCM services, Credentialing services, insurance credentialing, healthcare billing company, provider enrollment services, FourRays RCM"
+
+const homeJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Organization",
+            "@id": `${SITE_URL}/#organization`,
+            name: "FourRays RCM",
+            url: SITE_URL,
+        },
+        {
+            "@type": "WebSite",
+            "@id": `${SITE_URL}/#website`,
+            url: SITE_URL,
+            name: "FourRays RCM",
+            publisher: { "@id": `${SITE_URL}/#organization` },
+        },
+        {
+            "@type": "WebPage",
+            "@id": `${SITE_URL}/#webpage`,
+            url: `${SITE_URL}/`,
+            name: HOME_TITLE,
+            description: HOME_DESCRIPTION,
+            isPartOf: { "@id": `${SITE_URL}/#website` },
+            about: { "@id": `${SITE_URL}/#organization` },
+        },
+        {
+            "@type": "Service",
+            name: "Medical Billing & Credentialing Services",
+            provider: { "@id": `${SITE_URL}/#organization` },
+            areaServed: "United States",
+            serviceType:
+                "Medical billing services, revenue cycle management, insurance credentialing, provider enrollment, RCM solutions",
+        },
+    ],
+}
+
 export default function Home4() {
-
-    useEffect(() => {
-        const baseUrl = "https://fourraysrcm.com";
-        const pageUrl = `${baseUrl}/`;
-
-        const title = "FourRays RCM | Medical Billing & Credentialing Services";
-        const description =
-            "FourRays RCM provides professional medical billing, credentialing, and revenue cycle management services for healthcare providers across the USA. Simplify your billing and maximize revenue with our expert team.";
-        const keywords =
-            "medical billing services, revenue cycle management, RCM services, Credentialing services, insurance credentialing, healthcare billing company, provider enrollment services, FourRays RCM";
-
-        // ---- helpers ----
-        const upsertMeta = (key, content, attr = "name") => {
-            if (!content) return;
-            const selector =
-                attr === "property"
-                    ? `meta[property="${key}"]`
-                    : `meta[name="${key}"]`;
-            let tag = document.head.querySelector(selector);
-            if (!tag) {
-                tag = document.createElement("meta");
-                tag.setAttribute(attr, key);
-                document.head.appendChild(tag);
-            }
-            tag.setAttribute("content", content);
-        };
-
-        const setCanonical = (url) => {
-            if (!url) return;
-            let link = document.head.querySelector('link[rel="canonical"]');
-            if (!link) {
-                link = document.createElement("link");
-                link.setAttribute("rel", "canonical");
-                document.head.appendChild(link);
-            }
-            link.setAttribute("href", url);
-        };
-
-        const setJsonLd = (id, json) => {
-            if (!json) return;
-            let script = document.getElementById(id);
-            if (!script) {
-                script = document.createElement("script");
-                script.type = "application/ld+json";
-                script.id = id;
-                document.head.appendChild(script);
-            }
-            script.text = JSON.stringify(json);
-        };
-
-        // ---- SEO Apply ----
-        document.title = title;
-        upsertMeta("description", description);
-        upsertMeta("keywords", keywords);
-
-        setCanonical(pageUrl);
-
-        // Open Graph
-        upsertMeta("og:title", title, "property");
-        upsertMeta("og:description", description, "property");
-        upsertMeta("og:url", pageUrl, "property");
-        upsertMeta("og:type", "website", "property");
-        upsertMeta("og:site_name", "FourRays RCM", "property");
-
-        // Twitter
-        upsertMeta("twitter:card", "summary_large_image");
-        upsertMeta("twitter:title", title);
-        upsertMeta("twitter:description", description);
-
-        // ---- Schema Markup ----
-        const schema = {
-            "@context": "https://schema.org",
-            "@graph": [
-                {
-                    "@type": "Organization",
-                    "@id": `${baseUrl}/#organization`,
-                    name: "FourRays RCM",
-                    url: baseUrl,
-                },
-                {
-                    "@type": "WebSite",
-                    "@id": `${baseUrl}/#website`,
-                    url: baseUrl,
-                    name: "FourRays RCM",
-                    publisher: { "@id": `${baseUrl}/#organization` },
-                },
-                {
-                    "@type": "WebPage",
-                    "@id": `${pageUrl}#webpage`,
-                    url: pageUrl,
-                    name: title,
-                    description,
-                    isPartOf: { "@id": `${baseUrl}/#website` },
-                    about: { "@id": `${baseUrl}/#organization` },
-                },
-                {
-                    "@type": "Service",
-                    name: "Medical Billing & Credentialing Services",
-                    provider: { "@id": `${baseUrl}/#organization` },
-                    areaServed: "United States",
-                    serviceType:
-                        "Medical billing services, revenue cycle management, insurance credentialing, provider enrollment, RCM solutions",
-                },
-            ],
-        };
-
-        setJsonLd("schema-home", schema);
-    }, []);
-
     return (
         <>
+            <SeoHead
+                title={HOME_TITLE}
+                description={HOME_DESCRIPTION}
+                keywords={HOME_KEYWORDS}
+                canonicalPath="/"
+                ogSiteName="FourRays RCM"
+                jsonLdBlocks={[{ id: "schema-home", json: homeJsonLd }]}
+            />
             <Layout headerStyle={4} footerStyle={4}>
                 <Banner1 />
                 <About4 />

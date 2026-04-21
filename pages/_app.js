@@ -28,13 +28,12 @@ function MyApp({ Component, pageProps }) {
         }, 1000)
 
     }, [])
-    return (<>
-        {!loading ? (
+    return (
+        <>
             <Component {...pageProps} />
-        ) : (
-            <Preloader />
-        )}
-    </>)
+            {loading ? <Preloader /> : null}
+        </>
+    )
 }
 
 export default MyApp
