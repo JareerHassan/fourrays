@@ -553,7 +553,7 @@ export default function Contact() {
                                 <section className="map-section">
                                     <div className="map-outer">
                                         <iframe
-                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3468.16158357855!2d-95.7141191246718!3d29.62804987513581!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640e03657d4dbc5%3A0x3c0afec210a9d6be!2s422%20Papershell%20Path%2C%20Richmond%2C%20TX%2077406%2C%20USA!5e0!3m2!1sen!2s!4v1777048715985!5m2!1sen!2s"
+                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3464.2434925036832!2d-95.48763362466727!3d29.74166547507745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640c3f7ec747a0d%3A0x4c02e0072bc43255!2sBoxer%20Property%20%3A%202401%20Fountain%20View%20Dr!5e0!3m2!1sen!2s!4v1777615104431!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
                                             height={570}
                                             style={{ border: 0, width: "100%" }}
                                             allowFullScreen
@@ -582,7 +582,7 @@ export default function Contact() {
                                     </div>
                                     <h6 className="title_no_a_24 mb-3">Location</h6>
                                     <p className="mb-0">
-                                        422 Papershell Path, Richmond, TX 77406
+                                        2401 Fountain View Dr. Ste  464 PMB2866 Houston, TX 77057
                                         <br />
                                     </p>
                                 </div>
